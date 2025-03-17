@@ -36,13 +36,10 @@ export default function SignUpForm() {
 
   // other states
   const [name, setName] = useState(user.name)
-  const [roleList, setRoleList] = useState([])
-  const [role, setRole] = useState(user.role || '')
+  const [roleList, setRoleList] = useState(user.role)
+  const [role, setRole] = useState('')
   const [homeAddress, setHomeAddress] = useState(user.homeAddress)
   const [workAddress, setWorkAddress] = useState(user.workAddress)
-  // const [password, setPassword] = useState('')
-  // const [homeCoordinates, setHomeCoordinates] = useState([])
-  // const [workCoordinates, setWorkCoordinates] = useState([])
   const [email, setEmail] = useState(user.email)
   const [loading, setLoading] = useState(false)
 
@@ -57,12 +54,12 @@ export default function SignUpForm() {
   })
 
   useEffect(() => {
-    if (role === 'both') {
-      setRoleList(['passenger', 'driver'])
+    if (roleList.length === 2) {
+      setRole('both')
     } else {
-      setRoleList([role])
+      setRole(roleList[0])
     }
-  }, [role])
+  }, [])
 
 
   const handleRoleChange = (event) => {
