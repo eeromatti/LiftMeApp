@@ -24,7 +24,7 @@ export default function SignUp() {
   })
 
   //context
-  const { setUser } = useContext(AppContext)
+  const { token, setToken } = useContext(AppContext)
   
   // error states
   const [emailError, setEmailError] = useState(false)
@@ -68,10 +68,10 @@ export default function SignUp() {
     // find user 
     const response2 = await userService.loginUser(login)
     // console.log('response2:', response2)
-    
-    setUser(response2.user)
     localStorage.setItem('user', JSON.stringify(response2.user))
-    localStorage.setItem('token', JSON.stringify(response2.token))
+    localStorage.setItem('token', JSON.stringify(response2.token))    
+    setToken(response2.token)
+    console.log("token:", response2.token)
     
     // empty field states
     setEmail('')

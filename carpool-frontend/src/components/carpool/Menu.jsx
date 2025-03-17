@@ -17,7 +17,7 @@ export default function AccountMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null)
   const navigate = useNavigate()
 
-  const { user, setUser } = useContext(AppContext)
+  const { token, setToken, user, setUser, setLoading, setPotentialDrivers, setPotentialPassengers, setRoute } = useContext(AppContext)
 
   const open = Boolean(anchorEl)
   
@@ -34,8 +34,11 @@ export default function AccountMenu() {
 
   const handleLogout = () => {
     setAnchorEl(null)
-    setUser(null)
     localStorage.clear('user')
+    localStorage.clear('token')
+    setLoading(true)
+    setToken(null)
+    setUser({})
   }
 
   return (

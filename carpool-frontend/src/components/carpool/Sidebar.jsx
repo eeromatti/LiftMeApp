@@ -17,15 +17,13 @@ import Avatar from '@mui/material/Avatar'
 import { Typography } from '@mui/material'
 import Divider from '@mui/material/Divider'
 
+import CircularProgress from '@mui/material/CircularProgress';
+
 
 
 const Sidebar = () => {
 
   const {  
-    // homeAddress, 
-    // setHomeAddress, 
-    // workAddress, 
-    // setWorkAddress, 
     allUsers,
     setPickupCoordinates,
     setStartCoordinates,
@@ -33,7 +31,8 @@ const Sidebar = () => {
     potentialPassengers,
     potentialDrivers,
     activeDays,
-    setActiveDays
+    setActiveDays, 
+    loading
   } = useContext(AppContext)
 
   const [role, setRole] = useState('drivers')

@@ -56,8 +56,6 @@ userRouter.put('/matches/:id', async (req, res) => {
 
     findMatchesById(req.params.id)
       .then(matches => {
-        // console.log('drivers:', matches.drivers)
-        // console.log('passengers:', matches.passengers)
         if (!matches) return
         return User.findByIdAndUpdate(req.params.id, matches, { new: true })
       })

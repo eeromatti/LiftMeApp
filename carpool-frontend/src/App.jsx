@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import {
   BrowserRouter as Router,
   Routes, Route
@@ -14,10 +14,14 @@ import { AppContext } from './AppContext'
 
 const App = () => {  
 
-  const { user } = useContext(AppContext)
+  const { token, loading } = useContext(AppContext)
+
+  useEffect(() => {
+    console.log("loading in App:", loading)
+  }, [loading])
 
   
-  if (user === null) {
+  if (token === null) {
   return (
       <div>
         <Router>
@@ -30,7 +34,7 @@ const App = () => {
     )
   }
 
-  if (user !== null) {
+  if (token !== null) {
     return (
       <div className='app-container'>    
         <Router>

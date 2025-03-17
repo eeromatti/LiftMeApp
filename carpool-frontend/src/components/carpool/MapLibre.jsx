@@ -4,7 +4,7 @@ import maplibregl from 'maplibre-gl'
 import 'maplibre-gl/dist/maplibre-gl.css'
 
 const MapLibre = () => {
-  const { route, user } = useContext(AppContext)
+  const { route, user, mapLoaded, setMapLoaded } = useContext(AppContext)
   const [map, setMap] = useState(null)
 
   useEffect(() => {
@@ -30,6 +30,7 @@ const MapLibre = () => {
     if (!map || !route || !Array.isArray(route) || !map.isStyleLoaded()) return
     if (route.length < 2) return
   
+
     const coordinates = route.map(coord => coord.join(',')).join(';')
     const url = `https://router.project-osrm.org/route/v1/driving/${coordinates}?overview=full&geometries=geojson&steps=true`
   
@@ -109,16 +110,17 @@ const MapLibre = () => {
         }
       })
     }
-  }, [map, route])
-  
-  // Ensure stops-layer is above the route layers
+
+      // Ensure stops-layer is above the route layers
   if (map && map.getLayer('stops-layer')) {
     map.moveLayer('stops-layer')
   }
+  }, [map, route])
+  
+
   
 
   return (
-    // <div id="map" style={{ width: '100%', height: '700px' }}></div>
     <div id="map" className='map'></div>
   )
 }
