@@ -1,0 +1,151 @@
+/* html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #f8f6ed; 
+} */
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+} 
+
+h1 {
+    margin: 0;
+} 
+
+
+.app-container {
+    display: flex;
+    flex-direction: column;
+      
+}
+
+.header {
+    display: flex;
+    justify-content: 'space-between';
+    align-items: center;
+    height: 7vh;
+    background-color: #f8f6ed;
+    padding-top: 20px; 
+    padding-bottom: 10px; 
+    padding-left: 10px; 
+    padding-right: 10px;
+}
+
+.carpool {
+    display: flex;
+    margin-top: 0px;
+}
+
+.map {
+    display:flex;
+    flex-direction: row;
+    width: 100vw;
+    height: 90vh;
+    box-shadow: 1px 1px 5px rgb(208, 210, 210);
+}
+
+.sidebar {
+    display:flex;
+    flex-direction: column;
+    height: 90vh;
+    width: 40%;
+    max-width: 400px;
+    gap: 0px;  
+}
+
+.userinfo {
+    background-color: #f8f6ed;
+}
+
+.matchescontainer {
+    flex-grow: 1;
+    overflow-y: auto;
+    width: 100%;
+    padding-top: 1px; 
+    padding-left: 0px; 
+    background-color: rgb(240, 236, 236); 
+}
+
+.matchbox {
+    display: flex;
+    width: 100%; 
+    border-radius: 10px;
+    background-color: #f8f6ed;
+    box-shadow: 1px 1px 5px rgb(186, 188, 188);
+    
+    font-family: sans-serif;
+    color: black;
+    text-transform: none;
+    gap: 20px;
+}
+
+.name-not-selected {
+    display: flex;
+    height: 50px;
+    width: 100%;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: medium;
+    color: darkslategray;
+}
+
+.name-selected {
+    display: flex;
+    height: 35px;
+    width: 100%;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color:#00bf63;
+}
+
+.other-info {
+    padding-left: 10px;
+    padding-top: 10px;
+    margin-bottom: 10px;
+    text-align: left;
+    font-size: small;
+    color: rgb(105, 105, 105);
+    line-height: 1.2;
+} 
+
+.login {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+}
+
+.login-logo-side {
+    background-color: #f8f6ed;
+    height: 100%;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-form-side {
+    height: 100vh;
+    width: 50%;
+    background-color: #f0ecec; 
+    display: flex; 
+    justify-content: center;
+    align-items: center; 
+}
+
+/* .login-logo {
+    width: 50%;
+} */
+
+
+
+
+
+

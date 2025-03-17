@@ -1,0 +1,116 @@
+{
+  "users": [
+    {
+      "id": "6aabb33c-0bee-4d72-9a5d-289a710ed6e3",
+      "name": "Lahden Late",
+      "home": [
+        25.657571,
+        61.025878
+      ],
+      "work": [
+        24.951129,
+        60.297889
+      ],
+      "role": [
+        "driver"
+      ],
+<<<<<<< HEAD
+=======
+      "distance": 105000,
+>>>>>>> 8325f8ade864eee6e7af0bc46d995d5e52c6960b
+      "drivers": [],
+      "passengers": []
+    },
+    {
+      "id": "6b5e6566-6d8e-4ef6-82fa-11bde3a52a8f",
+      "name": "Mäntsälän Make",
+      "home": [
+        25.32421,
+        60.637702
+      ],
+      "work": [
+        24.951129,
+        60.297889
+      ],
+      "role": [
+        "driver",
+        "passenger"
+      ],
+<<<<<<< HEAD
+=======
+      "distance": 54300,
+>>>>>>> 8325f8ade864eee6e7af0bc46d995d5e52c6960b
+      "drivers": [],
+      "passengers": []
+    },
+    {
+      "id": "1e56fe16-8bd9-4ceb-861d-43bed2cd18f9",
+      "name": "Keravan Kata",
+      "home": [
+        25.109547,
+        60.404339
+      ],
+      "work": [
+        24.951129,
+        60.297889
+      ],
+      "role": [
+        "driver",
+        "passenger"
+      ],
+<<<<<<< HEAD
+=======
+      "distance": 19600,
+>>>>>>> 8325f8ade864eee6e7af0bc46d995d5e52c6960b
+      "drivers": [],
+      "passengers": []
+    },
+    {
+      "id": "88973c73-faea-4b0e-954f-5dccb2e0f5e4",
+      "name": "Korson Kartsa",
+      "home": [
+        25.091123,
+        60.346443
+      ],
+      "work": [
+        24.951129,
+        60.297889
+      ],
+      "role": [
+        "driver",
+        "passenger"
+      ],
+<<<<<<< HEAD
+=======
+      "distance": 13600,
+>>>>>>> 8325f8ade864eee6e7af0bc46d995d5e52c6960b
+      "drivers": [],
+      "passengers": []
+    },
+    {
+      "name": "testaaja",
+      "home": [
+        25.123123,
+        60.835073
+      ],
+      "work": [
+        24.951129,
+        60.297889
+      ],
+      "role": [
+        "driver",
+        "passenger"
+      ],
+<<<<<<< HEAD
+=======
+      "distance": 13600,
+>>>>>>> 8325f8ade864eee6e7af0bc46d995d5e52c6960b
+      "drivers": [
+        "sepi",
+        "leka"
+      ],
+      "passengers": [],
+      "id": "1"
+    }
+  ]
+}
