@@ -236,13 +236,15 @@ export default function SignUpForm() {
           <Typography
             component="h1"
             variant="h4"
-            sx={{ fontFamily: 'sans-serif', 
+            sx={{ fontFamily: 'Helvetica', 
               color: '#2c2b2b', 
-              width: '100%', 
-              fontSize: 20, 
-              fontWeight: 'bold', 
+              fontSize: '20px', 
+              fontWeight: 'normal',
+              letterSpacing: '2px',
+              width: '100%',  
               paddingBottom: 3,
               display: 'flex', 
+              alignItems: 'center',
               justifyContent: 'center',
             }}
           >
@@ -251,7 +253,9 @@ export default function SignUpForm() {
 
           {/* name */}
           <FormControl>
-            <FormLabel htmlFor="name">Name / Slack handle</FormLabel>
+            <FormLabel htmlFor="name" style={{fontFamily: 'Helvetica', fontWeight: 'light', fontSize: '14px', letterSpacing: '1px', color: 'darkslategray' }}>
+              Name / Slack handle
+            </FormLabel>
             <TextField
               autoComplete="name"
               value={name}
@@ -270,7 +274,9 @@ export default function SignUpForm() {
 
           {/* email */}
           <FormControl>
-            <FormLabel htmlFor="email">Email</FormLabel>
+            <FormLabel htmlFor="email" style={{fontFamily: 'Helvetica', fontWeight: 'light', fontSize: '14px', letterSpacing: '1px', color: 'darkslategray' }}>
+              Email
+            </FormLabel>
             <TextField
               autoComplete="email"
               value={email}
@@ -290,7 +296,9 @@ export default function SignUpForm() {
 
           {/* role */}
           <FormControl>
-            <FormLabel htmlFor="role">Role</FormLabel>
+            <FormLabel htmlFor="role" style={{fontFamily: 'Helvetica', fontWeight: 'light', fontSize: '14px', letterSpacing: '1px', color: 'darkslategray' }}>
+              Role
+            </FormLabel>
             <Select
               value={role}
               onChange={handleRoleChange}
@@ -307,7 +315,9 @@ export default function SignUpForm() {
 
           {/* Home address / starting point */}
           <FormControl>
-            <FormLabel htmlFor="home">Home address / Starting location</FormLabel>
+            <FormLabel htmlFor="home" style={{fontFamily: 'Helvetica', fontWeight: 'light', fontSize: '14px', letterSpacing: '1px', color: 'darkslategray' }}>
+              Home address / Starting location
+            </FormLabel>
             <TextField
               required
               fullWidth
@@ -326,7 +336,9 @@ export default function SignUpForm() {
 
           {/* Work address / ending point */}
           <FormControl>
-            <FormLabel htmlFor="work">Work address / Ending location</FormLabel>
+            <FormLabel htmlFor="work" style={{fontFamily: 'Helvetica', fontWeight: 'light', fontSize: '14px', letterSpacing: '1px', color: 'darkslategray' }}>
+              Work address / Ending location
+            </FormLabel>
             <TextField
               required
               fullWidth
@@ -356,6 +368,7 @@ export default function SignUpForm() {
               loadingPosition='end'
               variant="outlined"
               sx={{ color: theme.palette.primary.main, maxWidth: '100px' }}
+              style={{fontFamily: 'Helvetica', fontWeight: 'light', fontSize: '14px', letterSpacing: '1px', color: '#2c2b2b' }}
               onClick={handleSubmit}
             >
               Update
@@ -365,6 +378,7 @@ export default function SignUpForm() {
               type="cancel"
               variant="outlined"
               sx={{ color: theme.palette.primary.main, maxWidth: '100px' }}
+              style={{fontFamily: 'Helvetica', fontWeight: 'light', fontSize: '14px', letterSpacing: '1px', color: '#2c2b2b' }}
               onClick={handleCancel}
             >
               Cancel

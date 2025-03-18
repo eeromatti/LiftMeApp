@@ -9,7 +9,7 @@ import Stack from '@mui/material/Stack'
 import { Typography } from '@mui/material'
 
 
-const SingleUser = ( { potentialPassenger, potentialDriver, role } ) => {
+const SingleUser = ( { potentialPassenger, potentialDriver, role, showingDriver, setShowingDriver } ) => {
 
 
   const { 
@@ -27,6 +27,16 @@ const SingleUser = ( { potentialPassenger, potentialDriver, role } ) => {
   let passengerUserInfo = potentialPassenger ? allUsers.find(user => potentialPassenger.name === user.name) : null
   let driverUserInfo = potentialDriver ? allUsers.find(user => potentialDriver.name === user.name) : null
   
+  useEffect(() => {
+    if (showingDriver && driverUserInfo) {
+      // console.log("showingDriver:", showingDriver)
+      // console.log("driverUserInfo:", driverUserInfo)
+      if (showingDriver != driverUserInfo._id) {
+        // console.log("suljetaan ikkuna")
+        setShowMore(false)
+    }
+  }
+}, [showingDriver])
 
   useEffect(() => {
     if (role === 'driver') {
@@ -40,9 +50,11 @@ const SingleUser = ( { potentialPassenger, potentialDriver, role } ) => {
     }
   }, [role])
 
+
   
   const handlePassengerAddition = () => {
     if (!showMore && passengerUserInfo) {
+      console.log("showMore asetetaan arvoon true ja passengerUserInfo lisätään pickupCoordinates-tilaan")
       setShowMore(true)
       setPickupCoordinates([...pickupCoordinates, passengerUserInfo.homeCoordinates])
     } else {
@@ -50,13 +62,14 @@ const SingleUser = ( { potentialPassenger, potentialDriver, role } ) => {
       setPickupCoordinates(pickupCoordinates.filter(coord => coord !== passengerUserInfo.homeCoordinates))
     }
   }
-
   const handleDriverAddition = () => {
     if (!showMore && driverUserInfo) {
+      setShowingDriver(driverUserInfo._id)
       setShowMore(true)
       setStartCoordinates(driverUserInfo.homeCoordinates)
       setPickupCoordinates([...pickupCoordinates, user.homeCoordinates])
     } else {
+      setShowingDriver('')
       setShowMore(false)
       setStartCoordinates(user.homeCoordinates)
       setPickupCoordinates(pickupCoordinates.filter(coord => coord !== driverUserInfo.homeCoordinates))

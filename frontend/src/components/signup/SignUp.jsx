@@ -223,14 +223,17 @@ export default function SignUpForm() {
           // height: '85vh'
           }}
         >
+
+{/* style={{fontFamily: 'Helvetica', fontWeight: 'light', fontSize: '14px', letterSpacing: '1px', color: '#2c2b2b' }} */}
           <Typography
             component="h1"
             variant="h4"
-            sx={{ fontFamily: 'sans-serif', 
+            sx={{ fontFamily: 'Helvetica', 
               color: '#2c2b2b', 
-              width: '100%', 
-              fontSize: 20, 
-              fontWeight: 'bold', 
+              fontSize: '20px', 
+              fontWeight: 'normal',
+              letterSpacing: '2px',
+              width: '100%',  
               paddingBottom: 3,
               display: 'flex', 
               alignItems: 'center',
@@ -242,7 +245,9 @@ export default function SignUpForm() {
 
           {/* name */}
           <FormControl>
-            <FormLabel htmlFor="name">Name / Slack handle</FormLabel>
+            <FormLabel htmlFor="name" style={{fontFamily: 'Helvetica', fontWeight: 'light', fontSize: '14px', letterSpacing: '1px', color: '#2c2b2b' }}>
+              Name / Slack handle
+            </FormLabel>
             <TextField
               autoComplete="name"
               value={name}
@@ -255,13 +260,22 @@ export default function SignUpForm() {
               error={nameError}
               helperText={nameErrorMessage}
               color={nameError ? 'error' : 'primary'}
+              sx={{
+                input: {
+                   fontFamily: 'Helvetica',
+                   fontSize: '14px',
+                   letterSpacing: '1px'
+                }
+              }}
             />
           </FormControl>
 
 
           {/* email */}
           <FormControl>
-            <FormLabel htmlFor="email">Email</FormLabel>
+            <FormLabel htmlFor="email" style={{fontFamily: 'Helvetica', fontWeight: 'light', fontSize: '14px', letterSpacing: '1px', color: '#2c2b2b' }}>
+              Email
+            </FormLabel>
             <TextField
               autoComplete="email"
               value={email}
@@ -274,6 +288,13 @@ export default function SignUpForm() {
               error={emailError}
               helperText={emailErrorMessage}
               color={emailError ? 'error' : 'primary'}
+              sx={{
+                input: {
+                   fontFamily: 'Helvetica',
+                   fontSize: '14px',
+                   letterSpacing: '1px'
+                }
+              }}
             />
           </FormControl>
 
@@ -281,7 +302,9 @@ export default function SignUpForm() {
 
           {/* role */}
           <FormControl>
-            <FormLabel htmlFor="role">Role</FormLabel>
+            <FormLabel htmlFor="role" style={{fontFamily: 'Helvetica', fontWeight: 'light', fontSize: '14px', letterSpacing: '1px', color: '#2c2b2b' }}>
+              Role
+            </FormLabel>
             <Select
               value={role}
               onChange={handleRoleChange}
@@ -290,15 +313,17 @@ export default function SignUpForm() {
               id="role"
               name="role"
             >
-              <MenuItem value="passenger">Passenger</MenuItem>
-              <MenuItem value="driver">Driver</MenuItem>
-              <MenuItem value="both">Both</MenuItem>
+              <MenuItem value="passenger" style={{fontFamily: 'Helvetica', fontWeight: 'light', fontSize: '14px', letterSpacing: '1px', color: '#2c2b2b' }}>Passenger</MenuItem>
+              <MenuItem value="driver" style={{fontFamily: 'Helvetica', fontWeight: 'light', fontSize: '14px', letterSpacing: '1px', color: '#2c2b2b' }}>Driver</MenuItem>
+              <MenuItem value="both" style={{fontFamily: 'Helvetica', fontWeight: 'light', fontSize: '14px', letterSpacing: '1px', color: '#2c2b2b' }}>Both</MenuItem>
             </Select>
           </FormControl>
 
           {/* Home address / starting point */}
           <FormControl>
-            <FormLabel htmlFor="home">Home address / Starting location</FormLabel>
+            <FormLabel htmlFor="home" style={{fontFamily: 'Helvetica', fontWeight: 'light', fontSize: '14px', letterSpacing: '1px', color: '#2c2b2b' }}>
+              Home address / Starting location
+            </FormLabel>
             <TextField
               required
               fullWidth
@@ -312,12 +337,21 @@ export default function SignUpForm() {
               error={homeAddressError}
               helperText={homeAddressErrorMessage}
               color={homeAddressError ? 'error' : 'primary'}
+              sx={{
+                input: {
+                   fontFamily: 'Helvetica',
+                   fontSize: '14px',
+                   letterSpacing: '1px'
+                }
+              }}
             />
           </FormControl>
 
           {/* Work address / ending point */}
           <FormControl>
-            <FormLabel htmlFor="work">Work address / Ending location</FormLabel>
+            <FormLabel htmlFor="work" style={{fontFamily: 'Helvetica', fontWeight: 'light', fontSize: '14px', letterSpacing: '1px', color: '#2c2b2b' }}>
+              Work address / Ending location
+            </FormLabel>
             <TextField
               required
               fullWidth
@@ -331,12 +365,21 @@ export default function SignUpForm() {
               error={workAddressError}
               helperText={workAddressErrorMessage}
               color={passwordError ? 'error' : 'primary'}
+              sx={{
+                input: {
+                   fontFamily: 'Helvetica',
+                   fontSize: '14px',
+                   letterSpacing: '1px'
+                }
+              }}
             />
           </FormControl>
 
           {/* password */}
           <FormControl>
-            <FormLabel htmlFor="password">Password</FormLabel>
+            <FormLabel htmlFor="password" style={{fontFamily: 'Helvetica', fontWeight: 'light', fontSize: '14px', letterSpacing: '1px', color: '#2c2b2b' }}>
+              Password
+            </FormLabel>
             <TextField
               required
               fullWidth
@@ -351,6 +394,13 @@ export default function SignUpForm() {
               error={passwordError}
               helperText={passwordErrorMessage}
               color={passwordError ? 'error' : 'primary'}
+              sx={{
+                input: {
+                   fontFamily: 'Helvetica',
+                   fontSize: '14px',
+                   letterSpacing: '1px'
+                }
+              }}
             />
           </FormControl>
 
@@ -360,12 +410,13 @@ export default function SignUpForm() {
             loadingPosition='end'
             variant="outlined"
             sx={{ color: theme.palette.primary.main, maxWidth: '120px' }}
+            style={{fontFamily: 'Helvetica', fontWeight: 'light', fontSize: '14px', letterSpacing: '1px', color: '#2c2b2b' }}
             onClick={handleSubmit}
           >
             Sign up
           </Button>
 
-          <Typography sx={{ color: 'darkgray', textAlign: 'center' }}>
+          <Typography style={{fontFamily: 'Helvetica', fontWeight: 'light', fontSize: '14px', letterSpacing: '1px', color: '#2c2b2b' }}>
             Already have an account?{' '}
             <Link
               to="/"

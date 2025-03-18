@@ -56,10 +56,11 @@ export const AppProvider = ( { children }) => {
   //find an optimized route, distance and travel time
   useEffect(() => {
     const findDistanceAndTravelTime = async () => {
+      // console.log("kontekstin effect hook reagoi pickupCoordinates-tilan muutokseen")
       try {
         if (startCoordinates.length === 2 && endCoordinates.length === 2) {
           const optimizedData = await routeService.travelTimeAndDistance(startCoordinates, endCoordinates, pickupCoordinates)
-
+          // console.log("optimoitu reitti haettu")
           // pickup points exist 
           if (optimizedData && optimizedData.length === 3) {
             // console.log('optimizedData for ABC:', optimizedData)

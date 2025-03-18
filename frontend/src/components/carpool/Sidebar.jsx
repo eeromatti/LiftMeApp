@@ -36,6 +36,7 @@ const Sidebar = () => {
   const theme = useTheme()
 
   const [role, setRole] = useState('drivers')
+  const [showingDriver, setShowingDriver] = useState('')
 
 
   const handleRoleChange = (event, newRole) => {
@@ -68,7 +69,7 @@ const Sidebar = () => {
                   <Avatar src={user.photo} />
                 </td>
                 <td style={{paddingLeft: 15}}>
-                  <Typography style={{fontFamily: 'Helvetica', fontWeight: 'normal', fontSize: '18px', letterSpacing: '2px'}}>
+                  <Typography style={{fontFamily: 'Helvetica', fontWeight: 'normal', fontSize: '18px', letterSpacing: '2px', color: '#2c2b2b'}}>
                     {user.name}
                   </Typography>
                 </td>
@@ -79,7 +80,9 @@ const Sidebar = () => {
                   <HomeIcon sx={{ color: 'action.active', fontSize: 20 }} />
                 </td>
                 <td  style={{paddingLeft: 15, paddingTop: 10}}>
-                  <Typography style={{fontFamily: 'Helvetica', fontWeight: 'light', fontSize: '13px', letterSpacing: '1px'}}>{user.homeAddress}</Typography>
+                  <Typography style={{fontFamily: 'Helvetica', fontWeight: 'light', fontSize: '13px', letterSpacing: '1px', color: '#2c2b2b'}}>
+                    {user.homeAddress}
+                  </Typography>
                 </td>
               </tr>
               
@@ -88,7 +91,9 @@ const Sidebar = () => {
                   <WorkIcon sx={{ color: 'action.active', fontSize: 18 }} />
                 </td>
                 <td  style={{paddingLeft: 15}}>
-                  <Typography style={{fontFamily: 'Helvetica', fontWeight: 'light', fontSize: '13px', letterSpacing: '1px'}}>{user.workAddress}</Typography>
+                  <Typography style={{fontFamily: 'Helvetica', fontWeight: 'light', fontSize: '13px', letterSpacing: '1px', color: '#2c2b2b'}}>
+                    {user.workAddress}
+                  </Typography>
                 </td>
               </tr>
 
@@ -97,7 +102,9 @@ const Sidebar = () => {
                   <ClockIcon sx={{ color: 'action.active', fontSize: 18 }} />
                 </td>
                 <td  style={{paddingLeft: 15}}>
-                  <Typography style={{fontFamily: 'Helvetica', fontWeight: 'light', fontSize: '14px', letterSpacing: '1px'}}>~ {(user.time / 60).toFixed()} min</Typography>  
+                  <Typography style={{fontFamily: 'Helvetica', fontWeight: 'light', fontSize: '13px', letterSpacing: '1px', color: '#2c2b2b'}}>
+                    ~ {(user.time / 60).toFixed()} min
+                  </Typography>  
                 </td>
               </tr>
 
@@ -123,8 +130,9 @@ const Sidebar = () => {
                   borderRadius: '10px',
                   px: 2.4, 
                   fontSize: '14px', 
-                  fontFamily: 'sans-serif',
-                  textTransform: 'lowercase' 
+                  fontFamily: 'Helvetica',
+                  textTransform: 'lowercase',
+                  // letterSpacing: '1px' 
                 }}
               >
                 {day}
@@ -149,8 +157,9 @@ const Sidebar = () => {
               borderRadius: '10px',
               px: 2.4, 
               fontSize: '14px', 
-              fontFamily: 'sans-serif',
+              fontFamily: 'helvetica',
               textTransform: 'lowercase', 
+              letterSpacing: '1px',
               width: 142
             }}
           >
@@ -163,8 +172,9 @@ const Sidebar = () => {
               borderRadius: '10px',
               px: 2.4, 
               fontSize: '14px', 
-              fontFamily: 'sans-serif',
+              fontFamily: 'helvetica',
               textTransform: 'lowercase',
+              letterSpacing: '1px',
               width: 142
             }}
           >
@@ -190,6 +200,8 @@ const Sidebar = () => {
             <SingleUser key={potentialDriver.name}
               potentialDriver={potentialDriver}
               role={role}
+              showingDriver={showingDriver}
+              setShowingDriver={setShowingDriver}
             />
           ))
         ): null}

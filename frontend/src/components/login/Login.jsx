@@ -85,6 +85,7 @@ export default function SignUp() {
     setLoading(!loading)
   }
 
+
   return (
     <div className='login'>
       <div className='login-logo-side'>
@@ -112,12 +113,14 @@ export default function SignUp() {
             height: '85vh'
           }}
         >
+          
           <Typography
-            sx={{ fontFamily: 'sans-serif', 
+            sx={{ fontFamily: 'Helvetica', 
+              fontWeight: 'normal',
+              fontSize: '20px', 
+              letterSpacing: '2px',
               color: '#2c2b2b', 
               width: '100%', 
-              fontSize: 20, 
-              fontWeight: 'bold', 
               paddingBottom: 3,
               display: 'flex', 
               alignItems: 'center',
@@ -129,7 +132,9 @@ export default function SignUp() {
 
           {/* name */}
           <FormControl>
-            <FormLabel htmlFor="email">Email</FormLabel>
+            <FormLabel htmlFor="email" style={{fontFamily: 'Helvetica', fontWeight: 'light', fontSize: '14px', letterSpacing: '1px', color: '#2c2b2b' }}>
+              Email
+            </FormLabel>
             <TextField
               autoComplete="email"
               value={email}
@@ -142,13 +147,22 @@ export default function SignUp() {
               error={emailError}
               helperText={emailErrorMessage}
               color={emailError ? 'error' : 'primary'}
+              sx={{
+                input: {
+                   fontFamily: 'Helvetica',
+                   fontSize: '14px',
+                   letterSpacing: '1px'
+                }
+              }}
             />
           </FormControl>
 
 
           {/* password */}
           <FormControl>
-            <FormLabel htmlFor="password">Password</FormLabel>
+            <FormLabel htmlFor="password" style={{fontFamily: 'Helvetica', fontWeight: 'light', fontSize: '14px', letterSpacing: '1px', color: '#2c2b2b' }}>
+              Password
+            </FormLabel>
             <TextField
               required
               fullWidth
@@ -163,6 +177,13 @@ export default function SignUp() {
               error={passwordError}
               helperText={passwordErrorMessage}
               color={passwordError ? 'error' : 'primary'}
+              sx={{
+                input: {
+                   fontFamily: 'Helvetica',
+                   fontSize: '14px',
+                   letterSpacing: '1px'
+                }
+              }}
             />
           </FormControl>
 
@@ -173,11 +194,12 @@ export default function SignUp() {
             variant="outlined"
             sx={{ color: theme.palette.primary.main, maxWidth: '120px' }}
             onClick={handleSubmit}
+            style={{fontFamily: 'Helvetica', fontWeight: 'light', fontSize: '14px', letterSpacing: '1px', color: '#2c2b2b' }}
           >
             Sign in
           </Button>
 
-          <Typography sx={{ color: 'darkgray', fontFamily: 'sans-serif' }}>
+          <Typography style={{fontFamily: 'Helvetica', fontWeight: 'light', fontSize: '14px', letterSpacing: '1.2px', color: '#2c2b2b' }}>
             Do not have an account?{' '}
             <Link to="/signup">Sign up</Link>
           </Typography>

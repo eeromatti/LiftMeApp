@@ -62,7 +62,6 @@ export default function AccountMenu() {
         id="account-menu"
         open={open}
         onClose={handleClose}
-        onClick={handleClose}
         slotProps={{
           paper: {
             elevation: 0,
@@ -94,12 +93,12 @@ export default function AccountMenu() {
         transformOrigin={{ horizontal: 'right', vertical: 'top' }}
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
-        <MenuItem onClick={handleProfile}>
+        <MenuItem onClick={handleProfile} style={{fontFamily: 'Helvetica', fontWeight: 'light', fontSize: '16px', letterSpacing: '1px', color: '#2c2b2b' }}>
           <Avatar src={user.photo} /> My profile
         </MenuItem>
         <Divider />
 
-        <MenuItem onClick={handleLogout}>
+        <MenuItem onClick={handleLogout} style={{fontFamily: 'Helvetica', fontWeight: 'light', fontSize: '16px', letterSpacing: '1px', color: '#2c2b2b' }}>
           <ListItemIcon>
             <Logout fontSize="small" />
           </ListItemIcon>
