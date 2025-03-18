@@ -23,7 +23,7 @@ const getUserById = async (id) => {
 const updateMatches = async (id) => {
   try {
     const response = await axios.put(`http://localhost:3000/api/users/matches/${id}`)
-    console.log('user with new matches in front end users service:', response)
+    // console.log('user with new matches in front end users service:', response)
     return response.data
   } catch (error) {
     console.error('error updating matches:', error)

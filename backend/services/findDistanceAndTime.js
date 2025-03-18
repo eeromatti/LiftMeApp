@@ -3,8 +3,8 @@ const config = require('../utils/config')
 
 const findDistanceAndTime = async (start, end) => {
   try {
-    console.log('start:', start)
-    console.log('end:', end)
+    // console.log('start:', start)
+    // console.log('end:', end)
     let startString = start.join(',').toString()
     let endString = end.join(',').toString()
 

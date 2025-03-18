@@ -86,6 +86,7 @@ export const AppProvider = ( { children }) => {
 
   // useEffect(() => {
   //   console.log("user:", user)
+  //   console.log("token:", token)
   // }, [user])
 
   useEffect(() => {
@@ -104,8 +105,7 @@ export const AppProvider = ( { children }) => {
       user.homeAddress && 
       user.workAddress && 
       user.homeCoordinates && 
-      user.workCoordinates && 
-      user.photo
+      user.workCoordinates
     ) {
         // console.log("loadingin ehdot täyttyvät:", loading)
        setLoading(false)

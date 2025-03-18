@@ -55,13 +55,13 @@ userRouter.put('/matches/:id', async (req, res) => {
     }
 
     findMatchesById(req.params.id)
-      .then(matches => {
-        if (!matches) return
-        return User.findByIdAndUpdate(req.params.id, matches, { new: true })
+      .then(updatedUser => {
+        if (!updatedUser) return
+        return User.findByIdAndUpdate(req.params.id, updatedUser, { new: true })
       })
-      .then(newUser => {
-        if (newUser) {
-          console.log('User successfully updated:', newUser.name)
+      .then(updatedUser => {
+        if (updatedUser) {
+          console.log('User successfully updated:', updatedUser.name)
           res.status(200).json({ message: 'Matches updated'})
         }
       })

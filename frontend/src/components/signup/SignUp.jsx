@@ -144,7 +144,7 @@ export default function SignUpForm() {
 
 
   const handleSubmit = async (event) => {
-    // setLoading(true)
+    setLoading(true)
     event.preventDefault()
     const { isValid, homeCoordinates, workCoordinates } = await validateInputs()
     if (!isValid) {
@@ -164,11 +164,11 @@ export default function SignUpForm() {
         workCoordinates: workCoordinates,
         password: password,
         // active days can be adjusted later 
-        activeDays: ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su']
+        activeDays: ['Mo', 'Tu', 'We', 'Th', 'Fr']
       }
     }
     
-    console.log('newUser:', newUser)
+    // console.log('newUser:', newUser)
 
     // empty field states
     setName('')
@@ -359,7 +359,7 @@ export default function SignUpForm() {
             loading={loading}
             loadingPosition='end'
             variant="outlined"
-            sx={{ color: theme.palette.primary.main, maxWidth: '100px' }}
+            sx={{ color: theme.palette.primary.main, maxWidth: '120px' }}
             onClick={handleSubmit}
           >
             Sign up

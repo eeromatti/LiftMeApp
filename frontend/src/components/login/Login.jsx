@@ -71,7 +71,7 @@ export default function SignUp() {
     localStorage.setItem('user', JSON.stringify(response2.user))
     localStorage.setItem('token', JSON.stringify(response2.token))    
     setToken(response2.token)
-    console.log("token:", response2.token)
+    // console.log("token:", response2.token)
     
     // empty field states
     setEmail('')
@@ -171,7 +171,7 @@ export default function SignUp() {
             loading={loading}
             loadingPosition='end'
             variant="outlined"
-            sx={{ color: theme.palette.primary.main, maxWidth: '100px' }}
+            sx={{ color: theme.palette.primary.main, maxWidth: '120px' }}
             onClick={handleSubmit}
           >
             Sign in
