@@ -16,9 +16,9 @@ const App = () => {
 
   const { token, loading } = useContext(AppContext)
 
-  useEffect(() => {
-    console.log("loading in App:", loading)
-  }, [loading])
+  // useEffect(() => {
+  //   console.log("loading in App:", loading)
+  // }, [loading])
 
   
   if (token === null) {

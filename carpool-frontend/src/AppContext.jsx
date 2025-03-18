@@ -30,8 +30,6 @@ export const AppProvider = ( { children }) => {
     const initialize = async () => {
       const storedUser = JSON.parse(localStorage.getItem('user'))  
       const token = JSON.parse(localStorage.getItem('token'))
-
-      console.log("token in context:", token)
   
       if (storedUser) {
         setToken(token)
@@ -82,13 +80,13 @@ export const AppProvider = ( { children }) => {
 
   }, [startCoordinates, endCoordinates, pickupCoordinates])
 
-  useEffect(() => {
-    console.log("loading in its own hook:", loading)
-  }, [loading])
+  // useEffect(() => {
+  //   console.log("loading in its own hook:", loading)
+  // }, [loading])
 
-  useEffect(() => {
-    console.log("user:", user)
-  }, [user])
+  // useEffect(() => {
+  //   console.log("user:", user)
+  // }, [user])
 
   useEffect(() => {
     // console.log("loading ennen:", loading);
@@ -109,7 +107,7 @@ export const AppProvider = ( { children }) => {
       user.workCoordinates && 
       user.photo
     ) {
-        console.log("loadingin ehdot täyttyvät:", loading)
+        // console.log("loadingin ehdot täyttyvät:", loading)
        setLoading(false)
     }
   }, [user, potentialDrivers, potentialPassengers]) 
