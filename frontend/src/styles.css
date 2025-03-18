@@ -91,9 +91,9 @@ h1 {
     padding-left: 10px;
     padding-top: 10px;
     padding-bottom: 10px;
-    font-size: medium;
     color: darkslategray;
 }
+/* style={{fontFamily: 'Helvetica', fontWeight: 'light', fontSize: '14px', letterSpacing: '1px' */
 
 .name-selected {
     display: flex;
@@ -105,13 +105,14 @@ h1 {
     color:#00bf63;
 }
 
+/* style={{fontFamily: 'Helvetica', fontWeight: 'light', fontSize: '14px', letterSpacing: '1px' */
+
 .other-info {
     padding-left: 10px;
     padding-top: 10px;
     margin-bottom: 10px;
     text-align: left;
-    font-size: small;
-    color: rgb(105, 105, 105);
+    color: rgb(72, 72, 72);
     line-height: 1.2;
 } 
 

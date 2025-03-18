@@ -11,15 +11,22 @@ import SignUp from './components/signup/SignUp'
 import Login from './components/login/Login'
 import Profile from './components/profile/Profile'
 import { AppContext } from './AppContext'
+import { createTheme, ThemeProvider } from '@material-ui/core'
 
 const App = () => {  
 
   const { token, loading } = useContext(AppContext)
 
-  // useEffect(() => {
-  //   console.log("loading in App:", loading)
-  // }, [loading])
-
+  const theme = createTheme({
+    typography: {
+      customText: {
+        fontFamily: "Arial, sans-serif",
+        fontSize: "30px",
+        fontWeight: "bold",
+        color: "blue",
+      },
+    },
+  });
   
   if (token === null) {
   return (
@@ -36,7 +43,7 @@ const App = () => {
 
   if (token !== null) {
     return (
-      <div className='app-container'>    
+      <div className='app-container'> 
         <Router>
           <Routes>
             <Route path="/" element={<><Header /><CarPool /></>} />

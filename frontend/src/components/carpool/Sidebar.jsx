@@ -16,9 +16,7 @@ import { AppContext } from '../../AppContext'
 import Avatar from '@mui/material/Avatar'
 import { Typography } from '@mui/material'
 import Divider from '@mui/material/Divider'
-
-import CircularProgress from '@mui/material/CircularProgress';
-
+import { useTheme } from '@mui/material/styles'
 
 
 const Sidebar = () => {
@@ -34,6 +32,8 @@ const Sidebar = () => {
     setActiveDays, 
     loading
   } = useContext(AppContext)
+
+  const theme = useTheme()
 
   const [role, setRole] = useState('drivers')
 
@@ -68,7 +68,9 @@ const Sidebar = () => {
                   <Avatar src={user.photo} />
                 </td>
                 <td style={{paddingLeft: 15}}>
-                  <Typography variant="body2" color='textSecondary' gutterBottom><strong>{user.name}</strong></Typography>
+                  <Typography style={{fontFamily: 'Helvetica', fontWeight: 'normal', fontSize: '18px', letterSpacing: '2px'}}>
+                    {user.name}
+                  </Typography>
                 </td>
               </tr>
               
@@ -77,7 +79,7 @@ const Sidebar = () => {
                   <HomeIcon sx={{ color: 'action.active', fontSize: 20 }} />
                 </td>
                 <td  style={{paddingLeft: 15, paddingTop: 10}}>
-                  <Typography variant="body2" color='textSecondary' gutterBottom>{user.homeAddress}</Typography>
+                  <Typography style={{fontFamily: 'Helvetica', fontWeight: 'light', fontSize: '13px', letterSpacing: '1px'}}>{user.homeAddress}</Typography>
                 </td>
               </tr>
               
@@ -86,7 +88,7 @@ const Sidebar = () => {
                   <WorkIcon sx={{ color: 'action.active', fontSize: 18 }} />
                 </td>
                 <td  style={{paddingLeft: 15}}>
-                  <Typography variant="body2" color='textSecondary' gutterBottom>{user.workAddress}</Typography>
+                  <Typography style={{fontFamily: 'Helvetica', fontWeight: 'light', fontSize: '13px', letterSpacing: '1px'}}>{user.workAddress}</Typography>
                 </td>
               </tr>
 
@@ -95,19 +97,13 @@ const Sidebar = () => {
                   <ClockIcon sx={{ color: 'action.active', fontSize: 18 }} />
                 </td>
                 <td  style={{paddingLeft: 15}}>
-                  <Typography variant='body2' color='action.active'>~ {(user.time / 60).toFixed()} min</Typography>  
+                  <Typography style={{fontFamily: 'Helvetica', fontWeight: 'light', fontSize: '14px', letterSpacing: '1px'}}>~ {(user.time / 60).toFixed()} min</Typography>  
                 </td>
               </tr>
 
             </tbody>
           </table>
         </Box>
-
-        {/* travel time and distance */}
-        {/* <Stack paddingLeft={9} spacing={3} alignItems='center' direction='row'>
-          <Typography variant='body1' color='success'><strong>{(user.time / 60).toFixed()} min</strong></Typography>  
-          <Typography variant='body1' color='textSecondary'>{(user.distance / 1000).toFixed(1)} km</Typography>  
-        </Stack> */}
       
         
         {/* weekdays */}

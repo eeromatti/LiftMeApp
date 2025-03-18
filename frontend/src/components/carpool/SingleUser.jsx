@@ -80,10 +80,10 @@ const SingleUser = ( { potentialPassenger, potentialDriver, role } ) => {
                   
                   {/* avatar and name if selected */}
                   <div className='name-selected'>
-                    <Stack paddingTop={0.5}>
+                    <Stack paddingTop={0.6}>
                       <Avatar src={passengerUserInfo.photo} />
                     </Stack>
-                    <Typography paddingLeft={2} paddingTop={1.65} fontWeight='bold' variant="body1" gutterBottom>{passengerUserInfo.name}</Typography>
+                    <Typography paddingLeft={2} paddingTop={1.60} style={{fontFamily: 'Helvetica', fontWeight: 'normal', fontSize: '16px', letterSpacing: '1.5px'}}>{passengerUserInfo.name}</Typography>
                   </div>
 
 
@@ -112,7 +112,7 @@ const SingleUser = ( { potentialPassenger, potentialDriver, role } ) => {
                 <div className='name-not-selected'>
                   <Stack direction="row" spacing={2} alignItems='center'>
                     <Avatar src={passengerUserInfo.photo} />
-                    <Typography variant="body1" gutterBottom>{passengerUserInfo.name}</Typography>
+                    <Typography style={{fontFamily: 'Helvetica', fontWeight: 'normal', fontSize: '16px', letterSpacing: '1.5px'}}>{passengerUserInfo.name}</Typography>
                   </Stack>
                 </div>
               )}
@@ -135,24 +135,24 @@ const SingleUser = ( { potentialPassenger, potentialDriver, role } ) => {
                 <div>
                   {/* avatar and name if selected */}
                   <div className='name-selected'>
-                    <Stack paddingTop={0.5}>
+                    <Stack paddingTop={0.6}>
                       <Avatar src={driverUserInfo.photo} />
                     </Stack>
-                    <Typography paddingLeft={2} paddingTop={1.65} variant="body1" gutterBottom>{driverUserInfo.name}</Typography>
+                    <Typography paddingLeft={2} paddingTop={1.60} style={{fontFamily: 'Helvetica', fontWeight: 'normal', fontSize: '16px', letterSpacing: '1.5px'}}>{driverUserInfo.name}</Typography>
                   </div>
 
 
                   {/* other info (if selected) */}
                   <div className='other-info'>
-                    <Typography variant="body2" color="textSecondary">
+                    <Typography style={{fontFamily: 'Helvetica', fontWeight: 'light', fontSize: '14px', letterSpacing: '1.1px'}}>
                       {driverUserInfo.activeDays.join(' • ')}
                     </Typography>
 
-                    <Typography variant="body2">
+                    <Typography style={{fontFamily: 'Helvetica', fontWeight: 'light', fontSize: '14px', letterSpacing: '1.1px'}}>
                       <strong>Seats available:</strong> 2
                     </Typography>
 
-                    <Typography variant="body2">
+                    <Typography style={{fontFamily: 'Helvetica', fontWeight: 'light', fontSize: '14px', letterSpacing: '1.1px'}}>
                       <strong>Extra distance and time if home pickup:</strong>
                       <br />
                       🚗 ~ {(potentialDriver.deltaDistance / 1000).toFixed(1)} km  
@@ -166,7 +166,7 @@ const SingleUser = ( { potentialPassenger, potentialDriver, role } ) => {
                 <div className='name-not-selected'>
                   <Stack direction="row" spacing={2} alignItems='center'>
                     <Avatar src={driverUserInfo.photo} />
-                    <Typography variant="body1" gutterBottom>{driverUserInfo.name}</Typography>
+                    <Typography style={{fontFamily: 'Helvetica', fontWeight: 'normal', fontSize: '16px', letterSpacing: '1.5px'}}>{driverUserInfo.name}</Typography>
                   </Stack>
                 </div>
               )}
