@@ -202,8 +202,9 @@ export default function SignUpForm() {
     setLoading(false)
   }
 
-  const handleCancel = () => {
-    navigate('/')
+  const handleCancel = (event) => {
+    event.preventDefault()
+    window.location.href = '/'
   }
 
   return (
@@ -268,6 +269,13 @@ export default function SignUpForm() {
               error={nameError}
               helperText={nameErrorMessage}
               color={nameError ? 'error' : 'primary'}
+              sx={{
+                input: {
+                   fontFamily: 'Helvetica',
+                   fontSize: '14px',
+                   letterSpacing: '1px'
+                }
+              }}
             />
           </FormControl>
 
@@ -289,71 +297,106 @@ export default function SignUpForm() {
               error={emailError}
               helperText={emailErrorMessage}
               color={emailError ? 'error' : 'primary'}
+              sx={{
+                input: {
+                   fontFamily: 'Helvetica',
+                   fontSize: '14px',
+                   letterSpacing: '1px'
+                }
+              }}
             />
           </FormControl>
 
 
 
           {/* role */}
-          <FormControl>
-            <FormLabel htmlFor="role" style={{fontFamily: 'Helvetica', fontWeight: 'light', fontSize: '14px', letterSpacing: '1px', color: 'darkslategray' }}>
-              Role
-            </FormLabel>
-            <Select
-              value={role}
-              onChange={handleRoleChange}
-              fullWidth
-              variant="outlined"
-              id="role"
-              name="role"
-            >
-              <MenuItem value="passenger">Passenger</MenuItem>
-              <MenuItem value="driver">Driver</MenuItem>
-              <MenuItem value="both">Both</MenuItem>
-            </Select>
-          </FormControl>
+                <FormControl>
+                <FormLabel htmlFor="role" style={{fontFamily: 'Helvetica', fontWeight: 'light', fontSize: '14px', letterSpacing: '1px', color: 'darkslategray' }}>
+                  Role
+                </FormLabel>
+                <Select
+                  value={role}
+                  onChange={handleRoleChange}
+                  fullWidth
+                  variant="outlined"
+                  id="role"
+                  name="role"
+                  sx={{
+                  fontFamily: 'Helvetica',
+                  fontSize: '14px',
+                  letterSpacing: '1px',
+                  color: '#2c2b2b'
+                  }}
+                >
+                  <MenuItem value="passenger" style={{fontFamily: 'Helvetica', fontWeight: 'light', fontSize: '14px', letterSpacing: '1px', color: '#2c2b2b' }}>
+                    Passenger
+                  </MenuItem>
+                  <MenuItem value="driver" style={{fontFamily: 'Helvetica', fontWeight: 'light', fontSize: '14px', letterSpacing: '1px', color: '#2c2b2b' }}>
+                    Driver
+                  </MenuItem>
+                  <MenuItem value="both" style={{fontFamily: 'Helvetica', fontWeight: 'light', fontSize: '14px', letterSpacing: '1px', color: '#2c2b2b' }}>
+                    Both
+                  </MenuItem>
+                </Select>
+                </FormControl>
 
-          {/* Home address / starting point */}
-          <FormControl>
-            <FormLabel htmlFor="home" style={{fontFamily: 'Helvetica', fontWeight: 'light', fontSize: '14px', letterSpacing: '1px', color: 'darkslategray' }}>
-              Home address / Starting location
-            </FormLabel>
-            <TextField
-              required
-              fullWidth
-              onChange={(e) => setHomeAddress(e.target.value)}
-              value={homeAddress}
-              id="home"
-              placeholder="Westeros street 3, Winterfell"
-              name="home"
-              autoComplete="home"
-              variant="outlined"
-              error={homeAddressError}
-              helperText={homeAddressErrorMessage}
-              color={homeAddressError ? 'error' : 'primary'}
-            />
-          </FormControl>
+                {/* Home address / starting point */}
+                <FormControl>
+                  <FormLabel htmlFor="home" style={{fontFamily: 'Helvetica', fontWeight: 'light', fontSize: '14px', letterSpacing: '1px', color: 'darkslategray' }}>
+                    Home address / Starting location
+                  </FormLabel>
+                  <TextField
+                    required
+                    fullWidth
+                    onChange={(e) => setHomeAddress(e.target.value)}
+                    value={homeAddress}
+                    id="home"
+                    placeholder="Westeros street 3, Winterfell"
+                    name="home"
+                    autoComplete="home"
+                    variant="outlined"
+                    error={homeAddressError}
+                    helperText={homeAddressErrorMessage}
+                    color={homeAddressError ? 'error' : 'primary'}
+                    sx={{
+                      input: {
+                        fontFamily: 'Helvetica',
+                        fontSize: '14px',
+                        letterSpacing: '1px',
+                        color: '#2c2b2b'
+                      }
+                    }}
+                  />
+                </FormControl>
 
-          {/* Work address / ending point */}
-          <FormControl>
-            <FormLabel htmlFor="work" style={{fontFamily: 'Helvetica', fontWeight: 'light', fontSize: '14px', letterSpacing: '1px', color: 'darkslategray' }}>
-              Work address / Ending location
-            </FormLabel>
-            <TextField
-              required
-              fullWidth
-              onChange={(e) => setWorkAddress(e.target.value)}
-              value={workAddress}
-              id="work"
-              placeholder="King's street 5, Winterfell"
-              name="work"
-              autoComplete="work"
-              variant="outlined"
-              error={workAddressError}
-              helperText={workAddressErrorMessage}
-              color={passwordError ? 'error' : 'primary'}
-            />
-          </FormControl>
+                {/* work address */}
+                <FormControl>
+                  <FormLabel htmlFor="work" style={{fontFamily: 'Helvetica', fontWeight: 'light', fontSize: '14px', letterSpacing: '1px', color: 'darkslategray' }}>
+                    Work address / Ending location
+                  </FormLabel>
+                  <TextField
+                    required
+                    fullWidth
+                    onChange={(e) => setWorkAddress(e.target.value)}
+                    value={workAddress}
+                    id="work"
+                    placeholder="King's street 5, Winterfell"
+                    name="work"
+                    autoComplete="work"
+                    variant="outlined"
+                    error={workAddressError}
+                    helperText={workAddressErrorMessage}
+                    color={passwordError ? 'error' : 'primary'}
+                    sx={{
+                      input: {
+                        fontFamily: 'Helvetica',
+                        fontSize: '14px',
+                        letterSpacing: '1px',
+                        color: '#2c2b2b'
+                      }
+                    }}
+                  />
+                </FormControl>
 
           <Box 
             sx={{ 

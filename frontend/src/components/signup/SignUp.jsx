@@ -224,7 +224,6 @@ export default function SignUpForm() {
           }}
         >
 
-{/* style={{fontFamily: 'Helvetica', fontWeight: 'light', fontSize: '14px', letterSpacing: '1px', color: '#2c2b2b' }} */}
           <Typography
             component="h1"
             variant="h4"

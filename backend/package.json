@@ -6,6 +6,7 @@
     "start": "NODE_ENV=production node index.js",
     "dev": "NODE_ENV=development nodemon index.js",
     "test": "NODE_ENV=test node --test",
+    "build": "rm -rf dist && cd ../frontend/ && npm run build && cp -r dist ../backend",
     "lint": "eslint ."
   },
   "author": "",
