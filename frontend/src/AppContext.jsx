@@ -23,7 +23,7 @@ export const AppProvider = ( { children }) => {
   const [activeDays, setActiveDays] = useState([])
   const [loading, setLoading] = useState(true)
   const [mapLoaded, setMapLoaded] = useState(false)
-  const [token, setToken] = useState('')
+  const [token, setToken] = useState(null)
 
   //initialization / load user from the local storage, set start and end coordinates and load all users
   useEffect(() => {

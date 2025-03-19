@@ -7,7 +7,7 @@
     "dev": "vite",
     "lint": "eslint .",
     "preview": "vite preview",
-    "build": "esbuild ./src/main.jsx --bundle --outfile=out.js"
+    "build": "esbuild ./src/main.jsx --bundle --minify --outfile=dist/out.js --loader:.js=jsx && cp public/index.html dist/index.html"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
