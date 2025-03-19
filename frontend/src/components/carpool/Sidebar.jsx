@@ -132,7 +132,6 @@ const Sidebar = () => {
                   fontSize: '14px', 
                   fontFamily: 'Helvetica',
                   textTransform: 'lowercase',
-                  // letterSpacing: '1px' 
                 }}
               >
                 {day}

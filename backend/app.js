@@ -27,6 +27,7 @@ const expressApp = express()
 //middlewares 
 expressApp.use(cors())
 expressApp.use(express.json())
+expressApp.use(express.static('public'))
 expressApp.use(middleware.requestLogger)
 
 //routes

@@ -9,7 +9,7 @@ import FormControl from '@mui/material/FormControl'
 import TextField from '@mui/material/TextField'
 import Typography from '@mui/material/Typography'
 import { AppContext } from '../../AppContext'
-import Logo from '../../photos/logo-green-plus.png'
+// import Logo from '/logo-green-plus.png'
 import { createTheme } from '@mui/material/styles'
 
 
@@ -90,7 +90,7 @@ export default function SignUp() {
     <div className='login'>
       <div className='login-logo-side'>
         <div>
-          <img src={Logo} width='300px'/>
+          <img src='/logo-green-plus.png' width='300px'/>
         </div>
       </div>
       <div className='login-form-side'>

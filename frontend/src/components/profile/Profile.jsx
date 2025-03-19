@@ -11,7 +11,7 @@ import TextField from '@mui/material/TextField'
 import Typography from '@mui/material/Typography'
 import MenuItem from '@mui/material/MenuItem'
 import Select from '@mui/material/Select'
-import Logo from '../../photos/logo-green-plus.png'
+// import Logo from '/logo-green-plus.png'
 import { createTheme } from '@mui/material/styles'
 import { AppContext } from '../../AppContext'
 import { useNavigate } from 'react-router-dom'
@@ -211,7 +211,7 @@ export default function SignUpForm() {
     <div className='login'>
       <div className='login-logo-side'>
         <div>
-          <img src={Logo} width='300px'/>
+          <img src='/logo-green-plus.png' width='300px'/>
         </div>
       </div>
       <div className='login-form-side'>
