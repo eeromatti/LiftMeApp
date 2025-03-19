@@ -1,8 +1,11 @@
 const app = require('./app')
-const config = require('./utils/config')
+// const config = require('./utils/config')
 
-app.listen(config.PORT, () => {
-  console.log(`App is listening on port ${config.PORT}`)
+// eslint-disable-next-line no-undef
+const PORT = process.env.PORT || 3000
+
+app.listen(PORT, () => {
+  console.log(`App is listening on port ${PORT}`)
 })
 
 
