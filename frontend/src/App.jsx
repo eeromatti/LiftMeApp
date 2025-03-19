@@ -11,7 +11,7 @@ import SignUp from './components/signup/SignUp'
 import Login from './components/login/Login'
 import Profile from './components/profile/Profile'
 import { AppContext } from './AppContext'
-import { createTheme, ThemeProvider } from '@material-ui/core'
+import { createTheme, ThemeProvider } from '@mui/material'
 
 const App = () => {  
 

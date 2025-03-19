@@ -16,7 +16,7 @@
     "@lucide/lab": "^0.1.2",
     "@maplibre/maplibre-gl-directions": "^0.7.2",
     "@mui/icons-material": "^6.4.4",
-    "@mui/material": "^6.4.5",
+    "@mui/material": "^6.4.8",
     "@slack/bolt": "^4.2.0",
     "@stylistic/eslint-plugin-js": "^3.1.0",
     "axios": "^1.8.3",
