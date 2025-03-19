@@ -11,10 +11,8 @@ esbuild.build({
     copy({
       resolveFrom: 'cwd',  // Make sure paths are resolved from the current working directory
       assets: [
-        {
-          from: '../frontend/public/*',  // Copy all files from the public directory
-          to: './dist/public/',  // Place them in the dist/public folder
-        },
+        { from: '../frontend/public/*', to: './dist',  },
+        { from: '../frontend/src/styles.css', to: './dist', }
       ],
     }),
   ],
