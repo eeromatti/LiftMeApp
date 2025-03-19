@@ -1100,29 +1100,29 @@
             var dispatcher = resolveDispatcher();
             return dispatcher.useRef(initialValue);
           }
-          function useEffect27(create2, deps) {
+          function useEffect27(create, deps) {
             var dispatcher = resolveDispatcher();
-            return dispatcher.useEffect(create2, deps);
+            return dispatcher.useEffect(create, deps);
           }
-          function useInsertionEffect3(create2, deps) {
+          function useInsertionEffect3(create, deps) {
             var dispatcher = resolveDispatcher();
-            return dispatcher.useInsertionEffect(create2, deps);
+            return dispatcher.useInsertionEffect(create, deps);
           }
-          function useLayoutEffect6(create2, deps) {
+          function useLayoutEffect6(create, deps) {
             var dispatcher = resolveDispatcher();
-            return dispatcher.useLayoutEffect(create2, deps);
+            return dispatcher.useLayoutEffect(create, deps);
           }
           function useCallback13(callback, deps) {
             var dispatcher = resolveDispatcher();
             return dispatcher.useCallback(callback, deps);
           }
-          function useMemo12(create2, deps) {
+          function useMemo12(create, deps) {
             var dispatcher = resolveDispatcher();
-            return dispatcher.useMemo(create2, deps);
+            return dispatcher.useMemo(create, deps);
           }
-          function useImperativeHandle7(ref, create2, deps) {
+          function useImperativeHandle7(ref, create, deps) {
             var dispatcher = resolveDispatcher();
-            return dispatcher.useImperativeHandle(ref, create2, deps);
+            return dispatcher.useImperativeHandle(ref, create, deps);
           }
           function useDebugValue2(value, formatterFn) {
             {
@@ -1407,7 +1407,7 @@
               }
             }
           }
-          function checkPropTypes(typeSpecs, values4, location2, componentName, element) {
+          function checkPropTypes(typeSpecs, values3, location2, componentName, element) {
             {
               var has = Function.call.bind(hasOwnProperty2);
               for (var typeSpecName in typeSpecs) {
@@ -1419,7 +1419,7 @@
                       err.name = "Invariant Violation";
                       throw err;
                     }
-                    error$1 = typeSpecs[typeSpecName](values4, typeSpecName, componentName, location2, null, "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED");
+                    error$1 = typeSpecs[typeSpecName](values3, typeSpecName, componentName, location2, null, "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED");
                   } catch (ex) {
                     error$1 = ex;
                   }
@@ -1568,9 +1568,9 @@
           }
           function validateFragmentProps(fragment) {
             {
-              var keys2 = Object.keys(fragment.props);
-              for (var i = 0; i < keys2.length; i++) {
-                var key = keys2[i];
+              var keys = Object.keys(fragment.props);
+              for (var i = 0; i < keys.length; i++) {
+                var key = keys[i];
                 if (key !== "children" && key !== "key") {
                   setCurrentlyValidatingElement$1(fragment);
                   error("Invalid prop `%s` supplied to `React.Fragment`. React.Fragment can only have `key` and `children` props.", key);
@@ -2652,7 +2652,7 @@
             return false;
           }
           function getPropertyInfo(name) {
-            return properties3.hasOwnProperty(name) ? properties3[name] : null;
+            return properties2.hasOwnProperty(name) ? properties2[name] : null;
           }
           function PropertyInfoRecord(name, type, mustUseProperty, attributeName, attributeNamespace, sanitizeURL2, removeEmptyString) {
             this.acceptsBooleans = type === BOOLEANISH_STRING || type === BOOLEAN || type === OVERLOADED_BOOLEAN;
@@ -2664,7 +2664,7 @@
             this.sanitizeURL = sanitizeURL2;
             this.removeEmptyString = removeEmptyString;
           }
-          var properties3 = {};
+          var properties2 = {};
           var reservedProps = [
             "children",
             "dangerouslySetInnerHTML",
@@ -2679,7 +2679,7 @@
             "style"
           ];
           reservedProps.forEach(function(name) {
-            properties3[name] = new PropertyInfoRecord(
+            properties2[name] = new PropertyInfoRecord(
               name,
               RESERVED,
               false,
@@ -2695,7 +2695,7 @@
           });
           [["acceptCharset", "accept-charset"], ["className", "class"], ["htmlFor", "for"], ["httpEquiv", "http-equiv"]].forEach(function(_ref) {
             var name = _ref[0], attributeName = _ref[1];
-            properties3[name] = new PropertyInfoRecord(
+            properties2[name] = new PropertyInfoRecord(
               name,
               STRING,
               false,
@@ -2710,7 +2710,7 @@
             );
           });
           ["contentEditable", "draggable", "spellCheck", "value"].forEach(function(name) {
-            properties3[name] = new PropertyInfoRecord(
+            properties2[name] = new PropertyInfoRecord(
               name,
               BOOLEANISH_STRING,
               false,
@@ -2725,7 +2725,7 @@
             );
           });
           ["autoReverse", "externalResourcesRequired", "focusable", "preserveAlpha"].forEach(function(name) {
-            properties3[name] = new PropertyInfoRecord(
+            properties2[name] = new PropertyInfoRecord(
               name,
               BOOLEANISH_STRING,
               false,
@@ -2767,7 +2767,7 @@
             // Microdata
             "itemScope"
           ].forEach(function(name) {
-            properties3[name] = new PropertyInfoRecord(
+            properties2[name] = new PropertyInfoRecord(
               name,
               BOOLEAN,
               false,
@@ -2792,7 +2792,7 @@
             // you'll need to set attributeName to name.toLowerCase()
             // instead in the assignment below.
           ].forEach(function(name) {
-            properties3[name] = new PropertyInfoRecord(
+            properties2[name] = new PropertyInfoRecord(
               name,
               BOOLEAN,
               true,
@@ -2813,7 +2813,7 @@
             // you'll need to set attributeName to name.toLowerCase()
             // instead in the assignment below.
           ].forEach(function(name) {
-            properties3[name] = new PropertyInfoRecord(
+            properties2[name] = new PropertyInfoRecord(
               name,
               OVERLOADED_BOOLEAN,
               false,
@@ -2836,7 +2836,7 @@
             // you'll need to set attributeName to name.toLowerCase()
             // instead in the assignment below.
           ].forEach(function(name) {
-            properties3[name] = new PropertyInfoRecord(
+            properties2[name] = new PropertyInfoRecord(
               name,
               POSITIVE_NUMERIC,
               false,
@@ -2851,7 +2851,7 @@
             );
           });
           ["rowSpan", "start"].forEach(function(name) {
-            properties3[name] = new PropertyInfoRecord(
+            properties2[name] = new PropertyInfoRecord(
               name,
               NUMERIC,
               false,
@@ -2948,7 +2948,7 @@
             // instead in the assignment below.
           ].forEach(function(attributeName) {
             var name = attributeName.replace(CAMELIZE, capitalize2);
-            properties3[name] = new PropertyInfoRecord(
+            properties2[name] = new PropertyInfoRecord(
               name,
               STRING,
               false,
@@ -2973,7 +2973,7 @@
             // instead in the assignment below.
           ].forEach(function(attributeName) {
             var name = attributeName.replace(CAMELIZE, capitalize2);
-            properties3[name] = new PropertyInfoRecord(
+            properties2[name] = new PropertyInfoRecord(
               name,
               STRING,
               false,
@@ -2994,7 +2994,7 @@
             // instead in the assignment below.
           ].forEach(function(attributeName) {
             var name = attributeName.replace(CAMELIZE, capitalize2);
-            properties3[name] = new PropertyInfoRecord(
+            properties2[name] = new PropertyInfoRecord(
               name,
               STRING,
               false,
@@ -3007,7 +3007,7 @@
             );
           });
           ["tabIndex", "crossOrigin"].forEach(function(attributeName) {
-            properties3[attributeName] = new PropertyInfoRecord(
+            properties2[attributeName] = new PropertyInfoRecord(
               attributeName,
               STRING,
               false,
@@ -3022,7 +3022,7 @@
             );
           });
           var xlinkHref = "xlinkHref";
-          properties3[xlinkHref] = new PropertyInfoRecord(
+          properties2[xlinkHref] = new PropertyInfoRecord(
             "xlinkHref",
             STRING,
             false,
@@ -3034,7 +3034,7 @@
             false
           );
           ["src", "href", "action", "formAction"].forEach(function(attributeName) {
-            properties3[attributeName] = new PropertyInfoRecord(
+            properties2[attributeName] = new PropertyInfoRecord(
               attributeName,
               STRING,
               false,
@@ -9209,16 +9209,16 @@
             }
             return null;
           }
-          function accumulateEnterLeaveListenersForEvent(dispatchQueue, event, target, common3, inCapturePhase) {
+          function accumulateEnterLeaveListenersForEvent(dispatchQueue, event, target, common2, inCapturePhase) {
             var registrationName = event._reactName;
             var listeners = [];
             var instance = target;
             while (instance !== null) {
-              if (instance === common3) {
+              if (instance === common2) {
                 break;
               }
               var _instance4 = instance, alternate = _instance4.alternate, stateNode = _instance4.stateNode, tag = _instance4.tag;
-              if (alternate !== null && alternate === common3) {
+              if (alternate !== null && alternate === common2) {
                 break;
               }
               if (tag === HostComponent && stateNode !== null) {
@@ -9245,12 +9245,12 @@
             }
           }
           function accumulateEnterLeaveTwoPhaseListeners(dispatchQueue, leaveEvent, enterEvent, from2, to) {
-            var common3 = from2 && to ? getLowestCommonAncestor(from2, to) : null;
+            var common2 = from2 && to ? getLowestCommonAncestor(from2, to) : null;
             if (from2 !== null) {
-              accumulateEnterLeaveListenersForEvent(dispatchQueue, leaveEvent, from2, common3, false);
+              accumulateEnterLeaveListenersForEvent(dispatchQueue, leaveEvent, from2, common2, false);
             }
             if (to !== null && enterEvent !== null) {
-              accumulateEnterLeaveListenersForEvent(dispatchQueue, enterEvent, to, common3, true);
+              accumulateEnterLeaveListenersForEvent(dispatchQueue, enterEvent, to, common2, true);
             }
           }
           function getListenerSetKey(domEventName, capture) {
@@ -10809,7 +10809,7 @@
               }
             }
           }
-          function checkPropTypes(typeSpecs, values4, location2, componentName, element) {
+          function checkPropTypes(typeSpecs, values3, location2, componentName, element) {
             {
               var has2 = Function.call.bind(hasOwnProperty2);
               for (var typeSpecName in typeSpecs) {
@@ -10821,7 +10821,7 @@
                       err.name = "Invariant Violation";
                       throw err;
                     }
-                    error$1 = typeSpecs[typeSpecName](values4, typeSpecName, componentName, location2, null, "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED");
+                    error$1 = typeSpecs[typeSpecName](values3, typeSpecName, componentName, location2, null, "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED");
                   } catch (ex) {
                     error$1 = ex;
                   }
@@ -13981,10 +13981,10 @@
           function rerenderState(initialState) {
             return rerenderReducer(basicStateReducer);
           }
-          function pushEffect(tag, create2, destroy, deps) {
+          function pushEffect(tag, create, destroy, deps) {
             var effect4 = {
               tag,
-              create: create2,
+              create,
               destroy,
               deps,
               // Circular
@@ -14022,13 +14022,13 @@
             var hook = updateWorkInProgressHook();
             return hook.memoizedState;
           }
-          function mountEffectImpl(fiberFlags, hookFlags, create2, deps) {
+          function mountEffectImpl(fiberFlags, hookFlags, create, deps) {
             var hook = mountWorkInProgressHook();
             var nextDeps = deps === void 0 ? null : deps;
             currentlyRenderingFiber$1.flags |= fiberFlags;
-            hook.memoizedState = pushEffect(HasEffect | hookFlags, create2, void 0, nextDeps);
+            hook.memoizedState = pushEffect(HasEffect | hookFlags, create, void 0, nextDeps);
           }
-          function updateEffectImpl(fiberFlags, hookFlags, create2, deps) {
+          function updateEffectImpl(fiberFlags, hookFlags, create, deps) {
             var hook = updateWorkInProgressHook();
             var nextDeps = deps === void 0 ? null : deps;
             var destroy = void 0;
@@ -14038,31 +14038,31 @@
               if (nextDeps !== null) {
                 var prevDeps = prevEffect.deps;
                 if (areHookInputsEqual(nextDeps, prevDeps)) {
-                  hook.memoizedState = pushEffect(hookFlags, create2, destroy, nextDeps);
+                  hook.memoizedState = pushEffect(hookFlags, create, destroy, nextDeps);
                   return;
                 }
               }
             }
             currentlyRenderingFiber$1.flags |= fiberFlags;
-            hook.memoizedState = pushEffect(HasEffect | hookFlags, create2, destroy, nextDeps);
+            hook.memoizedState = pushEffect(HasEffect | hookFlags, create, destroy, nextDeps);
           }
-          function mountEffect(create2, deps) {
+          function mountEffect(create, deps) {
             if ((currentlyRenderingFiber$1.mode & StrictEffectsMode) !== NoMode) {
-              return mountEffectImpl(MountPassiveDev | Passive | PassiveStatic, Passive$1, create2, deps);
+              return mountEffectImpl(MountPassiveDev | Passive | PassiveStatic, Passive$1, create, deps);
             } else {
-              return mountEffectImpl(Passive | PassiveStatic, Passive$1, create2, deps);
+              return mountEffectImpl(Passive | PassiveStatic, Passive$1, create, deps);
             }
           }
-          function updateEffect(create2, deps) {
-            return updateEffectImpl(Passive, Passive$1, create2, deps);
+          function updateEffect(create, deps) {
+            return updateEffectImpl(Passive, Passive$1, create, deps);
           }
-          function mountInsertionEffect(create2, deps) {
-            return mountEffectImpl(Update, Insertion5, create2, deps);
+          function mountInsertionEffect(create, deps) {
+            return mountEffectImpl(Update, Insertion5, create, deps);
           }
-          function updateInsertionEffect(create2, deps) {
-            return updateEffectImpl(Update, Insertion5, create2, deps);
+          function updateInsertionEffect(create, deps) {
+            return updateEffectImpl(Update, Insertion5, create, deps);
           }
-          function mountLayoutEffect(create2, deps) {
+          function mountLayoutEffect(create, deps) {
             var fiberFlags = Update;
             {
               fiberFlags |= LayoutStatic;
@@ -14070,15 +14070,15 @@
             if ((currentlyRenderingFiber$1.mode & StrictEffectsMode) !== NoMode) {
               fiberFlags |= MountLayoutDev;
             }
-            return mountEffectImpl(fiberFlags, Layout, create2, deps);
+            return mountEffectImpl(fiberFlags, Layout, create, deps);
           }
-          function updateLayoutEffect(create2, deps) {
-            return updateEffectImpl(Update, Layout, create2, deps);
+          function updateLayoutEffect(create, deps) {
+            return updateEffectImpl(Update, Layout, create, deps);
           }
-          function imperativeHandleEffect(create2, ref) {
+          function imperativeHandleEffect(create, ref) {
             if (typeof ref === "function") {
               var refCallback = ref;
-              var _inst = create2();
+              var _inst = create();
               refCallback(_inst);
               return function() {
                 refCallback(null);
@@ -14090,17 +14090,17 @@
                   error("Expected useImperativeHandle() first argument to either be a ref callback or React.createRef() object. Instead received: %s.", "an object with keys {" + Object.keys(refObject).join(", ") + "}");
                 }
               }
-              var _inst2 = create2();
+              var _inst2 = create();
               refObject.current = _inst2;
               return function() {
                 refObject.current = null;
               };
             }
           }
-          function mountImperativeHandle(ref, create2, deps) {
+          function mountImperativeHandle(ref, create, deps) {
             {
-              if (typeof create2 !== "function") {
-                error("Expected useImperativeHandle() second argument to be a function that creates a handle. Instead received: %s.", create2 !== null ? typeof create2 : "null");
+              if (typeof create !== "function") {
+                error("Expected useImperativeHandle() second argument to be a function that creates a handle. Instead received: %s.", create !== null ? typeof create : "null");
               }
             }
             var effectDeps = deps !== null && deps !== void 0 ? deps.concat([ref]) : null;
@@ -14111,16 +14111,16 @@
             if ((currentlyRenderingFiber$1.mode & StrictEffectsMode) !== NoMode) {
               fiberFlags |= MountLayoutDev;
             }
-            return mountEffectImpl(fiberFlags, Layout, imperativeHandleEffect.bind(null, create2, ref), effectDeps);
+            return mountEffectImpl(fiberFlags, Layout, imperativeHandleEffect.bind(null, create, ref), effectDeps);
           }
-          function updateImperativeHandle(ref, create2, deps) {
+          function updateImperativeHandle(ref, create, deps) {
             {
-              if (typeof create2 !== "function") {
-                error("Expected useImperativeHandle() second argument to be a function that creates a handle. Instead received: %s.", create2 !== null ? typeof create2 : "null");
+              if (typeof create !== "function") {
+                error("Expected useImperativeHandle() second argument to be a function that creates a handle. Instead received: %s.", create !== null ? typeof create : "null");
               }
             }
             var effectDeps = deps !== null && deps !== void 0 ? deps.concat([ref]) : null;
-            return updateEffectImpl(Update, Layout, imperativeHandleEffect.bind(null, create2, ref), effectDeps);
+            return updateEffectImpl(Update, Layout, imperativeHandleEffect.bind(null, create, ref), effectDeps);
           }
           function mountDebugValue(value, formatterFn) {
           }
@@ -14442,38 +14442,38 @@
                 mountHookTypesDev();
                 return readContext(context);
               },
-              useEffect: function(create2, deps) {
+              useEffect: function(create, deps) {
                 currentHookNameInDev = "useEffect";
                 mountHookTypesDev();
                 checkDepsAreArrayDev(deps);
-                return mountEffect(create2, deps);
+                return mountEffect(create, deps);
               },
-              useImperativeHandle: function(ref, create2, deps) {
+              useImperativeHandle: function(ref, create, deps) {
                 currentHookNameInDev = "useImperativeHandle";
                 mountHookTypesDev();
                 checkDepsAreArrayDev(deps);
-                return mountImperativeHandle(ref, create2, deps);
+                return mountImperativeHandle(ref, create, deps);
               },
-              useInsertionEffect: function(create2, deps) {
+              useInsertionEffect: function(create, deps) {
                 currentHookNameInDev = "useInsertionEffect";
                 mountHookTypesDev();
                 checkDepsAreArrayDev(deps);
-                return mountInsertionEffect(create2, deps);
+                return mountInsertionEffect(create, deps);
               },
-              useLayoutEffect: function(create2, deps) {
+              useLayoutEffect: function(create, deps) {
                 currentHookNameInDev = "useLayoutEffect";
                 mountHookTypesDev();
                 checkDepsAreArrayDev(deps);
-                return mountLayoutEffect(create2, deps);
+                return mountLayoutEffect(create, deps);
               },
-              useMemo: function(create2, deps) {
+              useMemo: function(create, deps) {
                 currentHookNameInDev = "useMemo";
                 mountHookTypesDev();
                 checkDepsAreArrayDev(deps);
                 var prevDispatcher = ReactCurrentDispatcher$1.current;
                 ReactCurrentDispatcher$1.current = InvalidNestedHooksDispatcherOnMountInDEV;
                 try {
-                  return mountMemo(create2, deps);
+                  return mountMemo(create, deps);
                 } finally {
                   ReactCurrentDispatcher$1.current = prevDispatcher;
                 }
@@ -14551,33 +14551,33 @@
                 updateHookTypesDev();
                 return readContext(context);
               },
-              useEffect: function(create2, deps) {
+              useEffect: function(create, deps) {
                 currentHookNameInDev = "useEffect";
                 updateHookTypesDev();
-                return mountEffect(create2, deps);
+                return mountEffect(create, deps);
               },
-              useImperativeHandle: function(ref, create2, deps) {
+              useImperativeHandle: function(ref, create, deps) {
                 currentHookNameInDev = "useImperativeHandle";
                 updateHookTypesDev();
-                return mountImperativeHandle(ref, create2, deps);
+                return mountImperativeHandle(ref, create, deps);
               },
-              useInsertionEffect: function(create2, deps) {
+              useInsertionEffect: function(create, deps) {
                 currentHookNameInDev = "useInsertionEffect";
                 updateHookTypesDev();
-                return mountInsertionEffect(create2, deps);
+                return mountInsertionEffect(create, deps);
               },
-              useLayoutEffect: function(create2, deps) {
+              useLayoutEffect: function(create, deps) {
                 currentHookNameInDev = "useLayoutEffect";
                 updateHookTypesDev();
-                return mountLayoutEffect(create2, deps);
+                return mountLayoutEffect(create, deps);
               },
-              useMemo: function(create2, deps) {
+              useMemo: function(create, deps) {
                 currentHookNameInDev = "useMemo";
                 updateHookTypesDev();
                 var prevDispatcher = ReactCurrentDispatcher$1.current;
                 ReactCurrentDispatcher$1.current = InvalidNestedHooksDispatcherOnMountInDEV;
                 try {
-                  return mountMemo(create2, deps);
+                  return mountMemo(create, deps);
                 } finally {
                   ReactCurrentDispatcher$1.current = prevDispatcher;
                 }
@@ -14655,33 +14655,33 @@
                 updateHookTypesDev();
                 return readContext(context);
               },
-              useEffect: function(create2, deps) {
+              useEffect: function(create, deps) {
                 currentHookNameInDev = "useEffect";
                 updateHookTypesDev();
-                return updateEffect(create2, deps);
+                return updateEffect(create, deps);
               },
-              useImperativeHandle: function(ref, create2, deps) {
+              useImperativeHandle: function(ref, create, deps) {
                 currentHookNameInDev = "useImperativeHandle";
                 updateHookTypesDev();
-                return updateImperativeHandle(ref, create2, deps);
+                return updateImperativeHandle(ref, create, deps);
               },
-              useInsertionEffect: function(create2, deps) {
+              useInsertionEffect: function(create, deps) {
                 currentHookNameInDev = "useInsertionEffect";
                 updateHookTypesDev();
-                return updateInsertionEffect(create2, deps);
+                return updateInsertionEffect(create, deps);
               },
-              useLayoutEffect: function(create2, deps) {
+              useLayoutEffect: function(create, deps) {
                 currentHookNameInDev = "useLayoutEffect";
                 updateHookTypesDev();
-                return updateLayoutEffect(create2, deps);
+                return updateLayoutEffect(create, deps);
               },
-              useMemo: function(create2, deps) {
+              useMemo: function(create, deps) {
                 currentHookNameInDev = "useMemo";
                 updateHookTypesDev();
                 var prevDispatcher = ReactCurrentDispatcher$1.current;
                 ReactCurrentDispatcher$1.current = InvalidNestedHooksDispatcherOnUpdateInDEV;
                 try {
-                  return updateMemo(create2, deps);
+                  return updateMemo(create, deps);
                 } finally {
                   ReactCurrentDispatcher$1.current = prevDispatcher;
                 }
@@ -14759,33 +14759,33 @@
                 updateHookTypesDev();
                 return readContext(context);
               },
-              useEffect: function(create2, deps) {
+              useEffect: function(create, deps) {
                 currentHookNameInDev = "useEffect";
                 updateHookTypesDev();
-                return updateEffect(create2, deps);
+                return updateEffect(create, deps);
               },
-              useImperativeHandle: function(ref, create2, deps) {
+              useImperativeHandle: function(ref, create, deps) {
                 currentHookNameInDev = "useImperativeHandle";
                 updateHookTypesDev();
-                return updateImperativeHandle(ref, create2, deps);
+                return updateImperativeHandle(ref, create, deps);
               },
-              useInsertionEffect: function(create2, deps) {
+              useInsertionEffect: function(create, deps) {
                 currentHookNameInDev = "useInsertionEffect";
                 updateHookTypesDev();
-                return updateInsertionEffect(create2, deps);
+                return updateInsertionEffect(create, deps);
               },
-              useLayoutEffect: function(create2, deps) {
+              useLayoutEffect: function(create, deps) {
                 currentHookNameInDev = "useLayoutEffect";
                 updateHookTypesDev();
-                return updateLayoutEffect(create2, deps);
+                return updateLayoutEffect(create, deps);
               },
-              useMemo: function(create2, deps) {
+              useMemo: function(create, deps) {
                 currentHookNameInDev = "useMemo";
                 updateHookTypesDev();
                 var prevDispatcher = ReactCurrentDispatcher$1.current;
                 ReactCurrentDispatcher$1.current = InvalidNestedHooksDispatcherOnRerenderInDEV;
                 try {
-                  return updateMemo(create2, deps);
+                  return updateMemo(create, deps);
                 } finally {
                   ReactCurrentDispatcher$1.current = prevDispatcher;
                 }
@@ -14866,38 +14866,38 @@
                 mountHookTypesDev();
                 return readContext(context);
               },
-              useEffect: function(create2, deps) {
+              useEffect: function(create, deps) {
                 currentHookNameInDev = "useEffect";
                 warnInvalidHookAccess();
                 mountHookTypesDev();
-                return mountEffect(create2, deps);
+                return mountEffect(create, deps);
               },
-              useImperativeHandle: function(ref, create2, deps) {
+              useImperativeHandle: function(ref, create, deps) {
                 currentHookNameInDev = "useImperativeHandle";
                 warnInvalidHookAccess();
                 mountHookTypesDev();
-                return mountImperativeHandle(ref, create2, deps);
+                return mountImperativeHandle(ref, create, deps);
               },
-              useInsertionEffect: function(create2, deps) {
+              useInsertionEffect: function(create, deps) {
                 currentHookNameInDev = "useInsertionEffect";
                 warnInvalidHookAccess();
                 mountHookTypesDev();
-                return mountInsertionEffect(create2, deps);
+                return mountInsertionEffect(create, deps);
               },
-              useLayoutEffect: function(create2, deps) {
+              useLayoutEffect: function(create, deps) {
                 currentHookNameInDev = "useLayoutEffect";
                 warnInvalidHookAccess();
                 mountHookTypesDev();
-                return mountLayoutEffect(create2, deps);
+                return mountLayoutEffect(create, deps);
               },
-              useMemo: function(create2, deps) {
+              useMemo: function(create, deps) {
                 currentHookNameInDev = "useMemo";
                 warnInvalidHookAccess();
                 mountHookTypesDev();
                 var prevDispatcher = ReactCurrentDispatcher$1.current;
                 ReactCurrentDispatcher$1.current = InvalidNestedHooksDispatcherOnMountInDEV;
                 try {
-                  return mountMemo(create2, deps);
+                  return mountMemo(create, deps);
                 } finally {
                   ReactCurrentDispatcher$1.current = prevDispatcher;
                 }
@@ -14987,38 +14987,38 @@
                 updateHookTypesDev();
                 return readContext(context);
               },
-              useEffect: function(create2, deps) {
+              useEffect: function(create, deps) {
                 currentHookNameInDev = "useEffect";
                 warnInvalidHookAccess();
                 updateHookTypesDev();
-                return updateEffect(create2, deps);
+                return updateEffect(create, deps);
               },
-              useImperativeHandle: function(ref, create2, deps) {
+              useImperativeHandle: function(ref, create, deps) {
                 currentHookNameInDev = "useImperativeHandle";
                 warnInvalidHookAccess();
                 updateHookTypesDev();
-                return updateImperativeHandle(ref, create2, deps);
+                return updateImperativeHandle(ref, create, deps);
               },
-              useInsertionEffect: function(create2, deps) {
+              useInsertionEffect: function(create, deps) {
                 currentHookNameInDev = "useInsertionEffect";
                 warnInvalidHookAccess();
                 updateHookTypesDev();
-                return updateInsertionEffect(create2, deps);
+                return updateInsertionEffect(create, deps);
               },
-              useLayoutEffect: function(create2, deps) {
+              useLayoutEffect: function(create, deps) {
                 currentHookNameInDev = "useLayoutEffect";
                 warnInvalidHookAccess();
                 updateHookTypesDev();
-                return updateLayoutEffect(create2, deps);
+                return updateLayoutEffect(create, deps);
               },
-              useMemo: function(create2, deps) {
+              useMemo: function(create, deps) {
                 currentHookNameInDev = "useMemo";
                 warnInvalidHookAccess();
                 updateHookTypesDev();
                 var prevDispatcher = ReactCurrentDispatcher$1.current;
                 ReactCurrentDispatcher$1.current = InvalidNestedHooksDispatcherOnUpdateInDEV;
                 try {
-                  return updateMemo(create2, deps);
+                  return updateMemo(create, deps);
                 } finally {
                   ReactCurrentDispatcher$1.current = prevDispatcher;
                 }
@@ -15108,38 +15108,38 @@
                 updateHookTypesDev();
                 return readContext(context);
               },
-              useEffect: function(create2, deps) {
+              useEffect: function(create, deps) {
                 currentHookNameInDev = "useEffect";
                 warnInvalidHookAccess();
                 updateHookTypesDev();
-                return updateEffect(create2, deps);
+                return updateEffect(create, deps);
               },
-              useImperativeHandle: function(ref, create2, deps) {
+              useImperativeHandle: function(ref, create, deps) {
                 currentHookNameInDev = "useImperativeHandle";
                 warnInvalidHookAccess();
                 updateHookTypesDev();
-                return updateImperativeHandle(ref, create2, deps);
+                return updateImperativeHandle(ref, create, deps);
               },
-              useInsertionEffect: function(create2, deps) {
+              useInsertionEffect: function(create, deps) {
                 currentHookNameInDev = "useInsertionEffect";
                 warnInvalidHookAccess();
                 updateHookTypesDev();
-                return updateInsertionEffect(create2, deps);
+                return updateInsertionEffect(create, deps);
               },
-              useLayoutEffect: function(create2, deps) {
+              useLayoutEffect: function(create, deps) {
                 currentHookNameInDev = "useLayoutEffect";
                 warnInvalidHookAccess();
                 updateHookTypesDev();
-                return updateLayoutEffect(create2, deps);
+                return updateLayoutEffect(create, deps);
               },
-              useMemo: function(create2, deps) {
+              useMemo: function(create, deps) {
                 currentHookNameInDev = "useMemo";
                 warnInvalidHookAccess();
                 updateHookTypesDev();
                 var prevDispatcher = ReactCurrentDispatcher$1.current;
                 ReactCurrentDispatcher$1.current = InvalidNestedHooksDispatcherOnUpdateInDEV;
                 try {
-                  return updateMemo(create2, deps);
+                  return updateMemo(create, deps);
                 } finally {
                   ReactCurrentDispatcher$1.current = prevDispatcher;
                 }
@@ -18864,13 +18864,13 @@
                       markComponentLayoutEffectMountStarted(finishedWork);
                     }
                   }
-                  var create2 = effect4.create;
+                  var create = effect4.create;
                   {
                     if ((flags & Insertion5) !== NoFlags$1) {
                       setIsRunningInsertionEffect(true);
                     }
                   }
-                  effect4.destroy = create2();
+                  effect4.destroy = create();
                   {
                     if ((flags & Insertion5) !== NoFlags$1) {
                       setIsRunningInsertionEffect(false);
@@ -22654,8 +22654,8 @@
                 if (typeof component.render === "function") {
                   throw new Error("Unable to find node on an unmounted component.");
                 } else {
-                  var keys2 = Object.keys(component).join(",");
-                  throw new Error("Argument appears to not be a ReactComponent. Keys: " + keys2);
+                  var keys = Object.keys(component).join(",");
+                  throw new Error("Argument appears to not be a ReactComponent. Keys: " + keys);
                 }
               }
               var hostFiber = findCurrentHostFiber(fiber);
@@ -23976,14 +23976,14 @@
               hoistNonReactStatics(targetComponent, inheritedComponent, blacklist);
             }
           }
-          var keys2 = getOwnPropertyNames(sourceComponent);
+          var keys = getOwnPropertyNames(sourceComponent);
           if (getOwnPropertySymbols) {
-            keys2 = keys2.concat(getOwnPropertySymbols(sourceComponent));
+            keys = keys.concat(getOwnPropertySymbols(sourceComponent));
           }
           var targetStatics = getStatics(targetComponent);
           var sourceStatics = getStatics(sourceComponent);
-          for (var i = 0; i < keys2.length; ++i) {
-            var key = keys2[i];
+          for (var i = 0; i < keys.length; ++i) {
+            var key = keys[i];
             if (!KNOWN_STATICS[key] && !(blacklist && blacklist[key]) && !(sourceStatics && sourceStatics[key]) && !(targetStatics && targetStatics[key])) {
               var descriptor = getOwnPropertyDescriptor(sourceComponent, key);
               try {
@@ -24276,7 +24276,7 @@
       var ReactPropTypesSecret;
       var loggedTypeFailures;
       var has;
-      function checkPropTypes(typeSpecs, values4, location2, componentName, getStack) {
+      function checkPropTypes(typeSpecs, values3, location2, componentName, getStack) {
         if (true) {
           for (var typeSpecName in typeSpecs) {
             if (has(typeSpecs, typeSpecName)) {
@@ -24289,7 +24289,7 @@
                   err.name = "Invariant Violation";
                   throw err;
                 }
-                error = typeSpecs[typeSpecName](values4, typeSpecName, componentName, location2, null, ReactPropTypesSecret);
+                error = typeSpecs[typeSpecName](values3, typeSpecName, componentName, location2, null, ReactPropTypesSecret);
               } catch (ex) {
                 error = ex;
               }
@@ -25195,7 +25195,7 @@
               }
             }
           }
-          function checkPropTypes(typeSpecs, values4, location2, componentName, element) {
+          function checkPropTypes(typeSpecs, values3, location2, componentName, element) {
             {
               var has = Function.call.bind(hasOwnProperty2);
               for (var typeSpecName in typeSpecs) {
@@ -25207,7 +25207,7 @@
                       err.name = "Invariant Violation";
                       throw err;
                     }
-                    error$1 = typeSpecs[typeSpecName](values4, typeSpecName, componentName, location2, null, "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED");
+                    error$1 = typeSpecs[typeSpecName](values3, typeSpecName, componentName, location2, null, "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED");
                   } catch (ex) {
                     error$1 = ex;
                   }
@@ -25559,9 +25559,9 @@
           }
           function validateFragmentProps(fragment) {
             {
-              var keys2 = Object.keys(fragment.props);
-              for (var i = 0; i < keys2.length; i++) {
-                var key = keys2[i];
+              var keys = Object.keys(fragment.props);
+              for (var i = 0; i < keys.length; i++) {
+                var key = keys[i];
                 if (key !== "children" && key !== "key") {
                   setCurrentlyValidatingElement$1(fragment);
                   error("Invalid prop `%s` supplied to `React.Fragment`. React.Fragment can only have `key` and `children` props.", key);
@@ -25630,12 +25630,12 @@
               {
                 if (hasOwnProperty2.call(props, "key")) {
                   var componentName = getComponentNameFromType(type);
-                  var keys2 = Object.keys(props).filter(function(k) {
+                  var keys = Object.keys(props).filter(function(k) {
                     return k !== "key";
                   });
-                  var beforeExample = keys2.length > 0 ? "{key: someKey, " + keys2.join(": ..., ") + ": ...}" : "{key: someKey}";
+                  var beforeExample = keys.length > 0 ? "{key: someKey, " + keys.join(": ..., ") + ": ...}" : "{key: someKey}";
                   if (!didWarnAboutKeySpread[componentName + beforeExample]) {
-                    var afterExample = keys2.length > 0 ? "{" + keys2.join(": ..., ") + ": ...}" : "{}";
+                    var afterExample = keys.length > 0 ? "{" + keys.join(": ..., ") + ": ...}" : "{}";
                     error('A props object containing a "key" prop is being spread into JSX:\n  let props = %s;\n  <%s {...props} />\nReact keys must be passed directly to JSX without using spread:\n  let props = %s;\n  <%s key={someKey} {...props} />', beforeExample, componentName, afterExample, componentName);
                     didWarnAboutKeySpread[componentName + beforeExample] = true;
                   }
@@ -43305,783 +43305,6 @@ uniform ${i3} ${a3} u_${s3};
     }
   });
 
-  // ../../../../../../node_modules/prop-types/node_modules/react-is/cjs/react-is.development.js
-  var require_react_is_development4 = __commonJS({
-    "../../../../../../node_modules/prop-types/node_modules/react-is/cjs/react-is.development.js"(exports) {
-      "use strict";
-      if (true) {
-        (function() {
-          "use strict";
-          var hasSymbol = typeof Symbol === "function" && Symbol.for;
-          var REACT_ELEMENT_TYPE = hasSymbol ? Symbol.for("react.element") : 60103;
-          var REACT_PORTAL_TYPE = hasSymbol ? Symbol.for("react.portal") : 60106;
-          var REACT_FRAGMENT_TYPE = hasSymbol ? Symbol.for("react.fragment") : 60107;
-          var REACT_STRICT_MODE_TYPE = hasSymbol ? Symbol.for("react.strict_mode") : 60108;
-          var REACT_PROFILER_TYPE = hasSymbol ? Symbol.for("react.profiler") : 60114;
-          var REACT_PROVIDER_TYPE = hasSymbol ? Symbol.for("react.provider") : 60109;
-          var REACT_CONTEXT_TYPE = hasSymbol ? Symbol.for("react.context") : 60110;
-          var REACT_ASYNC_MODE_TYPE = hasSymbol ? Symbol.for("react.async_mode") : 60111;
-          var REACT_CONCURRENT_MODE_TYPE = hasSymbol ? Symbol.for("react.concurrent_mode") : 60111;
-          var REACT_FORWARD_REF_TYPE = hasSymbol ? Symbol.for("react.forward_ref") : 60112;
-          var REACT_SUSPENSE_TYPE = hasSymbol ? Symbol.for("react.suspense") : 60113;
-          var REACT_SUSPENSE_LIST_TYPE = hasSymbol ? Symbol.for("react.suspense_list") : 60120;
-          var REACT_MEMO_TYPE = hasSymbol ? Symbol.for("react.memo") : 60115;
-          var REACT_LAZY_TYPE = hasSymbol ? Symbol.for("react.lazy") : 60116;
-          var REACT_BLOCK_TYPE = hasSymbol ? Symbol.for("react.block") : 60121;
-          var REACT_FUNDAMENTAL_TYPE = hasSymbol ? Symbol.for("react.fundamental") : 60117;
-          var REACT_RESPONDER_TYPE = hasSymbol ? Symbol.for("react.responder") : 60118;
-          var REACT_SCOPE_TYPE = hasSymbol ? Symbol.for("react.scope") : 60119;
-          function isValidElementType2(type) {
-            return typeof type === "string" || typeof type === "function" || // Note: its typeof might be other than 'symbol' or 'number' if it's a polyfill.
-            type === REACT_FRAGMENT_TYPE || type === REACT_CONCURRENT_MODE_TYPE || type === REACT_PROFILER_TYPE || type === REACT_STRICT_MODE_TYPE || type === REACT_SUSPENSE_TYPE || type === REACT_SUSPENSE_LIST_TYPE || typeof type === "object" && type !== null && (type.$$typeof === REACT_LAZY_TYPE || type.$$typeof === REACT_MEMO_TYPE || type.$$typeof === REACT_PROVIDER_TYPE || type.$$typeof === REACT_CONTEXT_TYPE || type.$$typeof === REACT_FORWARD_REF_TYPE || type.$$typeof === REACT_FUNDAMENTAL_TYPE || type.$$typeof === REACT_RESPONDER_TYPE || type.$$typeof === REACT_SCOPE_TYPE || type.$$typeof === REACT_BLOCK_TYPE);
-          }
-          function typeOf(object) {
-            if (typeof object === "object" && object !== null) {
-              var $$typeof = object.$$typeof;
-              switch ($$typeof) {
-                case REACT_ELEMENT_TYPE:
-                  var type = object.type;
-                  switch (type) {
-                    case REACT_ASYNC_MODE_TYPE:
-                    case REACT_CONCURRENT_MODE_TYPE:
-                    case REACT_FRAGMENT_TYPE:
-                    case REACT_PROFILER_TYPE:
-                    case REACT_STRICT_MODE_TYPE:
-                    case REACT_SUSPENSE_TYPE:
-                      return type;
-                    default:
-                      var $$typeofType = type && type.$$typeof;
-                      switch ($$typeofType) {
-                        case REACT_CONTEXT_TYPE:
-                        case REACT_FORWARD_REF_TYPE:
-                        case REACT_LAZY_TYPE:
-                        case REACT_MEMO_TYPE:
-                        case REACT_PROVIDER_TYPE:
-                          return $$typeofType;
-                        default:
-                          return $$typeof;
-                      }
-                  }
-                case REACT_PORTAL_TYPE:
-                  return $$typeof;
-              }
-            }
-            return void 0;
-          }
-          var AsyncMode = REACT_ASYNC_MODE_TYPE;
-          var ConcurrentMode = REACT_CONCURRENT_MODE_TYPE;
-          var ContextConsumer = REACT_CONTEXT_TYPE;
-          var ContextProvider = REACT_PROVIDER_TYPE;
-          var Element2 = REACT_ELEMENT_TYPE;
-          var ForwardRef2 = REACT_FORWARD_REF_TYPE;
-          var Fragment20 = REACT_FRAGMENT_TYPE;
-          var Lazy = REACT_LAZY_TYPE;
-          var Memo2 = REACT_MEMO_TYPE;
-          var Portal3 = REACT_PORTAL_TYPE;
-          var Profiler = REACT_PROFILER_TYPE;
-          var StrictMode = REACT_STRICT_MODE_TYPE;
-          var Suspense3 = REACT_SUSPENSE_TYPE;
-          var hasWarnedAboutDeprecatedIsAsyncMode = false;
-          function isAsyncMode(object) {
-            {
-              if (!hasWarnedAboutDeprecatedIsAsyncMode) {
-                hasWarnedAboutDeprecatedIsAsyncMode = true;
-                console["warn"]("The ReactIs.isAsyncMode() alias has been deprecated, and will be removed in React 17+. Update your code to use ReactIs.isConcurrentMode() instead. It has the exact same API.");
-              }
-            }
-            return isConcurrentMode(object) || typeOf(object) === REACT_ASYNC_MODE_TYPE;
-          }
-          function isConcurrentMode(object) {
-            return typeOf(object) === REACT_CONCURRENT_MODE_TYPE;
-          }
-          function isContextConsumer(object) {
-            return typeOf(object) === REACT_CONTEXT_TYPE;
-          }
-          function isContextProvider(object) {
-            return typeOf(object) === REACT_PROVIDER_TYPE;
-          }
-          function isElement2(object) {
-            return typeof object === "object" && object !== null && object.$$typeof === REACT_ELEMENT_TYPE;
-          }
-          function isForwardRef(object) {
-            return typeOf(object) === REACT_FORWARD_REF_TYPE;
-          }
-          function isFragment5(object) {
-            return typeOf(object) === REACT_FRAGMENT_TYPE;
-          }
-          function isLazy(object) {
-            return typeOf(object) === REACT_LAZY_TYPE;
-          }
-          function isMemo(object) {
-            return typeOf(object) === REACT_MEMO_TYPE;
-          }
-          function isPortal(object) {
-            return typeOf(object) === REACT_PORTAL_TYPE;
-          }
-          function isProfiler(object) {
-            return typeOf(object) === REACT_PROFILER_TYPE;
-          }
-          function isStrictMode(object) {
-            return typeOf(object) === REACT_STRICT_MODE_TYPE;
-          }
-          function isSuspense(object) {
-            return typeOf(object) === REACT_SUSPENSE_TYPE;
-          }
-          exports.AsyncMode = AsyncMode;
-          exports.ConcurrentMode = ConcurrentMode;
-          exports.ContextConsumer = ContextConsumer;
-          exports.ContextProvider = ContextProvider;
-          exports.Element = Element2;
-          exports.ForwardRef = ForwardRef2;
-          exports.Fragment = Fragment20;
-          exports.Lazy = Lazy;
-          exports.Memo = Memo2;
-          exports.Portal = Portal3;
-          exports.Profiler = Profiler;
-          exports.StrictMode = StrictMode;
-          exports.Suspense = Suspense3;
-          exports.isAsyncMode = isAsyncMode;
-          exports.isConcurrentMode = isConcurrentMode;
-          exports.isContextConsumer = isContextConsumer;
-          exports.isContextProvider = isContextProvider;
-          exports.isElement = isElement2;
-          exports.isForwardRef = isForwardRef;
-          exports.isFragment = isFragment5;
-          exports.isLazy = isLazy;
-          exports.isMemo = isMemo;
-          exports.isPortal = isPortal;
-          exports.isProfiler = isProfiler;
-          exports.isStrictMode = isStrictMode;
-          exports.isSuspense = isSuspense;
-          exports.isValidElementType = isValidElementType2;
-          exports.typeOf = typeOf;
-        })();
-      }
-    }
-  });
-
-  // ../../../../../../node_modules/prop-types/node_modules/react-is/index.js
-  var require_react_is4 = __commonJS({
-    "../../../../../../node_modules/prop-types/node_modules/react-is/index.js"(exports, module) {
-      "use strict";
-      if (false) {
-        module.exports = null;
-      } else {
-        module.exports = require_react_is_development4();
-      }
-    }
-  });
-
-  // ../../../../../../node_modules/object-assign/index.js
-  var require_object_assign2 = __commonJS({
-    "../../../../../../node_modules/object-assign/index.js"(exports, module) {
-      "use strict";
-      var getOwnPropertySymbols = Object.getOwnPropertySymbols;
-      var hasOwnProperty2 = Object.prototype.hasOwnProperty;
-      var propIsEnumerable = Object.prototype.propertyIsEnumerable;
-      function toObject(val) {
-        if (val === null || val === void 0) {
-          throw new TypeError("Object.assign cannot be called with null or undefined");
-        }
-        return Object(val);
-      }
-      function shouldUseNative() {
-        try {
-          if (!Object.assign) {
-            return false;
-          }
-          var test1 = new String("abc");
-          test1[5] = "de";
-          if (Object.getOwnPropertyNames(test1)[0] === "5") {
-            return false;
-          }
-          var test2 = {};
-          for (var i = 0; i < 10; i++) {
-            test2["_" + String.fromCharCode(i)] = i;
-          }
-          var order2 = Object.getOwnPropertyNames(test2).map(function(n) {
-            return test2[n];
-          });
-          if (order2.join("") !== "0123456789") {
-            return false;
-          }
-          var test3 = {};
-          "abcdefghijklmnopqrst".split("").forEach(function(letter) {
-            test3[letter] = letter;
-          });
-          if (Object.keys(Object.assign({}, test3)).join("") !== "abcdefghijklmnopqrst") {
-            return false;
-          }
-          return true;
-        } catch (err) {
-          return false;
-        }
-      }
-      module.exports = shouldUseNative() ? Object.assign : function(target, source) {
-        var from2;
-        var to = toObject(target);
-        var symbols;
-        for (var s = 1; s < arguments.length; s++) {
-          from2 = Object(arguments[s]);
-          for (var key in from2) {
-            if (hasOwnProperty2.call(from2, key)) {
-              to[key] = from2[key];
-            }
-          }
-          if (getOwnPropertySymbols) {
-            symbols = getOwnPropertySymbols(from2);
-            for (var i = 0; i < symbols.length; i++) {
-              if (propIsEnumerable.call(from2, symbols[i])) {
-                to[symbols[i]] = from2[symbols[i]];
-              }
-            }
-          }
-        }
-        return to;
-      };
-    }
-  });
-
-  // ../../../../../../node_modules/prop-types/lib/ReactPropTypesSecret.js
-  var require_ReactPropTypesSecret2 = __commonJS({
-    "../../../../../../node_modules/prop-types/lib/ReactPropTypesSecret.js"(exports, module) {
-      "use strict";
-      var ReactPropTypesSecret = "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED";
-      module.exports = ReactPropTypesSecret;
-    }
-  });
-
-  // ../../../../../../node_modules/prop-types/lib/has.js
-  var require_has2 = __commonJS({
-    "../../../../../../node_modules/prop-types/lib/has.js"(exports, module) {
-      module.exports = Function.call.bind(Object.prototype.hasOwnProperty);
-    }
-  });
-
-  // ../../../../../../node_modules/prop-types/checkPropTypes.js
-  var require_checkPropTypes2 = __commonJS({
-    "../../../../../../node_modules/prop-types/checkPropTypes.js"(exports, module) {
-      "use strict";
-      var printWarning = function() {
-      };
-      if (true) {
-        ReactPropTypesSecret = require_ReactPropTypesSecret2();
-        loggedTypeFailures = {};
-        has = require_has2();
-        printWarning = function(text) {
-          var message = "Warning: " + text;
-          if (typeof console !== "undefined") {
-            console.error(message);
-          }
-          try {
-            throw new Error(message);
-          } catch (x) {
-          }
-        };
-      }
-      var ReactPropTypesSecret;
-      var loggedTypeFailures;
-      var has;
-      function checkPropTypes(typeSpecs, values4, location2, componentName, getStack) {
-        if (true) {
-          for (var typeSpecName in typeSpecs) {
-            if (has(typeSpecs, typeSpecName)) {
-              var error;
-              try {
-                if (typeof typeSpecs[typeSpecName] !== "function") {
-                  var err = Error(
-                    (componentName || "React class") + ": " + location2 + " type `" + typeSpecName + "` is invalid; it must be a function, usually from the `prop-types` package, but received `" + typeof typeSpecs[typeSpecName] + "`.This often happens because of typos such as `PropTypes.function` instead of `PropTypes.func`."
-                  );
-                  err.name = "Invariant Violation";
-                  throw err;
-                }
-                error = typeSpecs[typeSpecName](values4, typeSpecName, componentName, location2, null, ReactPropTypesSecret);
-              } catch (ex) {
-                error = ex;
-              }
-              if (error && !(error instanceof Error)) {
-                printWarning(
-                  (componentName || "React class") + ": type specification of " + location2 + " `" + typeSpecName + "` is invalid; the type checker function must return `null` or an `Error` but returned a " + typeof error + ". You may have forgotten to pass an argument to the type checker creator (arrayOf, instanceOf, objectOf, oneOf, oneOfType, and shape all require an argument)."
-                );
-              }
-              if (error instanceof Error && !(error.message in loggedTypeFailures)) {
-                loggedTypeFailures[error.message] = true;
-                var stack = getStack ? getStack() : "";
-                printWarning(
-                  "Failed " + location2 + " type: " + error.message + (stack != null ? stack : "")
-                );
-              }
-            }
-          }
-        }
-      }
-      checkPropTypes.resetWarningCache = function() {
-        if (true) {
-          loggedTypeFailures = {};
-        }
-      };
-      module.exports = checkPropTypes;
-    }
-  });
-
-  // ../../../../../../node_modules/prop-types/factoryWithTypeCheckers.js
-  var require_factoryWithTypeCheckers2 = __commonJS({
-    "../../../../../../node_modules/prop-types/factoryWithTypeCheckers.js"(exports, module) {
-      "use strict";
-      var ReactIs = require_react_is4();
-      var assign2 = require_object_assign2();
-      var ReactPropTypesSecret = require_ReactPropTypesSecret2();
-      var has = require_has2();
-      var checkPropTypes = require_checkPropTypes2();
-      var printWarning = function() {
-      };
-      if (true) {
-        printWarning = function(text) {
-          var message = "Warning: " + text;
-          if (typeof console !== "undefined") {
-            console.error(message);
-          }
-          try {
-            throw new Error(message);
-          } catch (x) {
-          }
-        };
-      }
-      function emptyFunctionThatReturnsNull() {
-        return null;
-      }
-      module.exports = function(isValidElement13, throwOnDirectAccess) {
-        var ITERATOR_SYMBOL = typeof Symbol === "function" && Symbol.iterator;
-        var FAUX_ITERATOR_SYMBOL = "@@iterator";
-        function getIteratorFn(maybeIterable) {
-          var iteratorFn = maybeIterable && (ITERATOR_SYMBOL && maybeIterable[ITERATOR_SYMBOL] || maybeIterable[FAUX_ITERATOR_SYMBOL]);
-          if (typeof iteratorFn === "function") {
-            return iteratorFn;
-          }
-        }
-        var ANONYMOUS = "<<anonymous>>";
-        var ReactPropTypes = {
-          array: createPrimitiveTypeChecker("array"),
-          bigint: createPrimitiveTypeChecker("bigint"),
-          bool: createPrimitiveTypeChecker("boolean"),
-          func: createPrimitiveTypeChecker("function"),
-          number: createPrimitiveTypeChecker("number"),
-          object: createPrimitiveTypeChecker("object"),
-          string: createPrimitiveTypeChecker("string"),
-          symbol: createPrimitiveTypeChecker("symbol"),
-          any: createAnyTypeChecker(),
-          arrayOf: createArrayOfTypeChecker,
-          element: createElementTypeChecker(),
-          elementType: createElementTypeTypeChecker(),
-          instanceOf: createInstanceTypeChecker,
-          node: createNodeChecker(),
-          objectOf: createObjectOfTypeChecker,
-          oneOf: createEnumTypeChecker,
-          oneOfType: createUnionTypeChecker,
-          shape: createShapeTypeChecker,
-          exact: createStrictShapeTypeChecker
-        };
-        function is(x, y) {
-          if (x === y) {
-            return x !== 0 || 1 / x === 1 / y;
-          } else {
-            return x !== x && y !== y;
-          }
-        }
-        function PropTypeError(message, data2) {
-          this.message = message;
-          this.data = data2 && typeof data2 === "object" ? data2 : {};
-          this.stack = "";
-        }
-        PropTypeError.prototype = Error.prototype;
-        function createChainableTypeChecker(validate) {
-          if (true) {
-            var manualPropTypeCallCache = {};
-            var manualPropTypeWarningCount = 0;
-          }
-          function checkType(isRequired, props, propName, componentName, location2, propFullName, secret) {
-            componentName = componentName || ANONYMOUS;
-            propFullName = propFullName || propName;
-            if (secret !== ReactPropTypesSecret) {
-              if (throwOnDirectAccess) {
-                var err = new Error(
-                  "Calling PropTypes validators directly is not supported by the `prop-types` package. Use `PropTypes.checkPropTypes()` to call them. Read more at http://fb.me/use-check-prop-types"
-                );
-                err.name = "Invariant Violation";
-                throw err;
-              } else if (typeof console !== "undefined") {
-                var cacheKey = componentName + ":" + propName;
-                if (!manualPropTypeCallCache[cacheKey] && // Avoid spamming the console because they are often not actionable except for lib authors
-                manualPropTypeWarningCount < 3) {
-                  printWarning(
-                    "You are manually calling a React.PropTypes validation function for the `" + propFullName + "` prop on `" + componentName + "`. This is deprecated and will throw in the standalone `prop-types` package. You may be seeing this warning due to a third-party PropTypes library. See https://fb.me/react-warning-dont-call-proptypes for details."
-                  );
-                  manualPropTypeCallCache[cacheKey] = true;
-                  manualPropTypeWarningCount++;
-                }
-              }
-            }
-            if (props[propName] == null) {
-              if (isRequired) {
-                if (props[propName] === null) {
-                  return new PropTypeError("The " + location2 + " `" + propFullName + "` is marked as required " + ("in `" + componentName + "`, but its value is `null`."));
-                }
-                return new PropTypeError("The " + location2 + " `" + propFullName + "` is marked as required in " + ("`" + componentName + "`, but its value is `undefined`."));
-              }
-              return null;
-            } else {
-              return validate(props, propName, componentName, location2, propFullName);
-            }
-          }
-          var chainedCheckType = checkType.bind(null, false);
-          chainedCheckType.isRequired = checkType.bind(null, true);
-          return chainedCheckType;
-        }
-        function createPrimitiveTypeChecker(expectedType) {
-          function validate(props, propName, componentName, location2, propFullName, secret) {
-            var propValue = props[propName];
-            var propType = getPropType(propValue);
-            if (propType !== expectedType) {
-              var preciseType = getPreciseType(propValue);
-              return new PropTypeError(
-                "Invalid " + location2 + " `" + propFullName + "` of type " + ("`" + preciseType + "` supplied to `" + componentName + "`, expected ") + ("`" + expectedType + "`."),
-                { expectedType }
-              );
-            }
-            return null;
-          }
-          return createChainableTypeChecker(validate);
-        }
-        function createAnyTypeChecker() {
-          return createChainableTypeChecker(emptyFunctionThatReturnsNull);
-        }
-        function createArrayOfTypeChecker(typeChecker) {
-          function validate(props, propName, componentName, location2, propFullName) {
-            if (typeof typeChecker !== "function") {
-              return new PropTypeError("Property `" + propFullName + "` of component `" + componentName + "` has invalid PropType notation inside arrayOf.");
-            }
-            var propValue = props[propName];
-            if (!Array.isArray(propValue)) {
-              var propType = getPropType(propValue);
-              return new PropTypeError("Invalid " + location2 + " `" + propFullName + "` of type " + ("`" + propType + "` supplied to `" + componentName + "`, expected an array."));
-            }
-            for (var i = 0; i < propValue.length; i++) {
-              var error = typeChecker(propValue, i, componentName, location2, propFullName + "[" + i + "]", ReactPropTypesSecret);
-              if (error instanceof Error) {
-                return error;
-              }
-            }
-            return null;
-          }
-          return createChainableTypeChecker(validate);
-        }
-        function createElementTypeChecker() {
-          function validate(props, propName, componentName, location2, propFullName) {
-            var propValue = props[propName];
-            if (!isValidElement13(propValue)) {
-              var propType = getPropType(propValue);
-              return new PropTypeError("Invalid " + location2 + " `" + propFullName + "` of type " + ("`" + propType + "` supplied to `" + componentName + "`, expected a single ReactElement."));
-            }
-            return null;
-          }
-          return createChainableTypeChecker(validate);
-        }
-        function createElementTypeTypeChecker() {
-          function validate(props, propName, componentName, location2, propFullName) {
-            var propValue = props[propName];
-            if (!ReactIs.isValidElementType(propValue)) {
-              var propType = getPropType(propValue);
-              return new PropTypeError("Invalid " + location2 + " `" + propFullName + "` of type " + ("`" + propType + "` supplied to `" + componentName + "`, expected a single ReactElement type."));
-            }
-            return null;
-          }
-          return createChainableTypeChecker(validate);
-        }
-        function createInstanceTypeChecker(expectedClass) {
-          function validate(props, propName, componentName, location2, propFullName) {
-            if (!(props[propName] instanceof expectedClass)) {
-              var expectedClassName = expectedClass.name || ANONYMOUS;
-              var actualClassName = getClassName(props[propName]);
-              return new PropTypeError("Invalid " + location2 + " `" + propFullName + "` of type " + ("`" + actualClassName + "` supplied to `" + componentName + "`, expected ") + ("instance of `" + expectedClassName + "`."));
-            }
-            return null;
-          }
-          return createChainableTypeChecker(validate);
-        }
-        function createEnumTypeChecker(expectedValues) {
-          if (!Array.isArray(expectedValues)) {
-            if (true) {
-              if (arguments.length > 1) {
-                printWarning(
-                  "Invalid arguments supplied to oneOf, expected an array, got " + arguments.length + " arguments. A common mistake is to write oneOf(x, y, z) instead of oneOf([x, y, z])."
-                );
-              } else {
-                printWarning("Invalid argument supplied to oneOf, expected an array.");
-              }
-            }
-            return emptyFunctionThatReturnsNull;
-          }
-          function validate(props, propName, componentName, location2, propFullName) {
-            var propValue = props[propName];
-            for (var i = 0; i < expectedValues.length; i++) {
-              if (is(propValue, expectedValues[i])) {
-                return null;
-              }
-            }
-            var valuesString = JSON.stringify(expectedValues, function replacer(key, value) {
-              var type = getPreciseType(value);
-              if (type === "symbol") {
-                return String(value);
-              }
-              return value;
-            });
-            return new PropTypeError("Invalid " + location2 + " `" + propFullName + "` of value `" + String(propValue) + "` " + ("supplied to `" + componentName + "`, expected one of " + valuesString + "."));
-          }
-          return createChainableTypeChecker(validate);
-        }
-        function createObjectOfTypeChecker(typeChecker) {
-          function validate(props, propName, componentName, location2, propFullName) {
-            if (typeof typeChecker !== "function") {
-              return new PropTypeError("Property `" + propFullName + "` of component `" + componentName + "` has invalid PropType notation inside objectOf.");
-            }
-            var propValue = props[propName];
-            var propType = getPropType(propValue);
-            if (propType !== "object") {
-              return new PropTypeError("Invalid " + location2 + " `" + propFullName + "` of type " + ("`" + propType + "` supplied to `" + componentName + "`, expected an object."));
-            }
-            for (var key in propValue) {
-              if (has(propValue, key)) {
-                var error = typeChecker(propValue, key, componentName, location2, propFullName + "." + key, ReactPropTypesSecret);
-                if (error instanceof Error) {
-                  return error;
-                }
-              }
-            }
-            return null;
-          }
-          return createChainableTypeChecker(validate);
-        }
-        function createUnionTypeChecker(arrayOfTypeCheckers) {
-          if (!Array.isArray(arrayOfTypeCheckers)) {
-            true ? printWarning("Invalid argument supplied to oneOfType, expected an instance of array.") : void 0;
-            return emptyFunctionThatReturnsNull;
-          }
-          for (var i = 0; i < arrayOfTypeCheckers.length; i++) {
-            var checker = arrayOfTypeCheckers[i];
-            if (typeof checker !== "function") {
-              printWarning(
-                "Invalid argument supplied to oneOfType. Expected an array of check functions, but received " + getPostfixForTypeWarning(checker) + " at index " + i + "."
-              );
-              return emptyFunctionThatReturnsNull;
-            }
-          }
-          function validate(props, propName, componentName, location2, propFullName) {
-            var expectedTypes = [];
-            for (var i2 = 0; i2 < arrayOfTypeCheckers.length; i2++) {
-              var checker2 = arrayOfTypeCheckers[i2];
-              var checkerResult = checker2(props, propName, componentName, location2, propFullName, ReactPropTypesSecret);
-              if (checkerResult == null) {
-                return null;
-              }
-              if (checkerResult.data && has(checkerResult.data, "expectedType")) {
-                expectedTypes.push(checkerResult.data.expectedType);
-              }
-            }
-            var expectedTypesMessage = expectedTypes.length > 0 ? ", expected one of type [" + expectedTypes.join(", ") + "]" : "";
-            return new PropTypeError("Invalid " + location2 + " `" + propFullName + "` supplied to " + ("`" + componentName + "`" + expectedTypesMessage + "."));
-          }
-          return createChainableTypeChecker(validate);
-        }
-        function createNodeChecker() {
-          function validate(props, propName, componentName, location2, propFullName) {
-            if (!isNode(props[propName])) {
-              return new PropTypeError("Invalid " + location2 + " `" + propFullName + "` supplied to " + ("`" + componentName + "`, expected a ReactNode."));
-            }
-            return null;
-          }
-          return createChainableTypeChecker(validate);
-        }
-        function invalidValidatorError(componentName, location2, propFullName, key, type) {
-          return new PropTypeError(
-            (componentName || "React class") + ": " + location2 + " type `" + propFullName + "." + key + "` is invalid; it must be a function, usually from the `prop-types` package, but received `" + type + "`."
-          );
-        }
-        function createShapeTypeChecker(shapeTypes) {
-          function validate(props, propName, componentName, location2, propFullName) {
-            var propValue = props[propName];
-            var propType = getPropType(propValue);
-            if (propType !== "object") {
-              return new PropTypeError("Invalid " + location2 + " `" + propFullName + "` of type `" + propType + "` " + ("supplied to `" + componentName + "`, expected `object`."));
-            }
-            for (var key in shapeTypes) {
-              var checker = shapeTypes[key];
-              if (typeof checker !== "function") {
-                return invalidValidatorError(componentName, location2, propFullName, key, getPreciseType(checker));
-              }
-              var error = checker(propValue, key, componentName, location2, propFullName + "." + key, ReactPropTypesSecret);
-              if (error) {
-                return error;
-              }
-            }
-            return null;
-          }
-          return createChainableTypeChecker(validate);
-        }
-        function createStrictShapeTypeChecker(shapeTypes) {
-          function validate(props, propName, componentName, location2, propFullName) {
-            var propValue = props[propName];
-            var propType = getPropType(propValue);
-            if (propType !== "object") {
-              return new PropTypeError("Invalid " + location2 + " `" + propFullName + "` of type `" + propType + "` " + ("supplied to `" + componentName + "`, expected `object`."));
-            }
-            var allKeys = assign2({}, props[propName], shapeTypes);
-            for (var key in allKeys) {
-              var checker = shapeTypes[key];
-              if (has(shapeTypes, key) && typeof checker !== "function") {
-                return invalidValidatorError(componentName, location2, propFullName, key, getPreciseType(checker));
-              }
-              if (!checker) {
-                return new PropTypeError(
-                  "Invalid " + location2 + " `" + propFullName + "` key `" + key + "` supplied to `" + componentName + "`.\nBad object: " + JSON.stringify(props[propName], null, "  ") + "\nValid keys: " + JSON.stringify(Object.keys(shapeTypes), null, "  ")
-                );
-              }
-              var error = checker(propValue, key, componentName, location2, propFullName + "." + key, ReactPropTypesSecret);
-              if (error) {
-                return error;
-              }
-            }
-            return null;
-          }
-          return createChainableTypeChecker(validate);
-        }
-        function isNode(propValue) {
-          switch (typeof propValue) {
-            case "number":
-            case "string":
-            case "undefined":
-              return true;
-            case "boolean":
-              return !propValue;
-            case "object":
-              if (Array.isArray(propValue)) {
-                return propValue.every(isNode);
-              }
-              if (propValue === null || isValidElement13(propValue)) {
-                return true;
-              }
-              var iteratorFn = getIteratorFn(propValue);
-              if (iteratorFn) {
-                var iterator = iteratorFn.call(propValue);
-                var step;
-                if (iteratorFn !== propValue.entries) {
-                  while (!(step = iterator.next()).done) {
-                    if (!isNode(step.value)) {
-                      return false;
-                    }
-                  }
-                } else {
-                  while (!(step = iterator.next()).done) {
-                    var entry = step.value;
-                    if (entry) {
-                      if (!isNode(entry[1])) {
-                        return false;
-                      }
-                    }
-                  }
-                }
-              } else {
-                return false;
-              }
-              return true;
-            default:
-              return false;
-          }
-        }
-        function isSymbol(propType, propValue) {
-          if (propType === "symbol") {
-            return true;
-          }
-          if (!propValue) {
-            return false;
-          }
-          if (propValue["@@toStringTag"] === "Symbol") {
-            return true;
-          }
-          if (typeof Symbol === "function" && propValue instanceof Symbol) {
-            return true;
-          }
-          return false;
-        }
-        function getPropType(propValue) {
-          var propType = typeof propValue;
-          if (Array.isArray(propValue)) {
-            return "array";
-          }
-          if (propValue instanceof RegExp) {
-            return "object";
-          }
-          if (isSymbol(propType, propValue)) {
-            return "symbol";
-          }
-          return propType;
-        }
-        function getPreciseType(propValue) {
-          if (typeof propValue === "undefined" || propValue === null) {
-            return "" + propValue;
-          }
-          var propType = getPropType(propValue);
-          if (propType === "object") {
-            if (propValue instanceof Date) {
-              return "date";
-            } else if (propValue instanceof RegExp) {
-              return "regexp";
-            }
-          }
-          return propType;
-        }
-        function getPostfixForTypeWarning(value) {
-          var type = getPreciseType(value);
-          switch (type) {
-            case "array":
-            case "object":
-              return "an " + type;
-            case "boolean":
-            case "date":
-            case "regexp":
-              return "a " + type;
-            default:
-              return type;
-          }
-        }
-        function getClassName(propValue) {
-          if (!propValue.constructor || !propValue.constructor.name) {
-            return ANONYMOUS;
-          }
-          return propValue.constructor.name;
-        }
-        ReactPropTypes.checkPropTypes = checkPropTypes;
-        ReactPropTypes.resetWarningCache = checkPropTypes.resetWarningCache;
-        ReactPropTypes.PropTypes = ReactPropTypes;
-        return ReactPropTypes;
-      };
-    }
-  });
-
-  // ../../../../../../node_modules/prop-types/index.js
-  var require_prop_types2 = __commonJS({
-    "../../../../../../node_modules/prop-types/index.js"(exports, module) {
-      if (true) {
-        ReactIs = require_react_is4();
-        throwOnDirectAccess = true;
-        module.exports = require_factoryWithTypeCheckers2()(ReactIs.isElement, throwOnDirectAccess);
-      } else {
-        module.exports = null();
-      }
-      var ReactIs;
-      var throwOnDirectAccess;
-    }
-  });
-
   // ../frontend/src/main.jsx
   var import_react23 = __toESM(require_react(), 1);
   var import_client = __toESM(require_client(), 1);
@@ -45558,8 +44781,8 @@ Please change the parent <Route path="${parentPath}"> to <Route path="${parentPa
   }
   function sortKeys(obj) {
     let sorted = {};
-    let keys2 = Object.keys(obj).sort();
-    for (let key of keys2) {
+    let keys = Object.keys(obj).sort();
+    for (let key of keys) {
       sorted[key] = obj[key];
     }
     return sorted;
@@ -46481,22 +45704,22 @@ Please change the parent <Route path="${parentPath}"> to <Route path="${parentPa
         fn2.call(null, obj[i], i, obj);
       }
     } else {
-      const keys2 = allOwnKeys ? Object.getOwnPropertyNames(obj) : Object.keys(obj);
-      const len = keys2.length;
+      const keys = allOwnKeys ? Object.getOwnPropertyNames(obj) : Object.keys(obj);
+      const len = keys.length;
       let key;
       for (i = 0; i < len; i++) {
-        key = keys2[i];
+        key = keys[i];
         fn2.call(null, obj[key], key, obj);
       }
     }
   }
   function findKey(obj, key) {
     key = key.toLowerCase();
-    const keys2 = Object.keys(obj);
-    let i = keys2.length;
+    const keys = Object.keys(obj);
+    let i = keys.length;
     let _key;
     while (i-- > 0) {
-      _key = keys2[i];
+      _key = keys[i];
       if (key === _key.toLowerCase()) {
         return _key;
       }
@@ -47167,12 +46390,12 @@ Please change the parent <Route path="${parentPath}"> to <Route path="${parentPa
   }
   function arrayToObject(arr) {
     const obj = {};
-    const keys2 = Object.keys(arr);
+    const keys = Object.keys(arr);
     let i;
-    const len = keys2.length;
+    const len = keys.length;
     let key;
     for (i = 0; i < len; i++) {
-      key = keys2[i];
+      key = keys[i];
       obj[key] = arr[key];
     }
     return obj;
@@ -47499,11 +46722,11 @@ Please change the parent <Route path="${parentPath}"> to <Route path="${parentPa
       return deleted;
     }
     clear(matcher) {
-      const keys2 = Object.keys(this);
-      let i = keys2.length;
+      const keys = Object.keys(this);
+      let i = keys.length;
       let deleted = false;
       while (i--) {
-        const key = keys2[i];
+        const key = keys[i];
         if (!matcher || matchHeaderValue(this, this[key], key, matcher, true)) {
           delete this[key];
           deleted = true;
@@ -47877,9 +47100,9 @@ Please change the parent <Route path="${parentPath}"> to <Route path="${parentPa
       headers: (a, b, prop) => mergeDeepProperties(headersToObject(a), headersToObject(b), prop, true)
     };
     utils_default.forEach(Object.keys(Object.assign({}, config1, config2)), function computeConfigValue(prop) {
-      const merge4 = mergeMap[prop] || mergeDeepProperties;
-      const configValue = merge4(config1[prop], config2[prop], prop);
-      utils_default.isUndefined(configValue) && merge4 !== mergeDirectKeys || (config[prop] = configValue);
+      const merge3 = mergeMap[prop] || mergeDeepProperties;
+      const configValue = merge3(config1[prop], config2[prop], prop);
+      utils_default.isUndefined(configValue) && merge3 !== mergeDirectKeys || (config[prop] = configValue);
     });
     return config;
   }
@@ -48464,10 +47687,10 @@ Please change the parent <Route path="${parentPath}"> to <Route path="${parentPa
     if (typeof options !== "object") {
       throw new AxiosError_default("options must be an object", AxiosError_default.ERR_BAD_OPTION_VALUE);
     }
-    const keys2 = Object.keys(options);
-    let i = keys2.length;
+    const keys = Object.keys(options);
+    let i = keys.length;
     while (i-- > 0) {
-      const opt = keys2[i];
+      const opt = keys[i];
       const validator2 = schema[opt];
       if (validator2) {
         const value = options[opt];
@@ -48847,7 +48070,7 @@ Please change the parent <Route path="${parentPath}"> to <Route path="${parentPa
     const instance = bind(Axios_default.prototype.request, context);
     utils_default.extend(instance, Axios_default.prototype, context, { allOwnKeys: true });
     utils_default.extend(instance, context, null, { allOwnKeys: true });
-    instance.create = function create2(instanceConfig) {
+    instance.create = function create(instanceConfig) {
       return createInstance(mergeConfig(defaultConfig, instanceConfig));
     };
     return instance;
@@ -48922,7 +48145,7 @@ Please change the parent <Route path="${parentPath}"> to <Route path="${parentPa
         for (let i = 0; i < steps.length; i++) {
           list.push(steps[i].location);
         }
-        const duration3 = parseInt(response.data.summary.duration / 60);
+        const duration2 = parseInt(response.data.summary.duration / 60);
         const timeData = await axios_default.post(
           "https://api.openrouteservice.org/v2/directions/driving-car",
           {
@@ -48936,7 +48159,7 @@ Please change the parent <Route path="${parentPath}"> to <Route path="${parentPa
           }
         );
         const distance = timeData.data.routes[0].summary.distance;
-        return [list, distance, duration3];
+        return [list, distance, duration2];
       } else {
         const response = await axios_default.get("https://api.openrouteservice.org/v2/directions/driving-car", {
           params: {
@@ -48970,7 +48193,7 @@ Please change the parent <Route path="${parentPath}"> to <Route path="${parentPa
   var route_default = { travelTimeAndDistance, addressToCoordinates };
 
   // ../frontend/src/services/users.jsx
-  var baseUrl = "http://localhost:3000/api/users";
+  var baseUrl = "api/users";
   var getUsers = async () => {
     try {
       const users = await axios_default.get(baseUrl);
@@ -50385,8 +49608,8 @@ Please change the parent <Route path="${parentPath}"> to <Route path="${parentPa
 
   // ../frontend/node_modules/@emotion/use-insertion-effect-with-fallbacks/dist/emotion-use-insertion-effect-with-fallbacks.browser.esm.js
   var React15 = __toESM(require_react());
-  var syncFallback = function syncFallback2(create2) {
-    return create2();
+  var syncFallback = function syncFallback2(create) {
+    return create();
   };
   var useInsertionEffect2 = React15["useInsertionEffect"] ? React15["useInsertionEffect"] : false;
   var useInsertionEffectAlwaysWithSyncFallback = useInsertionEffect2 || syncFallback;
@@ -50932,10 +50155,10 @@ Please change the parent <Route path="${parentPath}"> to <Route path="${parentPa
   }
 
   // ../frontend/node_modules/@mui/system/esm/createBreakpoints/createBreakpoints.js
-  var sortBreakpointsValues = (values4) => {
-    const breakpointsAsArray = Object.keys(values4).map((key) => ({
+  var sortBreakpointsValues = (values3) => {
+    const breakpointsAsArray = Object.keys(values3).map((key) => ({
       key,
-      val: values4[key]
+      val: values3[key]
     })) || [];
     breakpointsAsArray.sort((breakpoint1, breakpoint2) => breakpoint1.val - breakpoint2.val);
     return breakpointsAsArray.reduce((acc, obj) => {
@@ -50949,7 +50172,7 @@ Please change the parent <Route path="${parentPath}"> to <Route path="${parentPa
     const {
       // The breakpoint **start** at this value.
       // For instance with the first breakpoint xs: [xs, sm).
-      values: values4 = {
+      values: values3 = {
         xs: 0,
         // phone
         sm: 600,
@@ -50965,40 +50188,40 @@ Please change the parent <Route path="${parentPath}"> to <Route path="${parentPa
       step = 5,
       ...other
     } = breakpoints;
-    const sortedValues = sortBreakpointsValues(values4);
-    const keys2 = Object.keys(sortedValues);
-    function up2(key) {
-      const value = typeof values4[key] === "number" ? values4[key] : key;
+    const sortedValues = sortBreakpointsValues(values3);
+    const keys = Object.keys(sortedValues);
+    function up(key) {
+      const value = typeof values3[key] === "number" ? values3[key] : key;
       return `@media (min-width:${value}${unit})`;
     }
     function down(key) {
-      const value = typeof values4[key] === "number" ? values4[key] : key;
+      const value = typeof values3[key] === "number" ? values3[key] : key;
       return `@media (max-width:${value - step / 100}${unit})`;
     }
     function between(start2, end2) {
-      const endIndex = keys2.indexOf(end2);
-      return `@media (min-width:${typeof values4[start2] === "number" ? values4[start2] : start2}${unit}) and (max-width:${(endIndex !== -1 && typeof values4[keys2[endIndex]] === "number" ? values4[keys2[endIndex]] : end2) - step / 100}${unit})`;
+      const endIndex = keys.indexOf(end2);
+      return `@media (min-width:${typeof values3[start2] === "number" ? values3[start2] : start2}${unit}) and (max-width:${(endIndex !== -1 && typeof values3[keys[endIndex]] === "number" ? values3[keys[endIndex]] : end2) - step / 100}${unit})`;
     }
     function only(key) {
-      if (keys2.indexOf(key) + 1 < keys2.length) {
-        return between(key, keys2[keys2.indexOf(key) + 1]);
+      if (keys.indexOf(key) + 1 < keys.length) {
+        return between(key, keys[keys.indexOf(key) + 1]);
       }
-      return up2(key);
+      return up(key);
     }
     function not(key) {
-      const keyIndex = keys2.indexOf(key);
+      const keyIndex = keys.indexOf(key);
       if (keyIndex === 0) {
-        return up2(keys2[1]);
+        return up(keys[1]);
       }
-      if (keyIndex === keys2.length - 1) {
-        return down(keys2[keyIndex]);
+      if (keyIndex === keys.length - 1) {
+        return down(keys[keyIndex]);
       }
-      return between(key, keys2[keys2.indexOf(key) + 1]).replace("@media", "@media not all and");
+      return between(key, keys[keys.indexOf(key) + 1]).replace("@media", "@media not all and");
     }
     return {
-      keys: keys2,
+      keys,
       values: sortedValues,
-      up: up2,
+      up,
       down,
       between,
       only,
@@ -51205,12 +50428,12 @@ For example, \`@sm\` or \`@600\` or \`@40rem/sidebar\`.` : formatMuiErrorMessage
     base: customBase
   }) {
     const base = customBase || computeBreakpointsBase(breakpointValues, themeBreakpoints);
-    const keys2 = Object.keys(base);
-    if (keys2.length === 0) {
+    const keys = Object.keys(base);
+    if (keys.length === 0) {
       return breakpointValues;
     }
     let previous;
-    return keys2.reduce((acc, breakpoint, i) => {
+    return keys.reduce((acc, breakpoint, i) => {
       if (Array.isArray(breakpointValues)) {
         acc[breakpoint] = breakpointValues[i] != null ? breakpointValues[i] : breakpointValues[previous];
         previous = i;
@@ -51410,8 +50633,8 @@ For example, \`@sm\` or \`@600\` or \`@40rem/sidebar\`.` : formatMuiErrorMessage
       return acc;
     }, {});
   }
-  function resolveCssProperty(props, keys2, prop, transformer) {
-    if (!keys2.includes(prop)) {
+  function resolveCssProperty(props, keys, prop, transformer) {
+    if (!keys.includes(prop)) {
       return null;
     }
     const cssProperties = getCssProperties(prop);
@@ -51419,9 +50642,9 @@ For example, \`@sm\` or \`@600\` or \`@40rem/sidebar\`.` : formatMuiErrorMessage
     const propValue = props[prop];
     return handleBreakpoints(props, propValue, styleFromPropValue);
   }
-  function style2(props, keys2) {
+  function style2(props, keys) {
     const transformer = createUnarySpacing(props.theme);
-    return Object.keys(props).map((prop) => resolveCssProperty(props, keys2, prop, transformer)).reduce(merge_default, {});
+    return Object.keys(props).map((prop) => resolveCssProperty(props, keys, prop, transformer)).reduce(merge_default, {});
   }
   function margin(props) {
     return style2(props, marginKeys);
@@ -51455,7 +50678,7 @@ For example, \`@sm\` or \`@600\` or \`@40rem/sidebar\`.` : formatMuiErrorMessage
     if (spacingInput.mui) {
       return spacingInput;
     }
-    const spacing3 = (...argsInput) => {
+    const spacing2 = (...argsInput) => {
       if (true) {
         if (!(argsInput.length <= 4)) {
           console.error(`MUI: Too many arguments provided, expected between 0 and 4, got ${argsInput.length}`);
@@ -51467,8 +50690,8 @@ For example, \`@sm\` or \`@600\` or \`@40rem/sidebar\`.` : formatMuiErrorMessage
         return typeof output === "number" ? `${output}px` : output;
       }).join(" ");
     };
-    spacing3.mui = true;
-    return spacing3;
+    spacing2.mui = true;
+    return spacing2;
   }
 
   // ../frontend/node_modules/@mui/system/esm/compose/compose.js
@@ -51987,7 +51210,7 @@ For example, \`@sm\` or \`@600\` or \`@40rem/sidebar\`.` : formatMuiErrorMessage
 
   // ../frontend/node_modules/@mui/system/esm/styleFunctionSx/styleFunctionSx.js
   function objectsHaveSameKeys(...objects) {
-    const allKeys = objects.reduce((keys2, object) => keys2.concat(Object.keys(object)), []);
+    const allKeys = objects.reduce((keys, object) => keys.concat(Object.keys(object)), []);
     const union = new Set(allKeys);
     return objects.every((object) => union.size === Object.keys(object).length);
   }
@@ -52130,7 +51353,7 @@ For example, \`@sm\` or \`@600\` or \`@40rem/sidebar\`.` : formatMuiErrorMessage
       ...other
     } = options;
     const breakpoints = createBreakpoints(breakpointsInput);
-    const spacing3 = createSpacing(spacingInput);
+    const spacing2 = createSpacing(spacingInput);
     let muiTheme = deepmerge({
       breakpoints,
       direction: "ltr",
@@ -52140,7 +51363,7 @@ For example, \`@sm\` or \`@600\` or \`@40rem/sidebar\`.` : formatMuiErrorMessage
         mode: "light",
         ...paletteInput
       },
-      spacing: spacing3,
+      spacing: spacing2,
       shape: {
         ...shape_default,
         ...shapeInput
@@ -52763,25 +51986,25 @@ For example, \`@sm\` or \`@600\` or \`@40rem/sidebar\`.` : formatMuiErrorMessage
       throw new Error(true ? `MUI: Unsupported \`${color2}\` color.
 The following formats are supported: #nnn, #nnnnnn, rgb(), rgba(), hsl(), hsla(), color().` : formatMuiErrorMessage(9, color2));
     }
-    let values4 = color2.substring(marker + 1, color2.length - 1);
+    let values3 = color2.substring(marker + 1, color2.length - 1);
     let colorSpace;
     if (type === "color") {
-      values4 = values4.split(" ");
-      colorSpace = values4.shift();
-      if (values4.length === 4 && values4[3].charAt(0) === "/") {
-        values4[3] = values4[3].slice(1);
+      values3 = values3.split(" ");
+      colorSpace = values3.shift();
+      if (values3.length === 4 && values3[3].charAt(0) === "/") {
+        values3[3] = values3[3].slice(1);
       }
       if (!["srgb", "display-p3", "a98-rgb", "prophoto-rgb", "rec-2020"].includes(colorSpace)) {
         throw new Error(true ? `MUI: unsupported \`${colorSpace}\` color space.
 The following color spaces are supported: srgb, display-p3, a98-rgb, prophoto-rgb, rec-2020.` : formatMuiErrorMessage(10, colorSpace));
       }
     } else {
-      values4 = values4.split(",");
+      values3 = values3.split(",");
     }
-    values4 = values4.map((value) => parseFloat(value));
+    values3 = values3.map((value) => parseFloat(value));
     return {
       type,
-      values: values4,
+      values: values3,
       colorSpace
     };
   }
@@ -52805,36 +52028,36 @@ The following color spaces are supported: srgb, display-p3, a98-rgb, prophoto-rg
       colorSpace
     } = color2;
     let {
-      values: values4
+      values: values3
     } = color2;
     if (type.includes("rgb")) {
-      values4 = values4.map((n, i) => i < 3 ? parseInt(n, 10) : n);
+      values3 = values3.map((n, i) => i < 3 ? parseInt(n, 10) : n);
     } else if (type.includes("hsl")) {
-      values4[1] = `${values4[1]}%`;
-      values4[2] = `${values4[2]}%`;
+      values3[1] = `${values3[1]}%`;
+      values3[2] = `${values3[2]}%`;
     }
     if (type.includes("color")) {
-      values4 = `${colorSpace} ${values4.join(" ")}`;
+      values3 = `${colorSpace} ${values3.join(" ")}`;
     } else {
-      values4 = `${values4.join(", ")}`;
+      values3 = `${values3.join(", ")}`;
     }
-    return `${type}(${values4})`;
+    return `${type}(${values3})`;
   }
   function hslToRgb(color2) {
     color2 = decomposeColor(color2);
     const {
-      values: values4
+      values: values3
     } = color2;
-    const h = values4[0];
-    const s = values4[1] / 100;
-    const l = values4[2] / 100;
+    const h = values3[0];
+    const s = values3[1] / 100;
+    const l = values3[2] / 100;
     const a = s * Math.min(l, 1 - l);
     const f = (n, k = (n + h / 30) % 12) => l - a * Math.max(Math.min(k - 3, 9 - k, 1), -1);
     let type = "rgb";
     const rgb = [Math.round(f(0) * 255), Math.round(f(8) * 255), Math.round(f(4) * 255)];
     if (color2.type === "hsla") {
       type += "a";
-      rgb.push(values4[3]);
+      rgb.push(values3[3]);
     }
     return recomposeColor({
       type,
@@ -53624,10 +52847,10 @@ The following color spaces are supported: srgb, display-p3, a98-rgb, prophoto-rg
   }
 
   // ../frontend/node_modules/@mui/system/esm/cssVars/cssVarsParser.js
-  var assignNestedKeys = (obj, keys2, value, arrayKeys = []) => {
+  var assignNestedKeys = (obj, keys, value, arrayKeys = []) => {
     let temp = obj;
-    keys2.forEach((k, index) => {
-      if (index === keys2.length - 1) {
+    keys.forEach((k, index) => {
+      if (index === keys.length - 1) {
         if (Array.isArray(temp)) {
           temp[Number(k)] = value;
         } else if (temp && typeof temp === "object") {
@@ -53657,12 +52880,12 @@ The following color spaces are supported: srgb, display-p3, a98-rgb, prophoto-rg
     }
     recurse(obj);
   };
-  var getCssValue = (keys2, value) => {
+  var getCssValue = (keys, value) => {
     if (typeof value === "number") {
-      if (["lineHeight", "fontWeight", "opacity", "zIndex"].some((prop) => keys2.includes(prop))) {
+      if (["lineHeight", "fontWeight", "opacity", "zIndex"].some((prop) => keys.includes(prop))) {
         return value;
       }
-      const lastKey = keys2[keys2.length - 1];
+      const lastKey = keys[keys.length - 1];
       if (lastKey.toLowerCase().includes("opacity")) {
         return value;
       }
@@ -53680,20 +52903,20 @@ The following color spaces are supported: srgb, display-p3, a98-rgb, prophoto-rg
     const varsWithDefaults = {};
     walkObjectDeep(
       theme,
-      (keys2, value, arrayKeys) => {
+      (keys, value, arrayKeys) => {
         if (typeof value === "string" || typeof value === "number") {
-          if (!shouldSkipGeneratingVar2 || !shouldSkipGeneratingVar2(keys2, value)) {
-            const cssVar = `--${prefix2 ? `${prefix2}-` : ""}${keys2.join("-")}`;
-            const resolvedValue = getCssValue(keys2, value);
+          if (!shouldSkipGeneratingVar2 || !shouldSkipGeneratingVar2(keys, value)) {
+            const cssVar = `--${prefix2 ? `${prefix2}-` : ""}${keys.join("-")}`;
+            const resolvedValue = getCssValue(keys, value);
             Object.assign(css2, {
               [cssVar]: resolvedValue
             });
-            assignNestedKeys(vars, keys2, `var(${cssVar})`, arrayKeys);
-            assignNestedKeys(varsWithDefaults, keys2, `var(${cssVar}, ${resolvedValue})`, arrayKeys);
+            assignNestedKeys(vars, keys, `var(${cssVar})`, arrayKeys);
+            assignNestedKeys(varsWithDefaults, keys, `var(${cssVar}, ${resolvedValue})`, arrayKeys);
           }
         }
       },
-      (keys2) => keys2[0] === "vars"
+      (keys) => keys[0] === "vars"
       // skip 'vars/*' paths
     );
     return {
@@ -54001,7 +53224,7 @@ The following color spaces are supported: srgb, display-p3, a98-rgb, prophoto-rg
       const {
         component = "div",
         direction = "column",
-        spacing: spacing3 = 0,
+        spacing: spacing2 = 0,
         divider,
         children,
         className,
@@ -54010,7 +53233,7 @@ The following color spaces are supported: srgb, display-p3, a98-rgb, prophoto-rg
       } = props;
       const ownerState = {
         direction,
-        spacing: spacing3,
+        spacing: spacing2,
         useFlexGap
       };
       const classes = useUtilityClasses33();
@@ -54510,7 +53733,7 @@ const theme2 = createTheme({ palette: {
       ...duration,
       ...inputTransitions.duration
     };
-    const create2 = (props = ["all"], options = {}) => {
+    const create = (props = ["all"], options = {}) => {
       const {
         duration: durationOption = mergedDuration.standard,
         easing: easingOption = mergedEasing.easeInOut,
@@ -54543,7 +53766,7 @@ const theme2 = createTheme({ palette: {
     };
     return {
       getAutoHeightDuration,
-      create: create2,
+      create,
       ...inputTransitions,
       easing: mergedEasing,
       duration: mergedDuration
@@ -54608,8 +53831,10 @@ export default theme;`;
       shape: shapeInput,
       ...other
     } = options;
-    if (options.vars) {
-      throw new Error(true ? "MUI: `vars` is a private field used for CSS variables support.\nPlease use another name." : formatMuiErrorMessage(20));
+    if (options.vars && // The error should throw only for the root theme creation because user is not allowed to use a custom node `vars`.
+    // `generateThemeVars` is the closest identifier for checking that the `options` is a result of `createTheme` with CSS variables so that user can create new theme for nested ThemeProvider.
+    options.generateThemeVars === void 0) {
+      throw new Error(true ? "MUI: `vars` is a private field used for CSS variables support.\nPlease use another name or follow the [docs](https://mui.com/material-ui/customization/css-theme-variables/usage/) to enable the feature." : formatMuiErrorMessage(20));
     }
     const palette2 = createPalette(paletteInput);
     const systemTheme = createTheme_default(options);
@@ -54720,9 +53945,9 @@ export default theme;`;
   }
 
   // ../frontend/node_modules/@mui/material/styles/shouldSkipGeneratingVar.js
-  function shouldSkipGeneratingVar(keys2) {
-    return !!keys2[0].match(/(cssVarPrefix|colorSchemeSelector|rootSelector|typography|mixins|breakpoints|direction|transitions)/) || !!keys2[0].match(/sxConfig$/) || // ends with sxConfig
-    keys2[0] === "palette" && !!keys2[1]?.match(/(mode|contrastThreshold|tonalOffset)/);
+  function shouldSkipGeneratingVar(keys) {
+    return !!keys[0].match(/(cssVarPrefix|colorSchemeSelector|rootSelector|typography|mixins|breakpoints|direction|transitions)/) || !!keys[0].match(/sxConfig$/) || // ends with sxConfig
+    keys[0] === "palette" && !!keys[1]?.match(/(mode|contrastThreshold|tonalOffset)/);
   }
 
   // ../frontend/node_modules/@mui/material/styles/excludeVariablesFromRoot.js
@@ -54790,8 +54015,8 @@ export default theme;`;
   };
 
   // ../frontend/node_modules/@mui/material/styles/createThemeWithVars.js
-  function assignNode(obj, keys2) {
-    keys2.forEach((k) => {
+  function assignNode(obj, keys) {
+    keys.forEach((k) => {
       if (!obj[k]) {
         obj[k] = {};
       }
@@ -55626,6 +54851,57 @@ To suppress this warning, you need to explicitly provide the \`palette.${key}Cha
   // ../frontend/node_modules/@mui/material/utils/useForkRef.js
   var useForkRef_default = useForkRef;
 
+  // ../frontend/node_modules/@mui/material/utils/mergeSlotProps.js
+  function mergeSlotProps2(externalSlotProps, defaultSlotProps) {
+    if (!externalSlotProps) {
+      return defaultSlotProps;
+    }
+    if (typeof externalSlotProps === "function" || typeof defaultSlotProps === "function") {
+      return (ownerState) => {
+        const defaultSlotPropsValue = typeof defaultSlotProps === "function" ? defaultSlotProps(ownerState) : defaultSlotProps;
+        const externalSlotPropsValue = typeof externalSlotProps === "function" ? externalSlotProps({
+          ...ownerState,
+          ...defaultSlotPropsValue
+        }) : externalSlotProps;
+        const className2 = clsx_default(ownerState?.className, defaultSlotPropsValue?.className, externalSlotPropsValue?.className);
+        return {
+          ...defaultSlotPropsValue,
+          ...externalSlotPropsValue,
+          ...!!className2 && {
+            className: className2
+          },
+          ...defaultSlotPropsValue?.style && externalSlotPropsValue?.style && {
+            style: {
+              ...defaultSlotPropsValue.style,
+              ...externalSlotPropsValue.style
+            }
+          },
+          ...defaultSlotPropsValue?.sx && externalSlotPropsValue?.sx && {
+            sx: [...Array.isArray(defaultSlotPropsValue.sx) ? defaultSlotPropsValue.sx : [defaultSlotPropsValue.sx], ...Array.isArray(externalSlotPropsValue.sx) ? externalSlotPropsValue.sx : [externalSlotPropsValue.sx]]
+          }
+        };
+      };
+    }
+    const typedDefaultSlotProps = defaultSlotProps;
+    const className = clsx_default(typedDefaultSlotProps?.className, externalSlotProps?.className);
+    return {
+      ...defaultSlotProps,
+      ...externalSlotProps,
+      ...!!className && {
+        className
+      },
+      ...typedDefaultSlotProps?.style && externalSlotProps?.style && {
+        style: {
+          ...typedDefaultSlotProps.style,
+          ...externalSlotProps.style
+        }
+      },
+      ...typedDefaultSlotProps?.sx && externalSlotProps?.sx && {
+        sx: [...Array.isArray(typedDefaultSlotProps.sx) ? typedDefaultSlotProps.sx : [typedDefaultSlotProps.sx], ...Array.isArray(externalSlotProps.sx) ? externalSlotProps.sx : [externalSlotProps.sx]]
+      }
+    };
+  }
+
   // ../frontend/node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js
   function _objectWithoutPropertiesLoose(r2, e) {
     if (null == r2) return {};
@@ -56343,12 +55619,12 @@ To suppress this warning, you need to explicitly provide the \`palette.${key}Cha
   function getTransitionProps(props, options) {
     const {
       timeout: timeout2,
-      easing: easing3,
+      easing: easing2,
       style: style4 = {}
     } = props;
     return {
       duration: style4.transitionDuration ?? (typeof timeout2 === "number" ? timeout2 : timeout2[options.mode] || 0),
-      easing: style4.transitionTimingFunction ?? (typeof easing3 === "object" ? easing3[options.mode] : easing3),
+      easing: style4.transitionTimingFunction ?? (typeof easing2 === "object" ? easing2[options.mode] : easing2),
       delay: style4.transitionDelay
     };
   }
@@ -58662,8 +57938,8 @@ To suppress this warning, you need to explicitly provide the \`palette.${key}Cha
   }
 
   // ../frontend/node_modules/@popperjs/core/lib/utils/expandToHashMap.js
-  function expandToHashMap(value, keys2) {
-    return keys2.reduce(function(hashMap, key) {
+  function expandToHashMap(value, keys) {
+    return keys.reduce(function(hashMap, key) {
       hashMap[key] = value;
       return hashMap;
     }, {});
@@ -60494,6 +59770,15 @@ To suppress this warning, you need to explicitly provide the \`palette.${key}Cha
         overflowing
       };
     }, [maxRows, minRows, props.placeholder]);
+    const didHeightChange = useEventCallback_default(() => {
+      const textarea = textareaRef.current;
+      const textareaStyles = calculateTextareaStyles();
+      if (!textarea || !textareaStyles || isEmpty2(textareaStyles)) {
+        return false;
+      }
+      const outerHeightStyle = textareaStyles.outerHeightStyle;
+      return heightRef.current != null && heightRef.current !== outerHeightStyle;
+    });
     const syncHeight = React57.useCallback(() => {
       const textarea = textareaRef.current;
       const textareaStyles = calculateTextareaStyles();
@@ -60509,34 +59794,36 @@ To suppress this warning, you need to explicitly provide the \`palette.${key}Cha
     }, [calculateTextareaStyles]);
     const frameRef = React57.useRef(-1);
     useEnhancedEffect_default(() => {
-      const debounceHandleResize = debounce(() => syncHeight());
+      const debouncedHandleResize = debounce(syncHeight);
       const textarea = textareaRef?.current;
       if (!textarea) {
         return void 0;
       }
       const containerWindow = ownerWindow(textarea);
-      containerWindow.addEventListener("resize", debounceHandleResize);
+      containerWindow.addEventListener("resize", debouncedHandleResize);
       let resizeObserver;
       if (typeof ResizeObserver !== "undefined") {
         resizeObserver = new ResizeObserver(() => {
-          resizeObserver.unobserve(textarea);
-          cancelAnimationFrame(frameRef.current);
-          syncHeight();
-          frameRef.current = requestAnimationFrame(() => {
-            resizeObserver.observe(textarea);
-          });
+          if (didHeightChange()) {
+            resizeObserver.unobserve(textarea);
+            cancelAnimationFrame(frameRef.current);
+            syncHeight();
+            frameRef.current = requestAnimationFrame(() => {
+              resizeObserver.observe(textarea);
+            });
+          }
         });
         resizeObserver.observe(textarea);
       }
       return () => {
-        debounceHandleResize.clear();
+        debouncedHandleResize.clear();
         cancelAnimationFrame(frameRef.current);
-        containerWindow.removeEventListener("resize", debounceHandleResize);
+        containerWindow.removeEventListener("resize", debouncedHandleResize);
         if (resizeObserver) {
           resizeObserver.disconnect();
         }
       };
-    }, [calculateTextareaStyles, syncHeight]);
+    }, [calculateTextareaStyles, syncHeight, didHeightChange]);
     useEnhancedEffect_default(() => {
       syncHeight();
     });
@@ -60753,13 +60040,13 @@ To suppress this warning, you need to explicitly provide the \`palette.${key}Cha
   })(memoTheme_default(({
     theme
   }) => {
-    const light3 = theme.palette.mode === "light";
+    const light2 = theme.palette.mode === "light";
     const placeholder = {
       color: "currentColor",
       ...theme.vars ? {
         opacity: theme.vars.opacity.inputPlaceholder
       } : {
-        opacity: light3 ? 0.42 : 0.5
+        opacity: light2 ? 0.42 : 0.5
       },
       transition: theme.transitions.create("opacity", {
         duration: theme.transitions.duration.shorter
@@ -60771,7 +60058,7 @@ To suppress this warning, you need to explicitly provide the \`palette.${key}Cha
     const placeholderVisible = theme.vars ? {
       opacity: theme.vars.opacity.inputPlaceholder
     } : {
-      opacity: light3 ? 0.42 : 0.5
+      opacity: light2 ? 0.42 : 0.5
     };
     return {
       font: "inherit",
@@ -61740,7 +61027,7 @@ To suppress this warning, you need to explicitly provide the \`palette.${key}Cha
       addEndListener,
       appear = true,
       children,
-      easing: easing3,
+      easing: easing2,
       in: inProp,
       onEnter,
       onEntered,
@@ -61773,7 +61060,7 @@ To suppress this warning, you need to explicitly provide the \`palette.${key}Cha
       const transitionProps = getTransitionProps({
         style: style4,
         timeout: timeout2,
-        easing: easing3
+        easing: easing2
       }, {
         mode: "enter"
       });
@@ -61789,7 +61076,7 @@ To suppress this warning, you need to explicitly provide the \`palette.${key}Cha
       const transitionProps = getTransitionProps({
         style: style4,
         timeout: timeout2,
-        easing: easing3
+        easing: easing2
       }, {
         mode: "exit"
       });
@@ -63608,7 +62895,6 @@ To suppress this warning, you need to explicitly provide the \`palette.${key}Cha
       childProps.onExited = onExited;
     }
     const externalForwardedProps = {
-      ...other,
       slots: {
         root: components.Root,
         backdrop: components.Backdrop,
@@ -63620,19 +62906,22 @@ To suppress this warning, you need to explicitly provide the \`palette.${key}Cha
       }
     };
     const [RootSlot, rootProps] = useSlot("root", {
+      ref,
       elementType: ModalRoot,
-      externalForwardedProps,
-      getSlotProps: getRootProps,
-      additionalProps: {
-        ref,
-        as: component
+      externalForwardedProps: {
+        ...externalForwardedProps,
+        ...other,
+        component
       },
+      getSlotProps: getRootProps,
       ownerState,
       className: clsx_default(className, classes?.root, !ownerState.open && ownerState.exited && classes?.hidden)
     });
     const [BackdropSlot, backdropProps] = useSlot("backdrop", {
+      ref: BackdropProps?.ref,
       elementType: BackdropComponent,
       externalForwardedProps,
+      shouldForwardComponentProp: true,
       additionalProps: BackdropProps,
       getSlotProps: (otherHandlers) => {
         return getBackdropProps({
@@ -63650,7 +62939,6 @@ To suppress this warning, you need to explicitly provide the \`palette.${key}Cha
       className: clsx_default(BackdropProps?.className, classes?.backdrop),
       ownerState
     });
-    const backdropRef = useForkRef_default(BackdropProps?.ref, backdropProps.ref);
     if (!keepMounted && !open && (!hasTransition || exited)) {
       return null;
     }
@@ -63661,8 +62949,7 @@ To suppress this warning, you need to explicitly provide the \`palette.${key}Cha
       children: /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)(RootSlot, {
         ...rootProps,
         children: [!hideBackdrop && BackdropComponent ? /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(BackdropSlot, {
-          ...backdropProps,
-          ref: backdropRef
+          ...backdropProps
         }) : null, /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(FocusTrap_default, {
           disableEnforceFocus,
           disableAutoFocus,
@@ -63874,13 +63161,13 @@ To suppress this warning, you need to explicitly provide the \`palette.${key}Cha
       children,
       classes,
       flexItem,
-      light: light3,
+      light: light2,
       orientation,
       textAlign,
       variant
     } = ownerState;
     const slots = {
-      root: ["root", absolute && "absolute", variant, light3 && "light", orientation === "vertical" && "vertical", flexItem && "flexItem", children && "withChildren", children && orientation === "vertical" && "withChildrenVertical", textAlign === "right" && orientation !== "vertical" && "textAlignRight", textAlign === "left" && orientation !== "vertical" && "textAlignLeft"],
+      root: ["root", absolute && "absolute", variant, light2 && "light", orientation === "vertical" && "vertical", flexItem && "flexItem", children && "withChildren", children && orientation === "vertical" && "withChildrenVertical", textAlign === "right" && orientation !== "vertical" && "textAlignRight", textAlign === "left" && orientation !== "vertical" && "textAlignLeft"],
       wrapper: ["wrapper", orientation === "vertical" && "wrapperVertical"]
     };
     return composeClasses(slots, getDividerUtilityClass, classes);
@@ -64065,7 +63352,7 @@ To suppress this warning, you need to explicitly provide the \`palette.${key}Cha
       orientation = "horizontal",
       component = children || orientation === "vertical" ? "div" : "hr",
       flexItem = false,
-      light: light3 = false,
+      light: light2 = false,
       role = component !== "hr" ? "separator" : void 0,
       textAlign = "center",
       variant = "fullWidth",
@@ -64076,7 +63363,7 @@ To suppress this warning, you need to explicitly provide the \`palette.${key}Cha
       absolute,
       component,
       flexItem,
-      light: light3,
+      light: light2,
       orientation,
       role,
       textAlign,
@@ -64204,11 +63491,11 @@ To suppress this warning, you need to explicitly provide the \`palette.${key}Cha
   })(memoTheme_default(({
     theme
   }) => {
-    const light3 = theme.palette.mode === "light";
-    const bottomLineColor = light3 ? "rgba(0, 0, 0, 0.42)" : "rgba(255, 255, 255, 0.7)";
-    const backgroundColor2 = light3 ? "rgba(0, 0, 0, 0.06)" : "rgba(255, 255, 255, 0.09)";
-    const hoverBackground = light3 ? "rgba(0, 0, 0, 0.09)" : "rgba(255, 255, 255, 0.13)";
-    const disabledBackground = light3 ? "rgba(0, 0, 0, 0.12)" : "rgba(255, 255, 255, 0.12)";
+    const light2 = theme.palette.mode === "light";
+    const bottomLineColor = light2 ? "rgba(0, 0, 0, 0.42)" : "rgba(255, 255, 255, 0.7)";
+    const backgroundColor2 = light2 ? "rgba(0, 0, 0, 0.06)" : "rgba(255, 255, 255, 0.09)";
+    const hoverBackground = light2 ? "rgba(0, 0, 0, 0.09)" : "rgba(255, 255, 255, 0.13)";
+    const disabledBackground = light2 ? "rgba(0, 0, 0, 0.12)" : "rgba(255, 255, 255, 0.12)";
     return {
       position: "relative",
       backgroundColor: theme.vars ? theme.vars.palette.FilledInput.bg : backgroundColor2,
@@ -65336,7 +64623,7 @@ To suppress this warning, you need to explicitly provide the \`palette.${key}Cha
       addEndListener,
       appear = true,
       children,
-      easing: easing3,
+      easing: easing2,
       in: inProp,
       onEnter,
       onEntered,
@@ -65375,22 +64662,22 @@ To suppress this warning, you need to explicitly provide the \`palette.${key}Cha
       } = getTransitionProps({
         style: style4,
         timeout: timeout2,
-        easing: easing3
+        easing: easing2
       }, {
         mode: "enter"
       });
-      let duration3;
+      let duration2;
       if (timeout2 === "auto") {
-        duration3 = theme.transitions.getAutoHeightDuration(node2.clientHeight);
-        autoTimeout.current = duration3;
+        duration2 = theme.transitions.getAutoHeightDuration(node2.clientHeight);
+        autoTimeout.current = duration2;
       } else {
-        duration3 = transitionDuration;
+        duration2 = transitionDuration;
       }
       node2.style.transition = [theme.transitions.create("opacity", {
-        duration: duration3,
+        duration: duration2,
         delay
       }), theme.transitions.create("transform", {
-        duration: isWebKit154 ? duration3 : duration3 * 0.666,
+        duration: isWebKit154 ? duration2 : duration2 * 0.666,
         delay,
         easing: transitionTimingFunction
       })].join(",");
@@ -65408,23 +64695,23 @@ To suppress this warning, you need to explicitly provide the \`palette.${key}Cha
       } = getTransitionProps({
         style: style4,
         timeout: timeout2,
-        easing: easing3
+        easing: easing2
       }, {
         mode: "exit"
       });
-      let duration3;
+      let duration2;
       if (timeout2 === "auto") {
-        duration3 = theme.transitions.getAutoHeightDuration(node2.clientHeight);
-        autoTimeout.current = duration3;
+        duration2 = theme.transitions.getAutoHeightDuration(node2.clientHeight);
+        autoTimeout.current = duration2;
       } else {
-        duration3 = transitionDuration;
+        duration2 = transitionDuration;
       }
       node2.style.transition = [theme.transitions.create("opacity", {
-        duration: duration3,
+        duration: duration2,
         delay
       }), theme.transitions.create("transform", {
-        duration: isWebKit154 ? duration3 : duration3 * 0.666,
-        delay: isWebKit154 ? delay : delay || duration3 * 0.333,
+        duration: isWebKit154 ? duration2 : duration2 * 0.666,
+        delay: isWebKit154 ? delay : delay || duration2 * 0.333,
         easing: transitionTimingFunction
       })].join(",");
       node2.style.opacity = 0;
@@ -65586,8 +64873,8 @@ To suppress this warning, you need to explicitly provide the \`palette.${key}Cha
   })(memoTheme_default(({
     theme
   }) => {
-    const light3 = theme.palette.mode === "light";
-    let bottomLineColor = light3 ? "rgba(0, 0, 0, 0.42)" : "rgba(255, 255, 255, 0.7)";
+    const light2 = theme.palette.mode === "light";
+    let bottomLineColor = light2 ? "rgba(0, 0, 0, 0.42)" : "rgba(255, 255, 255, 0.7)";
     if (theme.vars) {
       bottomLineColor = `rgba(${theme.vars.palette.common.onBackgroundChannel} / ${theme.vars.opacity.inputUnderline})`;
     }
@@ -66781,22 +66068,21 @@ To suppress this warning, you need to explicitly provide the \`palette.${key}Cha
       marginThreshold = 16,
       open,
       PaperProps: PaperPropsProp = {},
+      // TODO: remove in v7
       slots = {},
       slotProps = {},
       transformOrigin = {
         vertical: "top",
         horizontal: "left"
       },
-      TransitionComponent = Grow_default,
+      TransitionComponent,
+      // TODO: remove in v7
       transitionDuration: transitionDurationProp = "auto",
-      TransitionProps: {
-        onEntering,
-        ...TransitionProps
-      } = {},
+      TransitionProps = {},
+      // TODO: remove in v7
       disableScrollLock = false,
       ...other
     } = props;
-    const externalPaperSlotProps = slotProps?.paper ?? PaperPropsProp;
     const paperRef = React84.useRef();
     const ownerState = {
       ...props,
@@ -66804,7 +66090,6 @@ To suppress this warning, you need to explicitly provide the \`palette.${key}Cha
       anchorReference,
       elevation,
       marginThreshold,
-      externalPaperSlotProps,
       transformOrigin,
       TransitionComponent,
       transitionDuration: transitionDurationProp,
@@ -66912,10 +66197,7 @@ To suppress this warning, you need to explicitly provide the \`palette.${key}Cha
       }
       return () => window.removeEventListener("scroll", setPositioningStyles);
     }, [anchorEl, disableScrollLock, setPositioningStyles]);
-    const handleEntering = (element, isAppearing) => {
-      if (onEntering) {
-        onEntering(element, isAppearing);
-      }
+    const handleEntering = () => {
       setPositioningStyles();
     };
     const handleExited = () => {
@@ -66946,41 +66228,61 @@ To suppress this warning, you need to explicitly provide the \`palette.${key}Cha
       };
     }, [anchorEl, open, setPositioningStyles]);
     let transitionDuration = transitionDurationProp;
-    if (transitionDurationProp === "auto" && !TransitionComponent.muiSupportAuto) {
+    const externalForwardedProps = {
+      slots: {
+        transition: TransitionComponent,
+        ...slots
+      },
+      slotProps: {
+        transition: TransitionProps,
+        paper: PaperPropsProp,
+        ...slotProps
+      }
+    };
+    const [TransitionSlot, transitionSlotProps] = useSlot("transition", {
+      elementType: Grow_default,
+      externalForwardedProps,
+      ownerState,
+      getSlotProps: (handlers) => ({
+        ...handlers,
+        onEntering: (element, isAppearing) => {
+          handlers.onEntering?.(element, isAppearing);
+          handleEntering();
+        },
+        onExited: (element) => {
+          handlers.onExited?.(element);
+          handleExited();
+        }
+      }),
+      additionalProps: {
+        appear: true,
+        in: open
+      }
+    });
+    if (transitionDurationProp === "auto" && !TransitionSlot.muiSupportAuto) {
       transitionDuration = void 0;
     }
     const container = containerProp || (anchorEl ? ownerDocument_default(resolveAnchorEl2(anchorEl)).body : void 0);
-    const externalForwardedProps = {
-      slots,
-      slotProps: {
-        ...slotProps,
-        paper: externalPaperSlotProps
-      }
-    };
-    const [PaperSlot, paperProps] = useSlot("paper", {
-      elementType: PopoverPaper,
-      externalForwardedProps,
-      additionalProps: {
-        elevation,
-        className: clsx_default(classes.paper, externalPaperSlotProps?.className),
-        style: isPositioned ? externalPaperSlotProps.style : {
-          ...externalPaperSlotProps.style,
-          opacity: 0
-        }
-      },
-      ownerState
-    });
     const [RootSlot, {
+      slots: rootSlotsProp,
       slotProps: rootSlotPropsProp,
       ...rootProps
     }] = useSlot("root", {
+      ref,
       elementType: PopoverRoot,
-      externalForwardedProps,
+      externalForwardedProps: {
+        ...externalForwardedProps,
+        ...other
+      },
+      shouldForwardComponentProp: true,
       additionalProps: {
+        slots: {
+          backdrop: slots.backdrop
+        },
         slotProps: {
-          backdrop: {
+          backdrop: mergeSlotProps2(typeof slotProps.backdrop === "function" ? slotProps.backdrop(ownerState) : slotProps.backdrop, {
             invisible: true
-          }
+          })
         },
         container,
         open
@@ -66988,25 +66290,32 @@ To suppress this warning, you need to explicitly provide the \`palette.${key}Cha
       ownerState,
       className: clsx_default(classes.root, className)
     });
-    const handlePaperRef = useForkRef_default(paperRef, paperProps.ref);
+    const [PaperSlot, paperProps] = useSlot("paper", {
+      ref: paperRef,
+      className: classes.paper,
+      elementType: PopoverPaper,
+      externalForwardedProps,
+      shouldForwardComponentProp: true,
+      additionalProps: {
+        elevation,
+        style: isPositioned ? void 0 : {
+          opacity: 0
+        }
+      },
+      ownerState
+    });
     return /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(RootSlot, {
       ...rootProps,
       ...!isHostComponent_default2(RootSlot) && {
+        slots: rootSlotsProp,
         slotProps: rootSlotPropsProp,
         disableScrollLock
       },
-      ...other,
-      ref,
-      children: /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(TransitionComponent, {
-        appear: true,
-        in: open,
-        onEntering: handleEntering,
-        onExited: handleExited,
+      children: /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(TransitionSlot, {
+        ...transitionSlotProps,
         timeout: transitionDuration,
-        ...TransitionProps,
         children: /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(PaperSlot, {
           ...paperProps,
-          ref: handlePaperRef,
           children
         })
       })
@@ -67074,8 +66383,7 @@ To suppress this warning, you need to explicitly provide the \`palette.${key}Cha
     anchorReference: import_prop_types46.default.oneOf(["anchorEl", "anchorPosition", "none"]),
     /**
      * A backdrop component. This prop enables custom backdrop rendering.
-     * @deprecated Use `slotProps.root.slots.backdrop` instead. While this prop currently works, it will be removed in the next major version.
-     * Use the `slotProps.root.slots.backdrop` prop to make your application ready for the next version of Material UI.
+     * @deprecated Use `slots.backdrop` instead. This prop will be removed in v7. See [Migrating from deprecated APIs](https://mui.com/material-ui/migration/migrating-from-deprecated-apis/) for more details.
      * @default styled(Backdrop, {
      *   name: 'MuiModal',
      *   slot: 'Backdrop',
@@ -67089,7 +66397,7 @@ To suppress this warning, you need to explicitly provide the \`palette.${key}Cha
     BackdropComponent: import_prop_types46.default.elementType,
     /**
      * Props applied to the [`Backdrop`](/material-ui/api/backdrop/) element.
-     * @deprecated Use `slotProps.root.slotProps.backdrop` instead.
+     * @deprecated Use `slotProps.backdrop` instead. This prop will be removed in v7. See [Migrating from deprecated APIs](https://mui.com/material-ui/migration/migrating-from-deprecated-apis/) for more details.
      */
     BackdropProps: import_prop_types46.default.object,
     /**
@@ -67153,16 +66461,20 @@ To suppress this warning, you need to explicitly provide the \`palette.${key}Cha
      * @default {}
      */
     slotProps: import_prop_types46.default.shape({
+      backdrop: import_prop_types46.default.oneOfType([import_prop_types46.default.func, import_prop_types46.default.object]),
       paper: import_prop_types46.default.oneOfType([import_prop_types46.default.func, import_prop_types46.default.object]),
-      root: import_prop_types46.default.oneOfType([import_prop_types46.default.func, import_prop_types46.default.object])
+      root: import_prop_types46.default.oneOfType([import_prop_types46.default.func, import_prop_types46.default.object]),
+      transition: import_prop_types46.default.oneOfType([import_prop_types46.default.func, import_prop_types46.default.object])
     }),
     /**
      * The components used for each slot inside.
      * @default {}
      */
     slots: import_prop_types46.default.shape({
+      backdrop: import_prop_types46.default.elementType,
       paper: import_prop_types46.default.elementType,
-      root: import_prop_types46.default.elementType
+      root: import_prop_types46.default.elementType,
+      transition: import_prop_types46.default.elementType
     }),
     /**
      * The system prop that allows defining system overrides as well as additional CSS styles.
@@ -67187,6 +66499,7 @@ To suppress this warning, you need to explicitly provide the \`palette.${key}Cha
     /**
      * The component used for the transition.
      * [Follow this guide](https://mui.com/material-ui/transitions/#transitioncomponent-prop) to learn more about the requirements for this component.
+     * @deprecated use the `slots.transition` prop instead. This prop will be removed in v7. See [Migrating from deprecated APIs](https://mui.com/material-ui/migration/migrating-from-deprecated-apis/) for more details.
      * @default Grow
      */
     TransitionComponent: import_prop_types46.default.elementType,
@@ -67202,6 +66515,7 @@ To suppress this warning, you need to explicitly provide the \`palette.${key}Cha
     /**
      * Props applied to the transition element.
      * By default, the element is based on this [`Transition`](https://reactcommunity.org/react-transition-group/transition/) component.
+     * @deprecated use the `slotProps.transition` prop instead. This prop will be removed in v7. See [Migrating from deprecated APIs](https://mui.com/material-ui/migration/migrating-from-deprecated-apis/) for more details.
      * @default {}
      */
     TransitionProps: import_prop_types46.default.object
@@ -67337,20 +66651,43 @@ To suppress this warning, you need to explicitly provide the \`palette.${key}Cha
         }
       }
     });
-    const PaperSlot = slots.paper ?? MenuPaper;
-    const paperExternalSlotProps = slotProps.paper ?? PaperProps;
+    const externalForwardedProps = {
+      slots,
+      slotProps: {
+        list: MenuListProps,
+        transition: TransitionProps,
+        paper: PaperProps,
+        ...slotProps
+      }
+    };
     const rootSlotProps = useSlotProps_default({
       elementType: slots.root,
       externalSlotProps: slotProps.root,
       ownerState,
       className: [classes.root, className]
     });
-    const paperSlotProps = useSlotProps_default({
-      elementType: PaperSlot,
-      externalSlotProps: paperExternalSlotProps,
-      ownerState,
-      className: classes.paper
+    const [PaperSlot, paperSlotProps] = useSlot("paper", {
+      className: classes.paper,
+      elementType: MenuPaper,
+      externalForwardedProps,
+      shouldForwardComponentProp: true,
+      ownerState
     });
+    const [ListSlot, listSlotProps] = useSlot("list", {
+      className: clsx_default(classes.list, MenuListProps.className),
+      elementType: MenuMenuList,
+      shouldForwardComponentProp: true,
+      externalForwardedProps,
+      getSlotProps: (handlers) => ({
+        ...handlers,
+        onKeyDown: (event) => {
+          handleListKeyDown(event);
+          handlers.onKeyDown?.(event);
+        }
+      }),
+      ownerState
+    });
+    const resolvedTransitionProps = typeof externalForwardedProps.slotProps.transition === "function" ? externalForwardedProps.slotProps.transition(ownerState) : externalForwardedProps.slotProps.transition;
     return /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(MenuRoot, {
       onClose,
       anchorOrigin: {
@@ -67359,31 +66696,38 @@ To suppress this warning, you need to explicitly provide the \`palette.${key}Cha
       },
       transformOrigin: isRtl ? RTL_ORIGIN : LTR_ORIGIN,
       slots: {
+        root: slots.root,
         paper: PaperSlot,
-        root: slots.root
+        backdrop: slots.backdrop,
+        ...slots.transition && {
+          // TODO: pass `slots.transition` directly once `TransitionComponent` is removed from Popover
+          transition: slots.transition
+        }
       },
       slotProps: {
         root: rootSlotProps,
-        paper: paperSlotProps
+        paper: paperSlotProps,
+        backdrop: typeof slotProps.backdrop === "function" ? slotProps.backdrop(ownerState) : slotProps.backdrop,
+        transition: {
+          ...resolvedTransitionProps,
+          onEntering: (...args) => {
+            handleEntering(...args);
+            resolvedTransitionProps?.onEntering?.(...args);
+          }
+        }
       },
       open,
       ref,
       transitionDuration,
-      TransitionProps: {
-        onEntering: handleEntering,
-        ...TransitionProps
-      },
       ownerState,
       ...other,
       classes: PopoverClasses,
-      children: /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(MenuMenuList, {
-        onKeyDown: handleListKeyDown,
+      children: /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(ListSlot, {
         actions: menuListActionsRef,
         autoFocus: autoFocus && (activeItemIndex === -1 || disableAutoFocusItem),
         autoFocusItem,
         variant,
-        ...MenuListProps,
-        className: clsx_default(classes.list, MenuListProps.className),
+        ...listSlotProps,
         children
       })
     });
@@ -67428,6 +66772,7 @@ To suppress this warning, you need to explicitly provide the \`palette.${key}Cha
     disableAutoFocusItem: import_prop_types47.default.bool,
     /**
      * Props applied to the [`MenuList`](https://mui.com/material-ui/api/menu-list/) element.
+     * @deprecated use the `slotProps.list` prop instead. This prop will be removed in v7. See [Migrating from deprecated APIs](https://mui.com/material-ui/migration/migrating-from-deprecated-apis/) for more details.
      * @default {}
      */
     MenuListProps: import_prop_types47.default.object,
@@ -67455,16 +66800,22 @@ To suppress this warning, you need to explicitly provide the \`palette.${key}Cha
      * @default {}
      */
     slotProps: import_prop_types47.default.shape({
+      backdrop: import_prop_types47.default.oneOfType([import_prop_types47.default.func, import_prop_types47.default.object]),
+      list: import_prop_types47.default.oneOfType([import_prop_types47.default.func, import_prop_types47.default.object]),
       paper: import_prop_types47.default.oneOfType([import_prop_types47.default.func, import_prop_types47.default.object]),
-      root: import_prop_types47.default.oneOfType([import_prop_types47.default.func, import_prop_types47.default.object])
+      root: import_prop_types47.default.oneOfType([import_prop_types47.default.func, import_prop_types47.default.object]),
+      transition: import_prop_types47.default.oneOfType([import_prop_types47.default.func, import_prop_types47.default.object])
     }),
     /**
      * The components used for each slot inside.
      * @default {}
      */
     slots: import_prop_types47.default.shape({
+      backdrop: import_prop_types47.default.elementType,
+      list: import_prop_types47.default.elementType,
       paper: import_prop_types47.default.elementType,
-      root: import_prop_types47.default.elementType
+      root: import_prop_types47.default.elementType,
+      transition: import_prop_types47.default.elementType
     }),
     /**
      * The system prop that allows defining system overrides as well as additional CSS styles.
@@ -67482,6 +66833,7 @@ To suppress this warning, you need to explicitly provide the \`palette.${key}Cha
     /**
      * Props applied to the transition element.
      * By default, the element is based on this [`Transition`](https://reactcommunity.org/react-transition-group/transition/) component.
+     * @deprecated use the `slotProps.transition` prop instead. This prop will be removed in v7. See [Migrating from deprecated APIs](https://mui.com/material-ui/migration/migrating-from-deprecated-apis/) for more details.
      * @default {}
      */
     TransitionProps: import_prop_types47.default.object,
@@ -68925,8 +68277,8 @@ To suppress this warning, you need to explicitly provide the \`palette.${key}Cha
     if (true) {
       React90.useEffect(() => {
         if (!foundMatch && !multiple && value !== "") {
-          const values4 = childrenArray.map((child) => child.props.value);
-          console.warn([`MUI: You have provided an out-of-range value \`${value}\` for the select ${name ? `(name="${name}") ` : ""}component.`, "Consider providing a value that matches one of the available options or ''.", `The available values are ${values4.filter((x) => x != null).map((x) => `\`${x}\``).join(", ") || '""'}.`].join("\n"));
+          const values3 = childrenArray.map((child) => child.props.value);
+          console.warn([`MUI: You have provided an out-of-range value \`${value}\` for the select ${name ? `(name="${name}") ` : ""}component.`, "Consider providing a value that matches one of the available options or ''.", `The available values are ${values3.filter((x) => x != null).map((x) => `\`${x}\``).join(", ") || '""'}.`].join("\n"));
         }
       }, [foundMatch, childrenArray, multiple, name, value]);
     }
@@ -69034,16 +68386,16 @@ To suppress this warning, you need to explicitly provide the \`palette.${key}Cha
           horizontal: "center"
         },
         ...MenuProps,
-        MenuListProps: {
-          "aria-labelledby": labelId,
-          role: "listbox",
-          "aria-multiselectable": multiple ? "true" : void 0,
-          disableListWrap: true,
-          id: listboxId,
-          ...MenuProps.MenuListProps
-        },
         slotProps: {
           ...MenuProps.slotProps,
+          list: {
+            "aria-labelledby": labelId,
+            role: "listbox",
+            "aria-multiselectable": multiple ? "true" : void 0,
+            disableListWrap: true,
+            id: listboxId,
+            ...MenuProps.MenuListProps
+          },
           paper: {
             ...paperProps,
             style: {
@@ -70284,7 +69636,7 @@ To suppress this warning, you need to explicitly provide the \`palette.${key}Cha
      * Tooltip placement.
      * @default 'bottom'
      */
-    placement: import_prop_types54.default.oneOf(["bottom-end", "bottom-start", "bottom", "left-end", "left-start", "left", "right-end", "right-start", "right", "top-end", "top-start", "top"]),
+    placement: import_prop_types54.default.oneOf(["auto-end", "auto-start", "auto", "bottom-end", "bottom-start", "bottom", "left-end", "left-start", "left", "right-end", "right-start", "right", "top-end", "top-start", "top"]),
     /**
      * The component used for the popper.
      * @deprecated use the `slots.popper` prop instead. This prop will be removed in v7. See [Migrating from deprecated APIs](https://mui.com/material-ui/migration/migrating-from-deprecated-apis/) for more details.
@@ -72612,1132 +71964,10 @@ To suppress this warning, you need to explicitly provide the \`palette.${key}Cha
     )));
   }
 
-  // ../../../../../../node_modules/@material-ui/core/esm/colors/common.js
-  var common2 = {
-    black: "#000",
-    white: "#fff"
-  };
-  var common_default2 = common2;
-
-  // ../../../../../../node_modules/@material-ui/core/esm/colors/red.js
-  var red2 = {
-    50: "#ffebee",
-    100: "#ffcdd2",
-    200: "#ef9a9a",
-    300: "#e57373",
-    400: "#ef5350",
-    500: "#f44336",
-    600: "#e53935",
-    700: "#d32f2f",
-    800: "#c62828",
-    900: "#b71c1c",
-    A100: "#ff8a80",
-    A200: "#ff5252",
-    A400: "#ff1744",
-    A700: "#d50000"
-  };
-  var red_default2 = red2;
-
-  // ../../../../../../node_modules/@material-ui/core/esm/colors/pink.js
-  var pink = {
-    50: "#fce4ec",
-    100: "#f8bbd0",
-    200: "#f48fb1",
-    300: "#f06292",
-    400: "#ec407a",
-    500: "#e91e63",
-    600: "#d81b60",
-    700: "#c2185b",
-    800: "#ad1457",
-    900: "#880e4f",
-    A100: "#ff80ab",
-    A200: "#ff4081",
-    A400: "#f50057",
-    A700: "#c51162"
-  };
-  var pink_default = pink;
-
-  // ../../../../../../node_modules/@material-ui/core/esm/colors/indigo.js
-  var indigo = {
-    50: "#e8eaf6",
-    100: "#c5cae9",
-    200: "#9fa8da",
-    300: "#7986cb",
-    400: "#5c6bc0",
-    500: "#3f51b5",
-    600: "#3949ab",
-    700: "#303f9f",
-    800: "#283593",
-    900: "#1a237e",
-    A100: "#8c9eff",
-    A200: "#536dfe",
-    A400: "#3d5afe",
-    A700: "#304ffe"
-  };
-  var indigo_default = indigo;
-
-  // ../../../../../../node_modules/@material-ui/core/esm/colors/blue.js
-  var blue2 = {
-    50: "#e3f2fd",
-    100: "#bbdefb",
-    200: "#90caf9",
-    300: "#64b5f6",
-    400: "#42a5f5",
-    500: "#2196f3",
-    600: "#1e88e5",
-    700: "#1976d2",
-    800: "#1565c0",
-    900: "#0d47a1",
-    A100: "#82b1ff",
-    A200: "#448aff",
-    A400: "#2979ff",
-    A700: "#2962ff"
-  };
-  var blue_default2 = blue2;
-
-  // ../../../../../../node_modules/@material-ui/core/esm/colors/green.js
-  var green2 = {
-    50: "#e8f5e9",
-    100: "#c8e6c9",
-    200: "#a5d6a7",
-    300: "#81c784",
-    400: "#66bb6a",
-    500: "#4caf50",
-    600: "#43a047",
-    700: "#388e3c",
-    800: "#2e7d32",
-    900: "#1b5e20",
-    A100: "#b9f6ca",
-    A200: "#69f0ae",
-    A400: "#00e676",
-    A700: "#00c853"
-  };
-  var green_default2 = green2;
-
-  // ../../../../../../node_modules/@material-ui/core/esm/colors/orange.js
-  var orange2 = {
-    50: "#fff3e0",
-    100: "#ffe0b2",
-    200: "#ffcc80",
-    300: "#ffb74d",
-    400: "#ffa726",
-    500: "#ff9800",
-    600: "#fb8c00",
-    700: "#f57c00",
-    800: "#ef6c00",
-    900: "#e65100",
-    A100: "#ffd180",
-    A200: "#ffab40",
-    A400: "#ff9100",
-    A700: "#ff6d00"
-  };
-  var orange_default2 = orange2;
-
-  // ../../../../../../node_modules/@material-ui/core/esm/colors/grey.js
-  var grey2 = {
-    50: "#fafafa",
-    100: "#f5f5f5",
-    200: "#eeeeee",
-    300: "#e0e0e0",
-    400: "#bdbdbd",
-    500: "#9e9e9e",
-    600: "#757575",
-    700: "#616161",
-    800: "#424242",
-    900: "#212121",
-    A100: "#d5d5d5",
-    A200: "#aaaaaa",
-    A400: "#303030",
-    A700: "#616161"
-  };
-  var grey_default2 = grey2;
-
-  // ../../../../../../node_modules/@babel/runtime/helpers/esm/extends.js
-  function _extends2() {
-    return _extends2 = Object.assign ? Object.assign.bind() : function(n) {
-      for (var e = 1; e < arguments.length; e++) {
-        var t = arguments[e];
-        for (var r2 in t) ({}).hasOwnProperty.call(t, r2) && (n[r2] = t[r2]);
-      }
-      return n;
-    }, _extends2.apply(null, arguments);
-  }
-
-  // ../../../../../../node_modules/@babel/runtime/helpers/esm/typeof.js
-  function _typeof(o) {
-    "@babel/helpers - typeof";
-    return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(o2) {
-      return typeof o2;
-    } : function(o2) {
-      return o2 && "function" == typeof Symbol && o2.constructor === Symbol && o2 !== Symbol.prototype ? "symbol" : typeof o2;
-    }, _typeof(o);
-  }
-
-  // ../../../../../../node_modules/@material-ui/utils/esm/deepmerge.js
-  function isPlainObject3(item) {
-    return item && _typeof(item) === "object" && item.constructor === Object;
-  }
-  function deepmerge2(target, source) {
-    var options = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : {
-      clone: true
-    };
-    var output = options.clone ? _extends2({}, target) : target;
-    if (isPlainObject3(target) && isPlainObject3(source)) {
-      Object.keys(source).forEach(function(key) {
-        if (key === "__proto__") {
-          return;
-        }
-        if (isPlainObject3(source[key]) && key in target) {
-          output[key] = deepmerge2(target[key], source[key], options);
-        } else {
-          output[key] = source[key];
-        }
-      });
-    }
-    return output;
-  }
-
-  // ../../../../../../node_modules/@babel/runtime/helpers/esm/toPrimitive.js
-  function toPrimitive(t, r2) {
-    if ("object" != _typeof(t) || !t) return t;
-    var e = t[Symbol.toPrimitive];
-    if (void 0 !== e) {
-      var i = e.call(t, r2 || "default");
-      if ("object" != _typeof(i)) return i;
-      throw new TypeError("@@toPrimitive must return a primitive value.");
-    }
-    return ("string" === r2 ? String : Number)(t);
-  }
-
-  // ../../../../../../node_modules/@babel/runtime/helpers/esm/toPropertyKey.js
-  function toPropertyKey(t) {
-    var i = toPrimitive(t, "string");
-    return "symbol" == _typeof(i) ? i : i + "";
-  }
-
-  // ../../../../../../node_modules/@babel/runtime/helpers/esm/defineProperty.js
-  function _defineProperty(e, r2, t) {
-    return (r2 = toPropertyKey(r2)) in e ? Object.defineProperty(e, r2, {
-      value: t,
-      enumerable: true,
-      configurable: true,
-      writable: true
-    }) : e[r2] = t, e;
-  }
-
-  // ../../../../../../node_modules/@material-ui/core/esm/styles/colorManipulator.js
-  function clamp2(value) {
-    var min2 = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : 0;
-    var max2 = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : 1;
-    if (true) {
-      if (value < min2 || value > max2) {
-        console.error("Material-UI: The value provided ".concat(value, " is out of range [").concat(min2, ", ").concat(max2, "]."));
-      }
-    }
-    return Math.min(Math.max(min2, value), max2);
-  }
-  function hexToRgb2(color2) {
-    color2 = color2.substr(1);
-    var re = new RegExp(".{1,".concat(color2.length >= 6 ? 2 : 1, "}"), "g");
-    var colors = color2.match(re);
-    if (colors && colors[0].length === 1) {
-      colors = colors.map(function(n) {
-        return n + n;
-      });
-    }
-    return colors ? "rgb".concat(colors.length === 4 ? "a" : "", "(").concat(colors.map(function(n, index) {
-      return index < 3 ? parseInt(n, 16) : Math.round(parseInt(n, 16) / 255 * 1e3) / 1e3;
-    }).join(", "), ")") : "";
-  }
-  function hslToRgb2(color2) {
-    color2 = decomposeColor2(color2);
-    var _color = color2, values4 = _color.values;
-    var h = values4[0];
-    var s = values4[1] / 100;
-    var l = values4[2] / 100;
-    var a = s * Math.min(l, 1 - l);
-    var f = function f2(n) {
-      var k = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : (n + h / 30) % 12;
-      return l - a * Math.max(Math.min(k - 3, 9 - k, 1), -1);
-    };
-    var type = "rgb";
-    var rgb = [Math.round(f(0) * 255), Math.round(f(8) * 255), Math.round(f(4) * 255)];
-    if (color2.type === "hsla") {
-      type += "a";
-      rgb.push(values4[3]);
-    }
-    return recomposeColor2({
-      type,
-      values: rgb
-    });
-  }
-  function decomposeColor2(color2) {
-    if (color2.type) {
-      return color2;
-    }
-    if (color2.charAt(0) === "#") {
-      return decomposeColor2(hexToRgb2(color2));
-    }
-    var marker = color2.indexOf("(");
-    var type = color2.substring(0, marker);
-    if (["rgb", "rgba", "hsl", "hsla"].indexOf(type) === -1) {
-      throw new Error(true ? "Material-UI: Unsupported `".concat(color2, "` color.\nWe support the following formats: #nnn, #nnnnnn, rgb(), rgba(), hsl(), hsla().") : formatMuiErrorMessage(3, color2));
-    }
-    var values4 = color2.substring(marker + 1, color2.length - 1).split(",");
-    values4 = values4.map(function(value) {
-      return parseFloat(value);
-    });
-    return {
-      type,
-      values: values4
-    };
-  }
-  function recomposeColor2(color2) {
-    var type = color2.type;
-    var values4 = color2.values;
-    if (type.indexOf("rgb") !== -1) {
-      values4 = values4.map(function(n, i) {
-        return i < 3 ? parseInt(n, 10) : n;
-      });
-    } else if (type.indexOf("hsl") !== -1) {
-      values4[1] = "".concat(values4[1], "%");
-      values4[2] = "".concat(values4[2], "%");
-    }
-    return "".concat(type, "(").concat(values4.join(", "), ")");
-  }
-  function getContrastRatio2(foreground, background) {
-    var lumA = getLuminance2(foreground);
-    var lumB = getLuminance2(background);
-    return (Math.max(lumA, lumB) + 0.05) / (Math.min(lumA, lumB) + 0.05);
-  }
-  function getLuminance2(color2) {
-    color2 = decomposeColor2(color2);
-    var rgb = color2.type === "hsl" ? decomposeColor2(hslToRgb2(color2)).values : color2.values;
-    rgb = rgb.map(function(val) {
-      val /= 255;
-      return val <= 0.03928 ? val / 12.92 : Math.pow((val + 0.055) / 1.055, 2.4);
-    });
-    return Number((0.2126 * rgb[0] + 0.7152 * rgb[1] + 0.0722 * rgb[2]).toFixed(3));
-  }
-  function darken2(color2, coefficient) {
-    color2 = decomposeColor2(color2);
-    coefficient = clamp2(coefficient);
-    if (color2.type.indexOf("hsl") !== -1) {
-      color2.values[2] *= 1 - coefficient;
-    } else if (color2.type.indexOf("rgb") !== -1) {
-      for (var i = 0; i < 3; i += 1) {
-        color2.values[i] *= 1 - coefficient;
-      }
-    }
-    return recomposeColor2(color2);
-  }
-  function lighten2(color2, coefficient) {
-    color2 = decomposeColor2(color2);
-    coefficient = clamp2(coefficient);
-    if (color2.type.indexOf("hsl") !== -1) {
-      color2.values[2] += (100 - color2.values[2]) * coefficient;
-    } else if (color2.type.indexOf("rgb") !== -1) {
-      for (var i = 0; i < 3; i += 1) {
-        color2.values[i] += (255 - color2.values[i]) * coefficient;
-      }
-    }
-    return recomposeColor2(color2);
-  }
-
-  // ../../../../../../node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js
-  function _objectWithoutPropertiesLoose2(r2, e) {
-    if (null == r2) return {};
-    var t = {};
-    for (var n in r2) if ({}.hasOwnProperty.call(r2, n)) {
-      if (-1 !== e.indexOf(n)) continue;
-      t[n] = r2[n];
-    }
-    return t;
-  }
-
-  // ../../../../../../node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js
-  function _objectWithoutProperties(e, t) {
-    if (null == e) return {};
-    var o, r2, i = _objectWithoutPropertiesLoose2(e, t);
-    if (Object.getOwnPropertySymbols) {
-      var n = Object.getOwnPropertySymbols(e);
-      for (r2 = 0; r2 < n.length; r2++) o = n[r2], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
-    }
-    return i;
-  }
-
-  // ../../../../../../node_modules/@material-ui/core/esm/styles/createBreakpoints.js
-  var keys = ["xs", "sm", "md", "lg", "xl"];
-  function createBreakpoints2(breakpoints) {
-    var _breakpoints$values = breakpoints.values, values4 = _breakpoints$values === void 0 ? {
-      xs: 0,
-      sm: 600,
-      md: 960,
-      lg: 1280,
-      xl: 1920
-    } : _breakpoints$values, _breakpoints$unit = breakpoints.unit, unit = _breakpoints$unit === void 0 ? "px" : _breakpoints$unit, _breakpoints$step = breakpoints.step, step = _breakpoints$step === void 0 ? 5 : _breakpoints$step, other = _objectWithoutProperties(breakpoints, ["values", "unit", "step"]);
-    function up2(key) {
-      var value = typeof values4[key] === "number" ? values4[key] : key;
-      return "@media (min-width:".concat(value).concat(unit, ")");
-    }
-    function down(key) {
-      var endIndex = keys.indexOf(key) + 1;
-      var upperbound = values4[keys[endIndex]];
-      if (endIndex === keys.length) {
-        return up2("xs");
-      }
-      var value = typeof upperbound === "number" && endIndex > 0 ? upperbound : key;
-      return "@media (max-width:".concat(value - step / 100).concat(unit, ")");
-    }
-    function between(start2, end2) {
-      var endIndex = keys.indexOf(end2);
-      if (endIndex === keys.length - 1) {
-        return up2(start2);
-      }
-      return "@media (min-width:".concat(typeof values4[start2] === "number" ? values4[start2] : start2).concat(unit, ") and ") + "(max-width:".concat((endIndex !== -1 && typeof values4[keys[endIndex + 1]] === "number" ? values4[keys[endIndex + 1]] : end2) - step / 100).concat(unit, ")");
-    }
-    function only(key) {
-      return between(key, key);
-    }
-    var warnedOnce2 = false;
-    function width2(key) {
-      if (true) {
-        if (!warnedOnce2) {
-          warnedOnce2 = true;
-          console.warn(["Material-UI: The `theme.breakpoints.width` utility is deprecated because it's redundant.", "Use the `theme.breakpoints.values` instead."].join("\n"));
-        }
-      }
-      return values4[key];
-    }
-    return _extends2({
-      keys,
-      values: values4,
-      up: up2,
-      down,
-      between,
-      only,
-      width: width2
-    }, other);
-  }
-
-  // ../../../../../../node_modules/@material-ui/core/esm/styles/createMixins.js
-  function createMixins2(breakpoints, spacing3, mixins) {
-    var _toolbar;
-    return _extends2({
-      gutters: function gutters() {
-        var styles4 = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {};
-        console.warn(["Material-UI: theme.mixins.gutters() is deprecated.", "You can use the source of the mixin directly:", "\n      paddingLeft: theme.spacing(2),\n      paddingRight: theme.spacing(2),\n      [theme.breakpoints.up('sm')]: {\n        paddingLeft: theme.spacing(3),\n        paddingRight: theme.spacing(3),\n      },\n      "].join("\n"));
-        return _extends2({
-          paddingLeft: spacing3(2),
-          paddingRight: spacing3(2)
-        }, styles4, _defineProperty({}, breakpoints.up("sm"), _extends2({
-          paddingLeft: spacing3(3),
-          paddingRight: spacing3(3)
-        }, styles4[breakpoints.up("sm")])));
-      },
-      toolbar: (_toolbar = {
-        minHeight: 56
-      }, _defineProperty(_toolbar, "".concat(breakpoints.up("xs"), " and (orientation: landscape)"), {
-        minHeight: 48
-      }), _defineProperty(_toolbar, breakpoints.up("sm"), {
-        minHeight: 64
-      }), _toolbar)
-    }, mixins);
-  }
-
-  // ../../../../../../node_modules/@material-ui/core/esm/styles/createPalette.js
-  var light2 = {
-    // The colors used to style the text.
-    text: {
-      // The most important text.
-      primary: "rgba(0, 0, 0, 0.87)",
-      // Secondary text.
-      secondary: "rgba(0, 0, 0, 0.54)",
-      // Disabled text have even lower visual prominence.
-      disabled: "rgba(0, 0, 0, 0.38)",
-      // Text hints.
-      hint: "rgba(0, 0, 0, 0.38)"
-    },
-    // The color used to divide different elements.
-    divider: "rgba(0, 0, 0, 0.12)",
-    // The background colors used to style the surfaces.
-    // Consistency between these values is important.
-    background: {
-      paper: common_default2.white,
-      default: grey_default2[50]
-    },
-    // The colors used to style the action elements.
-    action: {
-      // The color of an active action like an icon button.
-      active: "rgba(0, 0, 0, 0.54)",
-      // The color of an hovered action.
-      hover: "rgba(0, 0, 0, 0.04)",
-      hoverOpacity: 0.04,
-      // The color of a selected action.
-      selected: "rgba(0, 0, 0, 0.08)",
-      selectedOpacity: 0.08,
-      // The color of a disabled action.
-      disabled: "rgba(0, 0, 0, 0.26)",
-      // The background color of a disabled action.
-      disabledBackground: "rgba(0, 0, 0, 0.12)",
-      disabledOpacity: 0.38,
-      focus: "rgba(0, 0, 0, 0.12)",
-      focusOpacity: 0.12,
-      activatedOpacity: 0.12
-    }
-  };
-  var dark2 = {
-    text: {
-      primary: common_default2.white,
-      secondary: "rgba(255, 255, 255, 0.7)",
-      disabled: "rgba(255, 255, 255, 0.5)",
-      hint: "rgba(255, 255, 255, 0.5)",
-      icon: "rgba(255, 255, 255, 0.5)"
-    },
-    divider: "rgba(255, 255, 255, 0.12)",
-    background: {
-      paper: grey_default2[800],
-      default: "#303030"
-    },
-    action: {
-      active: common_default2.white,
-      hover: "rgba(255, 255, 255, 0.08)",
-      hoverOpacity: 0.08,
-      selected: "rgba(255, 255, 255, 0.16)",
-      selectedOpacity: 0.16,
-      disabled: "rgba(255, 255, 255, 0.3)",
-      disabledBackground: "rgba(255, 255, 255, 0.12)",
-      disabledOpacity: 0.38,
-      focus: "rgba(255, 255, 255, 0.12)",
-      focusOpacity: 0.12,
-      activatedOpacity: 0.24
-    }
-  };
-  function addLightOrDark2(intent, direction, shade, tonalOffset) {
-    var tonalOffsetLight = tonalOffset.light || tonalOffset;
-    var tonalOffsetDark = tonalOffset.dark || tonalOffset * 1.5;
-    if (!intent[direction]) {
-      if (intent.hasOwnProperty(shade)) {
-        intent[direction] = intent[shade];
-      } else if (direction === "light") {
-        intent.light = lighten2(intent.main, tonalOffsetLight);
-      } else if (direction === "dark") {
-        intent.dark = darken2(intent.main, tonalOffsetDark);
-      }
-    }
-  }
-  function createPalette2(palette2) {
-    var _palette$primary = palette2.primary, primary = _palette$primary === void 0 ? {
-      light: indigo_default[300],
-      main: indigo_default[500],
-      dark: indigo_default[700]
-    } : _palette$primary, _palette$secondary = palette2.secondary, secondary = _palette$secondary === void 0 ? {
-      light: pink_default.A200,
-      main: pink_default.A400,
-      dark: pink_default.A700
-    } : _palette$secondary, _palette$error = palette2.error, error = _palette$error === void 0 ? {
-      light: red_default2[300],
-      main: red_default2[500],
-      dark: red_default2[700]
-    } : _palette$error, _palette$warning = palette2.warning, warning2 = _palette$warning === void 0 ? {
-      light: orange_default2[300],
-      main: orange_default2[500],
-      dark: orange_default2[700]
-    } : _palette$warning, _palette$info = palette2.info, info = _palette$info === void 0 ? {
-      light: blue_default2[300],
-      main: blue_default2[500],
-      dark: blue_default2[700]
-    } : _palette$info, _palette$success = palette2.success, success = _palette$success === void 0 ? {
-      light: green_default2[300],
-      main: green_default2[500],
-      dark: green_default2[700]
-    } : _palette$success, _palette$type = palette2.type, type = _palette$type === void 0 ? "light" : _palette$type, _palette$contrastThre = palette2.contrastThreshold, contrastThreshold = _palette$contrastThre === void 0 ? 3 : _palette$contrastThre, _palette$tonalOffset = palette2.tonalOffset, tonalOffset = _palette$tonalOffset === void 0 ? 0.2 : _palette$tonalOffset, other = _objectWithoutProperties(palette2, ["primary", "secondary", "error", "warning", "info", "success", "type", "contrastThreshold", "tonalOffset"]);
-    function getContrastText(background) {
-      var contrastText = getContrastRatio2(background, dark2.text.primary) >= contrastThreshold ? dark2.text.primary : light2.text.primary;
-      if (true) {
-        var contrast = getContrastRatio2(background, contrastText);
-        if (contrast < 3) {
-          console.error(["Material-UI: The contrast ratio of ".concat(contrast, ":1 for ").concat(contrastText, " on ").concat(background), "falls below the WCAG recommended absolute minimum contrast ratio of 3:1.", "https://www.w3.org/TR/2008/REC-WCAG20-20081211/#visual-audio-contrast-contrast"].join("\n"));
-        }
-      }
-      return contrastText;
-    }
-    var augmentColor = function augmentColor2(color2) {
-      var mainShade = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : 500;
-      var lightShade = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : 300;
-      var darkShade = arguments.length > 3 && arguments[3] !== void 0 ? arguments[3] : 700;
-      color2 = _extends2({}, color2);
-      if (!color2.main && color2[mainShade]) {
-        color2.main = color2[mainShade];
-      }
-      if (!color2.main) {
-        throw new Error(true ? "Material-UI: The color provided to augmentColor(color) is invalid.\nThe color object needs to have a `main` property or a `".concat(mainShade, "` property.") : formatMuiErrorMessage(4, mainShade));
-      }
-      if (typeof color2.main !== "string") {
-        throw new Error(true ? "Material-UI: The color provided to augmentColor(color) is invalid.\n`color.main` should be a string, but `".concat(JSON.stringify(color2.main), '` was provided instead.\n\nDid you intend to use one of the following approaches?\n\nimport {\xA0green } from "@material-ui/core/colors";\n\nconst theme1 = createTheme({ palette: {\n  primary: green,\n} });\n\nconst theme2 = createTheme({ palette: {\n  primary: { main: green[500] },\n} });') : formatMuiErrorMessage(5, JSON.stringify(color2.main)));
-      }
-      addLightOrDark2(color2, "light", lightShade, tonalOffset);
-      addLightOrDark2(color2, "dark", darkShade, tonalOffset);
-      if (!color2.contrastText) {
-        color2.contrastText = getContrastText(color2.main);
-      }
-      return color2;
-    };
-    var types = {
-      dark: dark2,
-      light: light2
-    };
-    if (true) {
-      if (!types[type]) {
-        console.error("Material-UI: The palette type `".concat(type, "` is not supported."));
-      }
-    }
-    var paletteOutput = deepmerge2(_extends2({
-      // A collection of common colors.
-      common: common_default2,
-      // The palette type, can be light or dark.
-      type,
-      // The colors used to represent primary interface elements for a user.
-      primary: augmentColor(primary),
-      // The colors used to represent secondary interface elements for a user.
-      secondary: augmentColor(secondary, "A400", "A200", "A700"),
-      // The colors used to represent interface elements that the user should be made aware of.
-      error: augmentColor(error),
-      // The colors used to represent potentially dangerous actions or important messages.
-      warning: augmentColor(warning2),
-      // The colors used to present information to the user that is neutral and not necessarily important.
-      info: augmentColor(info),
-      // The colors used to indicate the successful completion of an action that user triggered.
-      success: augmentColor(success),
-      // The grey colors.
-      grey: grey_default2,
-      // Used by `getContrastText()` to maximize the contrast between
-      // the background and the text.
-      contrastThreshold,
-      // Takes a background color and returns the text color that maximizes the contrast.
-      getContrastText,
-      // Generate a rich color object.
-      augmentColor,
-      // Used by the functions below to shift a color's luminance by approximately
-      // two indexes within its tonal palette.
-      // E.g., shift from Red 500 to Red 300 or Red 700.
-      tonalOffset
-    }, types[type]), other);
-    return paletteOutput;
-  }
-
-  // ../../../../../../node_modules/@material-ui/core/esm/styles/createTypography.js
-  function round4(value) {
-    return Math.round(value * 1e5) / 1e5;
-  }
-  var warnedOnce = false;
-  function roundWithDeprecationWarning(value) {
-    if (true) {
-      if (!warnedOnce) {
-        console.warn(["Material-UI: The `theme.typography.round` helper is deprecated.", "Head to https://mui.com/r/migration-v4/#theme for a migration path."].join("\n"));
-        warnedOnce = true;
-      }
-    }
-    return round4(value);
-  }
-  var caseAllCaps2 = {
-    textTransform: "uppercase"
-  };
-  var defaultFontFamily2 = '"Roboto", "Helvetica", "Arial", sans-serif';
-  function createTypography2(palette2, typography) {
-    var _ref = typeof typography === "function" ? typography(palette2) : typography, _ref$fontFamily = _ref.fontFamily, fontFamily = _ref$fontFamily === void 0 ? defaultFontFamily2 : _ref$fontFamily, _ref$fontSize = _ref.fontSize, fontSize = _ref$fontSize === void 0 ? 14 : _ref$fontSize, _ref$fontWeightLight = _ref.fontWeightLight, fontWeightLight = _ref$fontWeightLight === void 0 ? 300 : _ref$fontWeightLight, _ref$fontWeightRegula = _ref.fontWeightRegular, fontWeightRegular = _ref$fontWeightRegula === void 0 ? 400 : _ref$fontWeightRegula, _ref$fontWeightMedium = _ref.fontWeightMedium, fontWeightMedium = _ref$fontWeightMedium === void 0 ? 500 : _ref$fontWeightMedium, _ref$fontWeightBold = _ref.fontWeightBold, fontWeightBold = _ref$fontWeightBold === void 0 ? 700 : _ref$fontWeightBold, _ref$htmlFontSize = _ref.htmlFontSize, htmlFontSize = _ref$htmlFontSize === void 0 ? 16 : _ref$htmlFontSize, allVariants = _ref.allVariants, pxToRem2 = _ref.pxToRem, other = _objectWithoutProperties(_ref, ["fontFamily", "fontSize", "fontWeightLight", "fontWeightRegular", "fontWeightMedium", "fontWeightBold", "htmlFontSize", "allVariants", "pxToRem"]);
-    if (true) {
-      if (typeof fontSize !== "number") {
-        console.error("Material-UI: `fontSize` is required to be a number.");
-      }
-      if (typeof htmlFontSize !== "number") {
-        console.error("Material-UI: `htmlFontSize` is required to be a number.");
-      }
-    }
-    var coef = fontSize / 14;
-    var pxToRem = pxToRem2 || function(size) {
-      return "".concat(size / htmlFontSize * coef, "rem");
-    };
-    var buildVariant = function buildVariant2(fontWeight, size, lineHeight, letterSpacing, casing) {
-      return _extends2({
-        fontFamily,
-        fontWeight,
-        fontSize: pxToRem(size),
-        // Unitless following https://meyerweb.com/eric/thoughts/2006/02/08/unitless-line-heights/
-        lineHeight
-      }, fontFamily === defaultFontFamily2 ? {
-        letterSpacing: "".concat(round4(letterSpacing / size), "em")
-      } : {}, casing, allVariants);
-    };
-    var variants = {
-      h1: buildVariant(fontWeightLight, 96, 1.167, -1.5),
-      h2: buildVariant(fontWeightLight, 60, 1.2, -0.5),
-      h3: buildVariant(fontWeightRegular, 48, 1.167, 0),
-      h4: buildVariant(fontWeightRegular, 34, 1.235, 0.25),
-      h5: buildVariant(fontWeightRegular, 24, 1.334, 0),
-      h6: buildVariant(fontWeightMedium, 20, 1.6, 0.15),
-      subtitle1: buildVariant(fontWeightRegular, 16, 1.75, 0.15),
-      subtitle2: buildVariant(fontWeightMedium, 14, 1.57, 0.1),
-      body1: buildVariant(fontWeightRegular, 16, 1.5, 0.15),
-      body2: buildVariant(fontWeightRegular, 14, 1.43, 0.15),
-      button: buildVariant(fontWeightMedium, 14, 1.75, 0.4, caseAllCaps2),
-      caption: buildVariant(fontWeightRegular, 12, 1.66, 0.4),
-      overline: buildVariant(fontWeightRegular, 12, 2.66, 1, caseAllCaps2)
-    };
-    return deepmerge2(_extends2({
-      htmlFontSize,
-      pxToRem,
-      round: roundWithDeprecationWarning,
-      // TODO v5: remove
-      fontFamily,
-      fontSize,
-      fontWeightLight,
-      fontWeightRegular,
-      fontWeightMedium,
-      fontWeightBold
-    }, variants), other, {
-      clone: false
-      // No need to clone deep
-    });
-  }
-
-  // ../../../../../../node_modules/@material-ui/core/esm/styles/shadows.js
-  var shadowKeyUmbraOpacity2 = 0.2;
-  var shadowKeyPenumbraOpacity2 = 0.14;
-  var shadowAmbientShadowOpacity2 = 0.12;
-  function createShadow2() {
-    return ["".concat(arguments.length <= 0 ? void 0 : arguments[0], "px ").concat(arguments.length <= 1 ? void 0 : arguments[1], "px ").concat(arguments.length <= 2 ? void 0 : arguments[2], "px ").concat(arguments.length <= 3 ? void 0 : arguments[3], "px rgba(0,0,0,").concat(shadowKeyUmbraOpacity2, ")"), "".concat(arguments.length <= 4 ? void 0 : arguments[4], "px ").concat(arguments.length <= 5 ? void 0 : arguments[5], "px ").concat(arguments.length <= 6 ? void 0 : arguments[6], "px ").concat(arguments.length <= 7 ? void 0 : arguments[7], "px rgba(0,0,0,").concat(shadowKeyPenumbraOpacity2, ")"), "".concat(arguments.length <= 8 ? void 0 : arguments[8], "px ").concat(arguments.length <= 9 ? void 0 : arguments[9], "px ").concat(arguments.length <= 10 ? void 0 : arguments[10], "px ").concat(arguments.length <= 11 ? void 0 : arguments[11], "px rgba(0,0,0,").concat(shadowAmbientShadowOpacity2, ")")].join(",");
-  }
-  var shadows2 = ["none", createShadow2(0, 2, 1, -1, 0, 1, 1, 0, 0, 1, 3, 0), createShadow2(0, 3, 1, -2, 0, 2, 2, 0, 0, 1, 5, 0), createShadow2(0, 3, 3, -2, 0, 3, 4, 0, 0, 1, 8, 0), createShadow2(0, 2, 4, -1, 0, 4, 5, 0, 0, 1, 10, 0), createShadow2(0, 3, 5, -1, 0, 5, 8, 0, 0, 1, 14, 0), createShadow2(0, 3, 5, -1, 0, 6, 10, 0, 0, 1, 18, 0), createShadow2(0, 4, 5, -2, 0, 7, 10, 1, 0, 2, 16, 1), createShadow2(0, 5, 5, -3, 0, 8, 10, 1, 0, 3, 14, 2), createShadow2(0, 5, 6, -3, 0, 9, 12, 1, 0, 3, 16, 2), createShadow2(0, 6, 6, -3, 0, 10, 14, 1, 0, 4, 18, 3), createShadow2(0, 6, 7, -4, 0, 11, 15, 1, 0, 4, 20, 3), createShadow2(0, 7, 8, -4, 0, 12, 17, 2, 0, 5, 22, 4), createShadow2(0, 7, 8, -4, 0, 13, 19, 2, 0, 5, 24, 4), createShadow2(0, 7, 9, -4, 0, 14, 21, 2, 0, 5, 26, 4), createShadow2(0, 8, 9, -5, 0, 15, 22, 2, 0, 6, 28, 5), createShadow2(0, 8, 10, -5, 0, 16, 24, 2, 0, 6, 30, 5), createShadow2(0, 8, 11, -5, 0, 17, 26, 2, 0, 6, 32, 5), createShadow2(0, 9, 11, -5, 0, 18, 28, 2, 0, 7, 34, 6), createShadow2(0, 9, 12, -6, 0, 19, 29, 2, 0, 7, 36, 6), createShadow2(0, 10, 13, -6, 0, 20, 31, 3, 0, 8, 38, 7), createShadow2(0, 10, 13, -6, 0, 21, 33, 3, 0, 8, 40, 7), createShadow2(0, 10, 14, -6, 0, 22, 35, 3, 0, 8, 42, 7), createShadow2(0, 11, 14, -7, 0, 23, 36, 3, 0, 9, 44, 8), createShadow2(0, 11, 15, -7, 0, 24, 38, 3, 0, 9, 46, 8)];
-  var shadows_default2 = shadows2;
-
-  // ../../../../../../node_modules/@material-ui/core/esm/styles/shape.js
-  var shape2 = {
-    borderRadius: 4
-  };
-  var shape_default2 = shape2;
-
-  // ../../../../../../node_modules/@material-ui/system/esm/responsivePropType.js
-  var import_prop_types59 = __toESM(require_prop_types2());
-  var responsivePropType2 = true ? import_prop_types59.default.oneOfType([import_prop_types59.default.number, import_prop_types59.default.string, import_prop_types59.default.object, import_prop_types59.default.array]) : {};
-  var responsivePropType_default2 = responsivePropType2;
-
-  // ../../../../../../node_modules/@babel/runtime/helpers/esm/arrayLikeToArray.js
-  function _arrayLikeToArray(r2, a) {
-    (null == a || a > r2.length) && (a = r2.length);
-    for (var e = 0, n = Array(a); e < a; e++) n[e] = r2[e];
-    return n;
-  }
-
-  // ../../../../../../node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js
-  function _unsupportedIterableToArray(r2, a) {
-    if (r2) {
-      if ("string" == typeof r2) return _arrayLikeToArray(r2, a);
-      var t = {}.toString.call(r2).slice(8, -1);
-      return "Object" === t && r2.constructor && (t = r2.constructor.name), "Map" === t || "Set" === t ? Array.from(r2) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r2, a) : void 0;
-    }
-  }
-
-  // ../../../../../../node_modules/@material-ui/system/esm/merge.js
-  function merge3(acc, item) {
-    if (!item) {
-      return acc;
-    }
-    return deepmerge2(acc, item, {
-      clone: false
-      // No need to clone deep, it's way faster.
-    });
-  }
-  var merge_default2 = merge3;
-
-  // ../../../../../../node_modules/@material-ui/system/esm/breakpoints.js
-  var values3 = {
-    xs: 0,
-    sm: 600,
-    md: 960,
-    lg: 1280,
-    xl: 1920
-  };
-  var defaultBreakpoints2 = {
-    // Sorted ASC by size. That's important.
-    // It can't be configured as it's used statically for propTypes.
-    keys: ["xs", "sm", "md", "lg", "xl"],
-    up: function up(key) {
-      return "@media (min-width:".concat(values3[key], "px)");
-    }
-  };
-  function handleBreakpoints2(props, propValue, styleFromPropValue) {
-    if (true) {
-      if (!props.theme) {
-        console.error("Material-UI: You are calling a style function without a theme value.");
-      }
-    }
-    if (Array.isArray(propValue)) {
-      var themeBreakpoints = props.theme.breakpoints || defaultBreakpoints2;
-      return propValue.reduce(function(acc, item, index) {
-        acc[themeBreakpoints.up(themeBreakpoints.keys[index])] = styleFromPropValue(propValue[index]);
-        return acc;
-      }, {});
-    }
-    if (_typeof(propValue) === "object") {
-      var _themeBreakpoints = props.theme.breakpoints || defaultBreakpoints2;
-      return Object.keys(propValue).reduce(function(acc, breakpoint) {
-        acc[_themeBreakpoints.up(breakpoint)] = styleFromPropValue(propValue[breakpoint]);
-        return acc;
-      }, {});
-    }
-    var output = styleFromPropValue(propValue);
-    return output;
-  }
-
-  // ../../../../../../node_modules/@babel/runtime/helpers/esm/arrayWithHoles.js
-  function _arrayWithHoles(r2) {
-    if (Array.isArray(r2)) return r2;
-  }
-
-  // ../../../../../../node_modules/@babel/runtime/helpers/esm/iterableToArrayLimit.js
-  function _iterableToArrayLimit(r2, l) {
-    var t = null == r2 ? null : "undefined" != typeof Symbol && r2[Symbol.iterator] || r2["@@iterator"];
-    if (null != t) {
-      var e, n, i, u, a = [], f = true, o = false;
-      try {
-        if (i = (t = t.call(r2)).next, 0 === l) {
-          if (Object(t) !== t) return;
-          f = false;
-        } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = true) ;
-      } catch (r3) {
-        o = true, n = r3;
-      } finally {
-        try {
-          if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return;
-        } finally {
-          if (o) throw n;
-        }
-      }
-      return a;
-    }
-  }
-
-  // ../../../../../../node_modules/@babel/runtime/helpers/esm/nonIterableRest.js
-  function _nonIterableRest() {
-    throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
-  }
-
-  // ../../../../../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js
-  function _slicedToArray(r2, e) {
-    return _arrayWithHoles(r2) || _iterableToArrayLimit(r2, e) || _unsupportedIterableToArray(r2, e) || _nonIterableRest();
-  }
-
-  // ../../../../../../node_modules/@material-ui/system/esm/memoize.js
-  function memoize3(fn2) {
-    var cache = {};
-    return function(arg2) {
-      if (cache[arg2] === void 0) {
-        cache[arg2] = fn2(arg2);
-      }
-      return cache[arg2];
-    };
-  }
-
-  // ../../../../../../node_modules/@material-ui/system/esm/spacing.js
-  var properties2 = {
-    m: "margin",
-    p: "padding"
-  };
-  var directions2 = {
-    t: "Top",
-    r: "Right",
-    b: "Bottom",
-    l: "Left",
-    x: ["Left", "Right"],
-    y: ["Top", "Bottom"]
-  };
-  var aliases2 = {
-    marginX: "mx",
-    marginY: "my",
-    paddingX: "px",
-    paddingY: "py"
-  };
-  var getCssProperties2 = memoize3(function(prop) {
-    if (prop.length > 2) {
-      if (aliases2[prop]) {
-        prop = aliases2[prop];
-      } else {
-        return [prop];
-      }
-    }
-    var _prop$split = prop.split(""), _prop$split2 = _slicedToArray(_prop$split, 2), a = _prop$split2[0], b = _prop$split2[1];
-    var property = properties2[a];
-    var direction = directions2[b] || "";
-    return Array.isArray(direction) ? direction.map(function(dir) {
-      return property + dir;
-    }) : [property + direction];
-  });
-  var spacingKeys2 = ["m", "mt", "mr", "mb", "ml", "mx", "my", "p", "pt", "pr", "pb", "pl", "px", "py", "margin", "marginTop", "marginRight", "marginBottom", "marginLeft", "marginX", "marginY", "padding", "paddingTop", "paddingRight", "paddingBottom", "paddingLeft", "paddingX", "paddingY"];
-  function createUnarySpacing2(theme) {
-    var themeSpacing = theme.spacing || 8;
-    if (typeof themeSpacing === "number") {
-      return function(abs2) {
-        if (true) {
-          if (typeof abs2 !== "number") {
-            console.error("Material-UI: Expected spacing argument to be a number, got ".concat(abs2, "."));
-          }
-        }
-        return themeSpacing * abs2;
-      };
-    }
-    if (Array.isArray(themeSpacing)) {
-      return function(abs2) {
-        if (true) {
-          if (abs2 > themeSpacing.length - 1) {
-            console.error(["Material-UI: The value provided (".concat(abs2, ") overflows."), "The supported values are: ".concat(JSON.stringify(themeSpacing), "."), "".concat(abs2, " > ").concat(themeSpacing.length - 1, ", you need to add the missing values.")].join("\n"));
-          }
-        }
-        return themeSpacing[abs2];
-      };
-    }
-    if (typeof themeSpacing === "function") {
-      return themeSpacing;
-    }
-    if (true) {
-      console.error(["Material-UI: The `theme.spacing` value (".concat(themeSpacing, ") is invalid."), "It should be a number, an array or a function."].join("\n"));
-    }
-    return function() {
-      return void 0;
-    };
-  }
-  function getValue2(transformer, propValue) {
-    if (typeof propValue === "string" || propValue == null) {
-      return propValue;
-    }
-    var abs2 = Math.abs(propValue);
-    var transformed = transformer(abs2);
-    if (propValue >= 0) {
-      return transformed;
-    }
-    if (typeof transformed === "number") {
-      return -transformed;
-    }
-    return "-".concat(transformed);
-  }
-  function getStyleFromPropValue2(cssProperties, transformer) {
-    return function(propValue) {
-      return cssProperties.reduce(function(acc, cssProperty) {
-        acc[cssProperty] = getValue2(transformer, propValue);
-        return acc;
-      }, {});
-    };
-  }
-  function spacing2(props) {
-    var theme = props.theme;
-    var transformer = createUnarySpacing2(theme);
-    return Object.keys(props).map(function(prop) {
-      if (spacingKeys2.indexOf(prop) === -1) {
-        return null;
-      }
-      var cssProperties = getCssProperties2(prop);
-      var styleFromPropValue = getStyleFromPropValue2(cssProperties, transformer);
-      var propValue = props[prop];
-      return handleBreakpoints2(props, propValue, styleFromPropValue);
-    }).reduce(merge_default2, {});
-  }
-  spacing2.propTypes = true ? spacingKeys2.reduce(function(obj, key) {
-    obj[key] = responsivePropType_default2;
-    return obj;
-  }, {}) : {};
-  spacing2.filterProps = spacingKeys2;
-
-  // ../../../../../../node_modules/@material-ui/core/esm/styles/createSpacing.js
-  var warnOnce;
-  function createSpacing2() {
-    var spacingInput = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : 8;
-    if (spacingInput.mui) {
-      return spacingInput;
-    }
-    var transform = createUnarySpacing2({
-      spacing: spacingInput
-    });
-    var spacing3 = function spacing4() {
-      for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-        args[_key] = arguments[_key];
-      }
-      if (true) {
-        if (!(args.length <= 4)) {
-          console.error("Material-UI: Too many arguments provided, expected between 0 and 4, got ".concat(args.length));
-        }
-      }
-      if (args.length === 0) {
-        return transform(1);
-      }
-      if (args.length === 1) {
-        return transform(args[0]);
-      }
-      return args.map(function(argument) {
-        if (typeof argument === "string") {
-          return argument;
-        }
-        var output = transform(argument);
-        return typeof output === "number" ? "".concat(output, "px") : output;
-      }).join(" ");
-    };
-    Object.defineProperty(spacing3, "unit", {
-      get: function get() {
-        if (true) {
-          if (!warnOnce || false) {
-            console.error(["Material-UI: theme.spacing.unit usage has been deprecated.", "It will be removed in v5.", "You can replace `theme.spacing.unit * y` with `theme.spacing(y)`.", "", "You can use the `https://github.com/mui-org/material-ui/tree/master/packages/material-ui-codemod/README.md#theme-spacing-api` migration helper to make the process smoother."].join("\n"));
-          }
-          warnOnce = true;
-        }
-        return spacingInput;
-      }
-    });
-    spacing3.mui = true;
-    return spacing3;
-  }
-
-  // ../../../../../../node_modules/@material-ui/core/esm/styles/transitions.js
-  var easing2 = {
-    // This is the most common easing curve.
-    easeInOut: "cubic-bezier(0.4, 0, 0.2, 1)",
-    // Objects enter the screen at full velocity from off-screen and
-    // slowly decelerate to a resting point.
-    easeOut: "cubic-bezier(0.0, 0, 0.2, 1)",
-    // Objects leave the screen at full velocity. They do not decelerate when off-screen.
-    easeIn: "cubic-bezier(0.4, 0, 1, 1)",
-    // The sharp curve is used by objects that may return to the screen at any time.
-    sharp: "cubic-bezier(0.4, 0, 0.6, 1)"
-  };
-  var duration2 = {
-    shortest: 150,
-    shorter: 200,
-    short: 250,
-    // most basic recommended timing
-    standard: 300,
-    // this is to be used in complex animations
-    complex: 375,
-    // recommended when something is entering screen
-    enteringScreen: 225,
-    // recommended when something is leaving screen
-    leavingScreen: 195
-  };
-  function formatMs2(milliseconds) {
-    return "".concat(Math.round(milliseconds), "ms");
-  }
-  var transitions_default = {
-    easing: easing2,
-    duration: duration2,
-    create: function create() {
-      var props = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : ["all"];
-      var options = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {};
-      var _options$duration = options.duration, durationOption = _options$duration === void 0 ? duration2.standard : _options$duration, _options$easing = options.easing, easingOption = _options$easing === void 0 ? easing2.easeInOut : _options$easing, _options$delay = options.delay, delay = _options$delay === void 0 ? 0 : _options$delay, other = _objectWithoutProperties(options, ["duration", "easing", "delay"]);
-      if (true) {
-        var isString2 = function isString3(value) {
-          return typeof value === "string";
-        };
-        var isNumber2 = function isNumber3(value) {
-          return !isNaN(parseFloat(value));
-        };
-        if (!isString2(props) && !Array.isArray(props)) {
-          console.error('Material-UI: Argument "props" must be a string or Array.');
-        }
-        if (!isNumber2(durationOption) && !isString2(durationOption)) {
-          console.error('Material-UI: Argument "duration" must be a number or a string but found '.concat(durationOption, "."));
-        }
-        if (!isString2(easingOption)) {
-          console.error('Material-UI: Argument "easing" must be a string.');
-        }
-        if (!isNumber2(delay) && !isString2(delay)) {
-          console.error('Material-UI: Argument "delay" must be a number or a string.');
-        }
-        if (Object.keys(other).length !== 0) {
-          console.error("Material-UI: Unrecognized argument(s) [".concat(Object.keys(other).join(","), "]."));
-        }
-      }
-      return (Array.isArray(props) ? props : [props]).map(function(animatedProp) {
-        return "".concat(animatedProp, " ").concat(typeof durationOption === "string" ? durationOption : formatMs2(durationOption), " ").concat(easingOption, " ").concat(typeof delay === "string" ? delay : formatMs2(delay));
-      }).join(",");
-    },
-    getAutoHeightDuration: function getAutoHeightDuration2(height2) {
-      if (!height2) {
-        return 0;
-      }
-      var constant = height2 / 36;
-      return Math.round((4 + 15 * Math.pow(constant, 0.25) + constant / 5) * 10);
-    }
-  };
-
-  // ../../../../../../node_modules/@material-ui/core/esm/styles/zIndex.js
-  var zIndex2 = {
-    mobileStepper: 1e3,
-    speedDial: 1050,
-    appBar: 1100,
-    drawer: 1200,
-    modal: 1300,
-    snackbar: 1400,
-    tooltip: 1500
-  };
-  var zIndex_default2 = zIndex2;
-
-  // ../../../../../../node_modules/@material-ui/core/esm/styles/createTheme.js
-  function createTheme3() {
-    var options = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {};
-    var _options$breakpoints = options.breakpoints, breakpointsInput = _options$breakpoints === void 0 ? {} : _options$breakpoints, _options$mixins = options.mixins, mixinsInput = _options$mixins === void 0 ? {} : _options$mixins, _options$palette = options.palette, paletteInput = _options$palette === void 0 ? {} : _options$palette, spacingInput = options.spacing, _options$typography = options.typography, typographyInput = _options$typography === void 0 ? {} : _options$typography, other = _objectWithoutProperties(options, ["breakpoints", "mixins", "palette", "spacing", "typography"]);
-    var palette2 = createPalette2(paletteInput);
-    var breakpoints = createBreakpoints2(breakpointsInput);
-    var spacing3 = createSpacing2(spacingInput);
-    var muiTheme = deepmerge2({
-      breakpoints,
-      direction: "ltr",
-      mixins: createMixins2(breakpoints, spacing3, mixinsInput),
-      overrides: {},
-      // Inject custom styles
-      palette: palette2,
-      props: {},
-      // Provide default props
-      shadows: shadows_default2,
-      typography: createTypography2(palette2, typographyInput),
-      spacing: spacing3,
-      shape: shape_default2,
-      transitions: transitions_default,
-      zIndex: zIndex_default2
-    }, other);
-    for (var _len = arguments.length, args = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
-      args[_key - 1] = arguments[_key];
-    }
-    muiTheme = args.reduce(function(acc, argument) {
-      return deepmerge2(acc, argument);
-    }, muiTheme);
-    if (true) {
-      var pseudoClasses = ["checked", "disabled", "error", "focused", "focusVisible", "required", "expanded", "selected"];
-      var traverse = function traverse2(node2, parentKey) {
-        var depth = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : 1;
-        var key;
-        for (key in node2) {
-          var child = node2[key];
-          if (depth === 1) {
-            if (key.indexOf("Mui") === 0 && child) {
-              traverse2(child, key, depth + 1);
-            }
-          } else if (pseudoClasses.indexOf(key) !== -1 && Object.keys(child).length > 0) {
-            if (true) {
-              console.error(["Material-UI: The `".concat(parentKey, "` component increases ") + "the CSS specificity of the `".concat(key, "` internal state."), "You can not override it like this: ", JSON.stringify(node2, null, 2), "", "Instead, you need to use the $ruleName syntax:", JSON.stringify({
-                root: _defineProperty({}, "&$".concat(key), child)
-              }, null, 2), "", "https://mui.com/r/pseudo-classes-guide"].join("\n"));
-            }
-            node2[key] = {};
-          }
-        }
-      };
-      traverse(muiTheme.overrides);
-    }
-    return muiTheme;
-  }
-  var createTheme_default2 = createTheme3;
-
   // ../frontend/src/App.jsx
   var App = () => {
     const { token: token2, loading } = (0, import_react22.useContext)(AppContext);
-    const theme = createTheme_default2({
+    const theme = createTheme2({
       typography: {
         customText: {
           fontFamily: "Arial, sans-serif",
@@ -73864,23 +72094,6 @@ maplibre-gl/dist/maplibre-gl.js:
    * @license 3-Clause BSD. Full text of license: https://github.com/maplibre/maplibre-gl-js/blob/v4.7.1/LICENSE.txt
    *)
 
-react-is/cjs/react-is.development.js:
-  (** @license React v16.13.1
-   * react-is.development.js
-   *
-   * Copyright (c) Facebook, Inc. and its affiliates.
-   *
-   * This source code is licensed under the MIT license found in the
-   * LICENSE file in the root directory of this source tree.
-   *)
-
-object-assign/index.js:
-  (*
-  object-assign
-  (c) Sindre Sorhus
-  @license MIT
-  *)
-
 react-router/dist/development/chunk-K6CSEXPM.mjs:
   (**
    * react-router v7.3.0
@@ -73907,7 +72120,7 @@ react-router/dist/development/index.mjs:
 
 @mui/styled-engine/index.js:
   (**
-   * @mui/styled-engine v6.4.3
+   * @mui/styled-engine v6.4.8
    *
    * @license MIT
    * This source code is licensed under the MIT license found in the
@@ -73916,16 +72129,9 @@ react-router/dist/development/index.mjs:
 
 @mui/material/index.js:
   (**
-   * @mui/material v6.4.5
+   * @mui/material v6.4.8
    *
    * @license MIT
-   * This source code is licensed under the MIT license found in the
-   * LICENSE file in the root directory of this source tree.
-   *)
-
-@material-ui/utils/esm/index.js:
-  (** @license Material-UI v4.11.3
-   *
    * This source code is licensed under the MIT license found in the
    * LICENSE file in the root directory of this source tree.
    *)
