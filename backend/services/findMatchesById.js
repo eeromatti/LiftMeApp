@@ -101,8 +101,8 @@ const findMatchesById = async (id) => {
     console.log('\n user before sorting:', user)
 
     const updatedUser = user.toObject()
-    updatedUser.drivers = drivers.sort((a, b) => a.deltaTime - b.deltaTime)
-    updatedUser.passengers = passengers.sort((a, b) => a.deltaTime - b.deltaTime)
+    updatedUser.drivers = user.drivers.sort((a, b) => a.deltaTime - b.deltaTime)
+    updatedUser.passengers = user.passengers.sort((a, b) => a.deltaTime - b.deltaTime)
 
     console.log('user after sorting:', updatedUser)
 
