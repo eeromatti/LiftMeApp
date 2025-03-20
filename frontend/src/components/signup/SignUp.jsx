@@ -357,7 +357,7 @@ export default function SignUpForm() {
               onChange={(e) => setWorkAddress(e.target.value)}
               value={workAddress}
               id="work"
-              placeholder="King's street 5, Winterfell"
+              placeholder="Lord Commander's street 5, Castle Black"
               name="work"
               autoComplete="work"
               variant="outlined"

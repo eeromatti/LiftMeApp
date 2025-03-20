@@ -31,9 +31,10 @@ expressApp.use(middleware.requestLogger)
 
  
  
-// if (process.env.NODE_ENV === 'production') {
-expressApp.use(express.static('dist'))  
-// }
+// eslint-disable-next-line no-undef
+if (process.env.NODE_ENV === 'production') {
+  expressApp.use(express.static('dist'))  
+}
 
 //routes
 expressApp.use('/api/users', userRouter) 
