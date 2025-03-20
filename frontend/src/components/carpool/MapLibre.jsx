@@ -1,7 +1,7 @@
 import React, { useEffect, useContext, useState } from 'react'
 import { AppContext } from '../../AppContext'
 import maplibregl from 'maplibre-gl'
-import 'maplibre-gl/dist/maplibre-gl.css'
+import './maplibre-gl.css'
 
 const MapLibre = () => {
   const { route, user, mapLoaded, setMapLoaded } = useContext(AppContext)

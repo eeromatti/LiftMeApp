@@ -27,8 +27,13 @@ const expressApp = express()
 //middlewares 
 expressApp.use(cors())
 expressApp.use(express.json())
-expressApp.use(express.static('dist'))
 expressApp.use(middleware.requestLogger)
+
+ 
+ 
+// if (process.env.NODE_ENV === 'production') {
+expressApp.use(express.static('dist'))  
+// }
 
 //routes
 expressApp.use('/api/users', userRouter) 
