@@ -8,7 +8,7 @@ const findMatchesById = async (id) => {
     
     //fetch user
     const user = await User.findById(id)
-    const { homeCoordinates, workCoordinates, role, passengers, drivers, distance, time } = user
+    const { homeCoordinates, workCoordinates, role, distance, time } = user
     if (!user) {
       console.error('User not found:', id)
     }
@@ -89,14 +89,6 @@ const findMatchesById = async (id) => {
       }
     }
 
-    // console.log('kuskit:', drivers)
-    // console.log('kyytiläiset', passengers)
-    
-    // drivers.sort((a, b) => a.deltaTime - b.deltaTime)
-    // passengers.sort((a, b) => a.deltaTime - b.deltaTime)
-
-    // console.log('\n drivers:', drivers)
-    // console.log('\n passengers:', passengers)
 
     console.log('\n user before sorting:', user)
 
