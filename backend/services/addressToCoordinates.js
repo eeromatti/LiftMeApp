@@ -1,5 +1,4 @@
-
-
+// find coordinates for an address
 const addressToCoordinates = async (address) => {
   try {
     const response = await fetch(

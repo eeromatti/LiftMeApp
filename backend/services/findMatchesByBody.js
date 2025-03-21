@@ -3,36 +3,29 @@ const User = require('../models/User')
 
 const findMatchesByBody = async ({name, role, homeCoordinates, workCoordinates, distance, time }) => {
     
-  // initialization
+  // initialize arrays for passengers and drivers
   let passengers = []
   let drivers = []
 
-  // fetch users
+  // find all users
   const users = await User.find()
-  // console.log('haetaan kuskit ja matkustajat henkilölle:', name)
     
   // iterate all users
   try {
     for (let i = 0; i < users.length; i++) {
-    // find drivers
+    
+      // if passenger in user's role, find drivers
       if (role.includes('passenger') && users[i].role.includes('driver') && users[i].name !== name) {
-        console.log('kuskiksi user?', users[i].name)
         let driversHome = users[i].homeCoordinates
         let passengersHome = homeCoordinates
-        console.log('driversHome:', driversHome)
-        console.log('passengersHome:', passengersHome)
         const distanceAndTimeToPickup = await findDistanceAndTime(driversHome, passengersHome)
         const distanceAndTimeToWork = await findDistanceAndTime(passengersHome, workCoordinates)
         const totalDistance = distanceAndTimeToPickup[0] + distanceAndTimeToWork[0]
         const totalTime = distanceAndTimeToPickup[1] + distanceAndTimeToWork[1]   
-        console.log('total time:', totalTime)
-        console.log('total distance', totalDistance)
-        console.log('users time:', users[i].time)
         
-        // add driver if total travel time less than 25% longer
+        // add driver if the total travel time is less than 50% longer
         if (totalTime < 1.5 * users[i].time) {
           if (!drivers.some(driver => driver.name === users[i].name)) {
-            console.log('total time < 1.3*users time -> lisätään kuski')
             drivers.push({ 
               name: users[i].name, 
               distance: totalDistance, 
@@ -44,20 +37,16 @@ const findMatchesByBody = async ({name, role, homeCoordinates, workCoordinates, 
         } 
       }
       
-      // find passangers
+      // if driver in user's role, find passengers
       if (role.includes('driver') && users[i].role.includes('passenger') && users[i].name !== name) {
-        console.log('matkustajaksi user:', users[i].name)
         let driversHome = homeCoordinates
         let passengersHome = users[i].homeCoordinates
         const distanceAndTimeToPickup = await findDistanceAndTime(driversHome, passengersHome)
         const distanceAndTimeToWork = await findDistanceAndTime(passengersHome, workCoordinates)
         const totalDistance = distanceAndTimeToPickup[0] + distanceAndTimeToWork[0]
         const totalTime = distanceAndTimeToPickup[1] + distanceAndTimeToWork[1]   
-        console.log('total time:', totalTime)
-        console.log('total distance', totalDistance)
-        console.log('time:', time)     
 
-        // add passanger if total travel time less than 25% longer
+        // add passanger if total travel time less than 50% longer
         if (totalTime < 1.5 * time) {
           if (!passengers.some(passenger => passenger.name === users[i].name)) {
             console.log('total time < 1.3*time -> lisätään matkustaja')
@@ -73,13 +62,9 @@ const findMatchesByBody = async ({name, role, homeCoordinates, workCoordinates, 
       }
     }
 
-    // console.log('passengers unsorted:', passengers)
     // sort drivers and passangers by deltaTime
     drivers.sort((a, b) => a.deltaTime - b.deltaTime)
     passengers.sort((a, b) => a.deltaTime - b.deltaTime)
-    // console.log('passengers sorted:', passengers)
-    console.log('drivers', drivers)
-    console.log('passengers', passengers)
 
     return drivers, passengers
 
