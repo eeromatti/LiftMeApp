@@ -1,12 +1,9 @@
 const express = require('express')
 const cors = require('cors')
-
 const mongoose = require('mongoose')
 require('express-async-errors')
-
 const middleware = require('./utils/middleware')
 const logger = require('./utils/logger')
-
 const config = require('./utils/config')
 const userRouter = require('./routes/userRoutes') 
 
@@ -29,8 +26,7 @@ expressApp.use(cors())
 expressApp.use(express.json())
 expressApp.use(middleware.requestLogger)
 
- 
- 
+// find frontend from 'dist' folder if in production 
 // eslint-disable-next-line no-undef
 if (process.env.NODE_ENV === 'production') {
   expressApp.use(express.static('dist'))  

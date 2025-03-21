@@ -1,10 +1,10 @@
 const axios = require('axios')
 const config = require('../utils/config')
 
+
+// find travel distance and time between two coordinates
 const findDistanceAndTime = async (start, end) => {
   try {
-    // console.log('start:', start)
-    // console.log('end:', end)
     let startString = start.join(',').toString()
     let endString = end.join(',').toString()
 

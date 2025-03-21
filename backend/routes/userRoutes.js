@@ -12,7 +12,6 @@ const userRouter = express.Router()
 
 // find all users
 userRouter.get('/', async (req, res) => {
-  console.log('backendin userRouter vastaa')  // Check if this logs
   try {
     const users = await User.find({})
     res.json(users)
@@ -48,7 +47,6 @@ userRouter.put('/:id', async (req, res) => {
 // update matches by id
 userRouter.put('/matches/:id', async (req, res) => {
   try {
-    console.log('kutsutaan matches routea käyttäjälle:', req.params.id)
     const user = await User.findById(req.params.id)
     if (!user) {
       return res.status(404).json({ message: 'User not found' })
@@ -61,7 +59,6 @@ userRouter.put('/matches/:id', async (req, res) => {
       })
       .then(updatedUser => {
         if (updatedUser) {
-          console.log('User successfully updated:', updatedUser.name)
           res.status(200).json({ message: 'Matches updated'})
         }
       })
@@ -95,7 +92,7 @@ userRouter.post('/signup', async (req, res) => {
   // find matches
   let driversAndPassengers = await findMatchesByBody({name, role, homeCoordinates, workCoordinates, distance, time })
 
-  // create a db object
+  // create an user object
   const user = new User(
     { name, 
       email,
@@ -120,15 +117,13 @@ userRouter.post('/signup', async (req, res) => {
   }   
 })
 
+
 // login
 userRouter.post('/login', async (req, res) => {
-  console.log('login router vastaa')
-  console.log('req.body:', req.body)
   const {email, password } = req.body
-  // console.log('email:', email)
   
+  // find user and check if the password given is correct
   const user = await User.findOne({ email })
-  // console.log('user:', user)
   const passwordCorrect = user === null 
     ? false 
     : await bcrypt.compare(password, user.passwordHash)
@@ -144,6 +139,7 @@ userRouter.post('/login', async (req, res) => {
     id: user._id
   }
 
+  // create a token
   const token = jwt.sign(userForToken, config.SECRET)
 
   res.status(200).send({ token, user })
