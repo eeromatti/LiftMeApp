@@ -3,6 +3,7 @@ const User = require('../models/User')
 
 const findMatchesByBody = async ({name, role, homeCoordinates, workCoordinates, distance, time }) => {
     
+  // console.log('finding matches for user:', name)
   // initialize arrays for passengers and drivers
   let passengers = []
   let drivers = []
@@ -66,7 +67,10 @@ const findMatchesByBody = async ({name, role, homeCoordinates, workCoordinates, 
     drivers.sort((a, b) => a.deltaTime - b.deltaTime)
     passengers.sort((a, b) => a.deltaTime - b.deltaTime)
 
-    return drivers, passengers
+    // console.log('potential drivers found for user', name,':', drivers.name)
+    // console.log('potential passengers found for user', name,':', passengers.name)
+
+    return {drivers, passengers}
 
   }  catch (error) {
     console.error('Error in finding matches:', error)

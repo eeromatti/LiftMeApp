@@ -1,6 +1,5 @@
-const { test, after, beforeEach } = require('node:test')
+const { test, after, before } = require('node:test')
 const User = require('../models/User') 
-const findDistance = require('../services/findDistance')
 const mongoose = require('mongoose')
 const assert = require('node:assert/strict')
 const helper = require('./test_helper')
@@ -8,77 +7,50 @@ const supertest = require('supertest')
 const app = require('../app')
 const api = supertest(app)
 
-beforeEach(async () => {
+before(async () => {
   await User.deleteMany({})
-  let userObject = new User(helper.initialUsers[0])
-  await userObject.save()
-  userObject = new User(helper.initialUsers[1])
-  await userObject.save()
 })
 
-
-test('there are two users', async () => {
-  const response = await api.get('/api/users')
-  assert.strictEqual(response.body.length, helper.initialUsers.length)
-})
-  
-test('the first user is Keravan Kata', async () => {
-  const response = await api.get('/api/users')
-  const users = response.body.map(u => u.name)
-  assert(users.includes('Keravan Kata'))
-})
-
-test('a valid user can be added ', async () => {
-  const newUser =     {
-    'name': 'Mäntsälän Make',
-    'home': [
-      25.32421,
-      60.637702
-    ],
-    'work': [
-      24.951129,
-      60.297889
-    ],
-    'role': [
-      'driver',
-      'passenger'
-    ],
-    'distance': 54300,
-    'drivers': [],
-    'passengers': []
-  }
-  
+test('user can be created', async () => {
   await api
-    .post('/api/users')
-    .send(newUser)
+    .post('/api/users/signup')
+    .send(helper.initialUsers[0])
     .expect(201)
-    .expect('Content-Type', /application\/json/)
-  
-  const response = await api.get('/api/users')
-  const names = response.body.map(u => u.name)
-  assert.strictEqual(response.body.length, helper.initialUsers.length + 1)
-  assert(names.includes('Mäntsälän Make'))
-})
-
-test('calculate distance for a user', async() => {
   const response = await api.get('/api/users')
   const user = response.body[0]
-  const distance = await findDistance(user.home, user.work)
-  assert.strictEqual(distance, user.distance)
+  assert.strictEqual(user.name, 'Keravan Kata')
 })
 
-test('find matches for users', async() => {
-  const response = await api.get('/api/users')
-  const userId = response.body[0]._id
-  
+test('new user is created and the previously added is going to be a potential driver', async () => {
   await api
-    .put(`/api/users/matches/${userId}`)
-    .expect(200)
-
-  const users = await helper.usersInDb()
-  assert(users[0].passengers.includes('Korson Kartsa'))  
+    .post('/api/users/signup')
+    .send(helper.initialUsers[1])
+    .expect(201)
+  const response = await api.get('/api/users')
+  const user = response.body[1]
+  assert.strictEqual(user.drivers[0].name, 'Keravan Kata')
 })
 
+test('update matches for the user first added', async () => {
+  // find the id of the user first added
+  const response = await api.get('/api/users')
+  const id = response.body[0]._id
+
+  // update the matches of that user
+  await api.put(`/api/users/matches/${id}`)
+
+  // find the user
+  const response2 = await api.get('/api/users')
+  const user = response2.body[0]
+  assert.strictEqual(user.passengers[0].name, 'Korson Kartsa')
+})
+
+test('login', async () => {
+  await api
+    .post('/api/users/login')
+    .send({ 'email': 'korsonkartsa@liftmeapp.com', 'password': 'salainen'})
+    .expect(200)
+})
 
 after(async () => {
   await mongoose.connection.close()

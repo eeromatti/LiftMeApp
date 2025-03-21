@@ -90,7 +90,7 @@ userRouter.post('/signup', async (req, res) => {
   }
 
   // find matches
-  let driversAndPassengers = await findMatchesByBody({name, role, homeCoordinates, workCoordinates, distance, time })
+  let { drivers, passengers } = await findMatchesByBody({ name, role, homeCoordinates, workCoordinates, distance, time })
 
   // create an user object
   const user = new User(
@@ -103,8 +103,8 @@ userRouter.post('/signup', async (req, res) => {
       workCoordinates, 
       distance, 
       time, 
-      drivers: driversAndPassengers[0], 
-      passengers:  driversAndPassengers[1],
+      drivers, 
+      passengers,
       passwordHash,
       activeDays
     })

@@ -2,7 +2,6 @@ const findDistanceAndTime = require('./findDistanceAndTime')
 const User = require('../models/User')
 
 const findMatchesById = async (id) => {
-  console.log('kutsutaan findMatchesById-funktiota')
   try {
     
     // find user information
@@ -72,7 +71,7 @@ const findMatchesById = async (id) => {
     const updatedUser = user.toObject()
     updatedUser.drivers = user.drivers.sort((a, b) => a.deltaTime - b.deltaTime)
     updatedUser.passengers = user.passengers.sort((a, b) => a.deltaTime - b.deltaTime)
-    console.log('user object after matching:', updatedUser)
+    // console.log('user object after matching:', updatedUser)
 
     return updatedUser
 
