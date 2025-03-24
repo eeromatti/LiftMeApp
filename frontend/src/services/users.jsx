@@ -32,7 +32,7 @@ const getUserById = async (id) => {
 const updateMatches = async (id, token) => {
   try {
     const response = await axios.put(
-      `http://localhost:3000/api/users/matches/${id}`,
+      `${baseUrl}/matches/${id}`,
       {}, 
       {
         headers: {
