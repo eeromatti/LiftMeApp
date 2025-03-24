@@ -12,7 +12,6 @@ import TextField from '@mui/material/TextField'
 import Typography from '@mui/material/Typography'
 import MenuItem from '@mui/material/MenuItem'
 import Select from '@mui/material/Select'
-// import Logo from '/logo-green-plus.png'
 import { createTheme } from '@mui/material/styles'
 import { useNavigate } from 'react-router-dom'
 
@@ -28,9 +27,7 @@ export default function SignUpForm() {
   const [passwordErrorMessage, setPasswordErrorMessage] = useState('')
   const [nameError, setNameError] = useState(false)
   const [nameErrorMessage, setNameErrorMessage] = useState('')
-   
   const [emailError, setEmailError] = useState(false)
-   
   const [emailErrorMessage, setEmailErrorMessage] = useState('')
 
   // other states
@@ -85,7 +82,6 @@ export default function SignUpForm() {
       setNameErrorMessage('Name is required.')
       isValid = false
     } else {
-      // console.log('name ok')
       setNameError(false)
       setNameErrorMessage('')
     }
@@ -167,8 +163,6 @@ export default function SignUpForm() {
         activeDays: ['Mo', 'Tu', 'We', 'Th', 'Fr']
       }
     }
-    
-    // console.log('newUser:', newUser)
 
     // empty field states
     setName('')
@@ -261,9 +255,9 @@ export default function SignUpForm() {
               color={nameError ? 'error' : 'primary'}
               sx={{
                 input: {
-                   fontFamily: 'Helvetica',
-                   fontSize: '14px',
-                   letterSpacing: '1px'
+                  fontFamily: 'Helvetica',
+                  fontSize: '14px',
+                  letterSpacing: '1px'
                 }
               }}
             />
@@ -289,9 +283,9 @@ export default function SignUpForm() {
               color={emailError ? 'error' : 'primary'}
               sx={{
                 input: {
-                   fontFamily: 'Helvetica',
-                   fontSize: '14px',
-                   letterSpacing: '1px'
+                  fontFamily: 'Helvetica',
+                  fontSize: '14px',
+                  letterSpacing: '1px'
                 }
               }}
             />
@@ -338,9 +332,9 @@ export default function SignUpForm() {
               color={homeAddressError ? 'error' : 'primary'}
               sx={{
                 input: {
-                   fontFamily: 'Helvetica',
-                   fontSize: '14px',
-                   letterSpacing: '1px'
+                  fontFamily: 'Helvetica',
+                  fontSize: '14px',
+                  letterSpacing: '1px'
                 }
               }}
             />
@@ -366,9 +360,9 @@ export default function SignUpForm() {
               color={passwordError ? 'error' : 'primary'}
               sx={{
                 input: {
-                   fontFamily: 'Helvetica',
-                   fontSize: '14px',
-                   letterSpacing: '1px'
+                  fontFamily: 'Helvetica',
+                  fontSize: '14px',
+                  letterSpacing: '1px'
                 }
               }}
             />
@@ -395,9 +389,9 @@ export default function SignUpForm() {
               color={passwordError ? 'error' : 'primary'}
               sx={{
                 input: {
-                   fontFamily: 'Helvetica',
-                   fontSize: '14px',
-                   letterSpacing: '1px'
+                  fontFamily: 'Helvetica',
+                  fontSize: '14px',
+                  letterSpacing: '1px'
                 }
               }}
             />

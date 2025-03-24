@@ -9,7 +9,6 @@ import FormControl from '@mui/material/FormControl'
 import TextField from '@mui/material/TextField'
 import Typography from '@mui/material/Typography'
 import { AppContext } from '../../AppContext'
-// import Logo from '/logo-green-plus.png'
 import { createTheme } from '@mui/material/styles'
 
 
@@ -24,7 +23,7 @@ export default function SignUp() {
   })
 
   //context
-  const { token, setToken } = useContext(AppContext)
+  const { setToken } = useContext(AppContext)
   
   // error states
   const [emailError, setEmailError] = useState(false)
@@ -56,22 +55,20 @@ export default function SignUp() {
     }
 
     // request user service
-    console.log("login:", login)
     const response1 = await userService.loginUser(login)
-    
+    // console.log('response1:', response1.token)
+
     //update matches 
     const userId = response1.user._id
-    // console.log('userId:', userId)
-    const res = await userService.updateMatches(userId)
-    // console.log('response from updateMatches:', res)
+    const token = response1.token
+    await userService.updateMatches(userId, token)
     
     // find user 
     const response2 = await userService.loginUser(login)
-    // console.log('response2:', response2)
     localStorage.setItem('user', JSON.stringify(response2.user))
     localStorage.setItem('token', JSON.stringify(response2.token))    
+    localStorage.setItem('orskey', JSON.stringify(response2.orskey))
     setToken(response2.token)
-    // console.log("token:", response2.token)
     
     // empty field states
     setEmail('')
@@ -149,9 +146,9 @@ export default function SignUp() {
               color={emailError ? 'error' : 'primary'}
               sx={{
                 input: {
-                   fontFamily: 'Helvetica',
-                   fontSize: '14px',
-                   letterSpacing: '1px'
+                  fontFamily: 'Helvetica',
+                  fontSize: '14px',
+                  letterSpacing: '1px'
                 }
               }}
             />
@@ -179,9 +176,9 @@ export default function SignUp() {
               color={passwordError ? 'error' : 'primary'}
               sx={{
                 input: {
-                   fontFamily: 'Helvetica',
-                   fontSize: '14px',
-                   letterSpacing: '1px'
+                  fontFamily: 'Helvetica',
+                  fontSize: '14px',
+                  letterSpacing: '1px'
                 }
               }}
             />
