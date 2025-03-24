@@ -14,7 +14,7 @@ import ClockIcon from '@mui/icons-material/AccessTimeOutlined'
 import { AppContext } from '../../AppContext'
 // import Stack from '@mui/material/Stack'
 import Avatar from '@mui/material/Avatar'
-import { Typography, FormLabel } from '@mui/material'
+import { Typography, FormLabel, Stack } from '@mui/material'
 import Divider from '@mui/material/Divider'
 import { useTheme } from '@mui/material/styles'
 
@@ -103,7 +103,7 @@ const Sidebar = () => {
                   <ClockIcon sx={{ color: 'action.active', fontSize: 18 }} />
                 </td>
                 <td  style={{paddingLeft: 15}}>
-                  <Typography style={{fontFamily: 'Helvetica', fontWeight: 'light', fontSize: '13px', letterSpacing: '1px', color: '#2c2b2b'}}>
+                  <Typography style={{fontFamily: 'Helvetica', fontWeight: 'light', fontSize: '13px', letterSpacing: '1px', color: '#2c2b2b', }}>
                     ~ {(user.time / 60).toFixed()} min
                   </Typography>  
                 </td>
@@ -115,92 +115,140 @@ const Sidebar = () => {
       
         
         {/* weekdays */}
-        <FormLabel component="legend" sx={{ paddingLeft: 1.5, paddingTop: 2, fontFamily: 'Helvetica', fontSize: 13, letterSpacing: '1px', color: '#868686'}}>
-          Your commute days
-        </FormLabel>
-        <div>
-          <ToggleButtonGroup
-            color="primary"
-            size="small"
-            value={activeDays}
-            onChange={handleDaysChange}
-            sx={{ backgroundColor: '#f8f6ed', display: 'flex', paddingTop: 1, paddingLeft:1, paddingRight:1, alignItems: 'center', justifyContent: 'center', gap: 0.5 }} 
-          >
-            {['Mo', 'Tu', 'We', 'Th', 'Fr'].map((day) => (
+        <Stack sx={{ width: '100%', alignItems: 'center' }}> 
+          <Stack sx={{ width: 'fit-content', alignItems: 'flex-start' }}> 
+            <FormLabel
+              component="legend"
+              sx={{
+                paddingTop: 2,
+                paddingLeft: 1.7,
+                fontFamily: 'Helvetica',
+                fontSize: 13,
+                letterSpacing: '1px',
+                color: '#868686',
+                alignSelf: 'start',
+              }}
+            >
+              Your commute days
+            </FormLabel>
+
+            <ToggleButtonGroup
+              color="primary"
+              size="small"
+              value={activeDays}
+              onChange={handleDaysChange}
+              sx={{
+                backgroundColor: '#f8f6ed',
+                display: 'flex',
+                paddingTop: 1,
+                paddingLeft: 1,
+                paddingRight: 1,
+                alignItems: 'center',
+                justifyContent: 'center', 
+                gap: 0.5,
+                width: 'fit-content',
+              }}
+            >
+              {['Mo', 'Tu', 'We', 'Th', 'Fr'].map((day) => (
+                <ToggleButton
+                  key={day}
+                  value={day}
+                  sx={{
+                    borderRadius: '10px',
+                    px: 2.4,
+                    fontSize: '14px',
+                    fontFamily: 'Helvetica',
+                    textTransform: 'lowercase',
+                  }}
+                >
+                  {day}
+                </ToggleButton>
+              ))}
+            </ToggleButtonGroup>
+          </Stack>
+        </Stack>
+
+
+        {/* role */}
+        <Stack sx={{ width: '100%', alignItems: 'center' }}>
+          <Stack sx={{ width: 'fit-content', alignItems: 'flex-start' }}> 
+            <FormLabel component="legend" sx={{ 
+              paddingLeft: 1, 
+              paddingTop: 2, 
+              fontFamily: 'Helvetica', 
+              fontSize: 13, 
+              letterSpacing: '1px', 
+              color: '#868686',
+              alignSelf: 'start',
+            }}>
+              Looking for drivers or passengers?
+            </FormLabel>
+            <ToggleButtonGroup
+              color="primary"
+              value={role}
+              exclusive
+              onChange={handleRoleChange}
+              size="small"
+              aria-label="text formatting"
+              sx={{ 
+                backgroundColor: '#f8f6ed', 
+                paddingLeft: 0, 
+                paddingTop: 1, 
+                paddingBottom: 2, 
+                display: 'flex', 
+                gap: 0.5, 
+                justifyContent: 'center',
+                width: 'fit-content',
+              }} 
+            >
               <ToggleButton 
-                key={day} 
-                value={day}  
+                value="drivers" 
                 sx={{ 
                   borderRadius: '10px',
                   px: 2.4, 
                   fontSize: '14px', 
-                  fontFamily: 'Helvetica',
-                  textTransform: 'lowercase',
+                  fontFamily: 'helvetica',
+                  textTransform: 'lowercase', 
+                  letterSpacing: '1px',
+                  width: 142
                 }}
               >
-                {day}
+                drivers
               </ToggleButton>
-            ))}
-          </ToggleButtonGroup>
-        </div>
 
-        {/* role */}
-        <FormLabel component="legend" sx={{ paddingLeft: 1.5, paddingTop: 2, fontFamily: 'Helvetica', fontSize: 13, letterSpacing: '1px', color: '#868686'}}>
-          Looking for drivers or passengers?
-        </FormLabel>
-        <ToggleButtonGroup
-          color="primary"
-          value={role}
-          exclusive
-          onChange={handleRoleChange}
-          size="small"
-          aria-label="text formatting"
-          sx={{ backgroundColor: '#f8f6ed', paddingLeft: 0, paddingTop: 1, paddingBottom: 2, display: 'flex', gap: 0.5, justifyContent: 'center' }} 
-        >
-          <ToggleButton 
-            value="drivers" 
-            sx={{ 
-              borderRadius: '10px',
-              px: 2.4, 
-              fontSize: '14px', 
-              fontFamily: 'helvetica',
-              textTransform: 'lowercase', 
-              letterSpacing: '1px',
-              width: 142
-            }}
-          >
-            drivers
-          </ToggleButton>
+              <ToggleButton 
+                value="passengers"
+                sx={{ 
+                  borderRadius: '10px',
+                  px: 2.4, 
+                  fontSize: '14px', 
+                  fontFamily: 'helvetica',
+                  textTransform: 'lowercase',
+                  letterSpacing: '1px',
+                  width: 142
+                }}
+              >
+                passengers
+              </ToggleButton>
+            </ToggleButtonGroup>
 
-          <ToggleButton 
-            value="passengers"
-            sx={{ 
-              borderRadius: '10px',
-              px: 2.4, 
-              fontSize: '14px', 
-              fontFamily: 'helvetica',
-              textTransform: 'lowercase',
-              letterSpacing: '1px',
-              width: 142
-            }}
-          >
-            passengers
-          </ToggleButton>
-        </ToggleButtonGroup>
+            {/* number of matches */}
+            {role === 'drivers' ? (
+              <Typography sx={{ paddingLeft: 1.5, fontFamily: 'Helvetica', fontSize: 13, letterSpacing: '1px', color: '#868686', backgroundColor: '#f8f6ed'}}>
+                {potentialDrivers.length} matches
+              </Typography>
+            ):
+              <Typography sx={{ paddingLeft: 1.5, fontFamily: 'Helvetica', fontSize: 13, letterSpacing: '1px', color: '#868686', backgroundColor: '#f8f6ed'}}>
+                {potentialPassengers.length} matches
+              </Typography>
+            }
+          </Stack>
+        </Stack>
+       
       </div>
 
     
       {/* matches */}
-      {role === 'drivers' ? (
-        <Typography sx={{ paddingLeft: 1.5, fontFamily: 'Helvetica', fontSize: 13, letterSpacing: '1px', color: '#868686', backgroundColor: '#f8f6ed'}}>
-          {potentialDrivers.length} matches
-        </Typography>
-      ):
-        <Typography sx={{ paddingLeft: 1.5, fontFamily: 'Helvetica', fontSize: 13, letterSpacing: '1px', color: '#868686', backgroundColor: '#f8f6ed'}}>
-          {potentialPassengers.length} matches
-        </Typography>
-      }
-      
       <div className='matchescontainer'>
         {potentialPassengers && allUsers.length > 0 ? (
           potentialPassengers.map((potentialPassenger) => (
