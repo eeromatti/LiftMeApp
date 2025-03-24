@@ -370,7 +370,7 @@ export default function SignUpForm() {
                 </FormControl>
 
                 {/* work address */}
-                <FormControl>
+                {/* <FormControl>
                   <FormLabel htmlFor="work" style={{fontFamily: 'Helvetica', fontWeight: 'light', fontSize: '14px', letterSpacing: '1px', color: 'darkslategray' }}>
                     Work address / Ending location
                   </FormLabel>
@@ -396,7 +396,7 @@ export default function SignUpForm() {
                       }
                     }}
                   />
-                </FormControl>
+                </FormControl> */}
 
           <Box 
             sx={{ 
