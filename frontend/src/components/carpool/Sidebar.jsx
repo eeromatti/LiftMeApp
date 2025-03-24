@@ -233,18 +233,12 @@ const Sidebar = () => {
             </ToggleButtonGroup>
 
             {/* number of matches */}
-            {role === 'drivers' ? (
-              <Typography sx={{ paddingLeft: 1.5, fontFamily: 'Helvetica', fontSize: 13, letterSpacing: '1px', color: '#868686', backgroundColor: '#f8f6ed'}}>
-                {potentialDrivers.length} matches
-              </Typography>
-            ):
-              <Typography sx={{ paddingLeft: 1.5, fontFamily: 'Helvetica', fontSize: 13, letterSpacing: '1px', color: '#868686', backgroundColor: '#f8f6ed'}}>
-                {potentialPassengers.length} matches
-              </Typography>
-            }
+            <Typography sx={{ paddingLeft: 1.5, fontFamily: 'Helvetica', fontSize: 13, letterSpacing: '1px', color: '#868686', backgroundColor: '#f8f6ed'}}>
+              {potentialDrivers.length + potentialPassengers.length} matches
+            </Typography>
+            
           </Stack>
         </Stack>
-       
       </div>
 
     
