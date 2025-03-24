@@ -14,9 +14,10 @@ import ClockIcon from '@mui/icons-material/AccessTimeOutlined'
 import { AppContext } from '../../AppContext'
 // import Stack from '@mui/material/Stack'
 import Avatar from '@mui/material/Avatar'
-import { Typography } from '@mui/material'
+import { Typography, FormLabel } from '@mui/material'
 import Divider from '@mui/material/Divider'
 import { useTheme } from '@mui/material/styles'
+
 
 
 const Sidebar = () => {
@@ -114,6 +115,9 @@ const Sidebar = () => {
       
         
         {/* weekdays */}
+        <FormLabel component="legend" sx={{ paddingLeft: 1.5, paddingTop: 2, fontFamily: 'Helvetica', fontSize: 13, letterSpacing: '1px', color: '#868686'}}>
+          Your commute days
+        </FormLabel>
         <div>
           <ToggleButtonGroup
             color="primary"
@@ -141,6 +145,9 @@ const Sidebar = () => {
         </div>
 
         {/* role */}
+        <FormLabel component="legend" sx={{ paddingLeft: 1.5, paddingTop: 2, fontFamily: 'Helvetica', fontSize: 13, letterSpacing: '1px', color: '#868686'}}>
+          Looking for drivers or passengers?
+        </FormLabel>
         <ToggleButtonGroup
           color="primary"
           value={role}
@@ -148,7 +155,7 @@ const Sidebar = () => {
           onChange={handleRoleChange}
           size="small"
           aria-label="text formatting"
-          sx={{ backgroundColor: '#f8f6ed', paddingLeft: 0, paddingTop: 2, paddingBottom: 2, display: 'flex', gap: 0.5, justifyContent: 'center' }} 
+          sx={{ backgroundColor: '#f8f6ed', paddingLeft: 0, paddingTop: 1, paddingBottom: 2, display: 'flex', gap: 0.5, justifyContent: 'center' }} 
         >
           <ToggleButton 
             value="drivers" 
@@ -184,6 +191,16 @@ const Sidebar = () => {
 
     
       {/* matches */}
+      {role === 'drivers' ? (
+        <Typography sx={{ paddingLeft: 1.5, fontFamily: 'Helvetica', fontSize: 13, letterSpacing: '1px', color: '#868686', backgroundColor: '#f8f6ed'}}>
+          {potentialDrivers.length} matches
+        </Typography>
+      ):
+        <Typography sx={{ paddingLeft: 1.5, fontFamily: 'Helvetica', fontSize: 13, letterSpacing: '1px', color: '#868686', backgroundColor: '#f8f6ed'}}>
+          {potentialPassengers.length} matches
+        </Typography>
+      }
+      
       <div className='matchescontainer'>
         {potentialPassengers && allUsers.length > 0 ? (
           potentialPassengers.map((potentialPassenger) => (
