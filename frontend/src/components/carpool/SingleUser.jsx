@@ -29,14 +29,11 @@ const SingleUser = ( { potentialPassenger, potentialDriver, role, showingDriver,
   
   useEffect(() => {
     if (showingDriver && driverUserInfo) {
-      // console.log("showingDriver:", showingDriver)
-      // console.log("driverUserInfo:", driverUserInfo)
       if (showingDriver != driverUserInfo._id) {
-        // console.log("suljetaan ikkuna")
         setShowMore(false)
+      }
     }
-  }
-}, [showingDriver])
+  }, [showingDriver])
 
   useEffect(() => {
     if (role === 'driver') {
@@ -54,7 +51,7 @@ const SingleUser = ( { potentialPassenger, potentialDriver, role, showingDriver,
   
   const handlePassengerAddition = () => {
     if (!showMore && passengerUserInfo) {
-      console.log("showMore asetetaan arvoon true ja passengerUserInfo lisätään pickupCoordinates-tilaan")
+      console.log('showMore asetetaan arvoon true ja passengerUserInfo lisätään pickupCoordinates-tilaan')
       setShowMore(true)
       setPickupCoordinates([...pickupCoordinates, passengerUserInfo.homeCoordinates])
     } else {

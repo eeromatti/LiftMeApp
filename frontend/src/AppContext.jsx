@@ -24,15 +24,18 @@ export const AppProvider = ( { children }) => {
   const [loading, setLoading] = useState(true)
   const [mapLoaded, setMapLoaded] = useState(false)
   const [token, setToken] = useState(null)
+  const [orsKey, setOrsKey] = useState('')
 
   //initialization / load user from the local storage, set start and end coordinates and load all users
   useEffect(() => {
     const initialize = async () => {
       const storedUser = JSON.parse(localStorage.getItem('user'))  
-      const token = JSON.parse(localStorage.getItem('token'))
+      const tokenFromLocalStorage = JSON.parse(localStorage.getItem('token'))
+      const orsKeyFromLocalStorage = JSON.parse(localStorage.getItem('orskey'))
   
       if (storedUser) {
-        setToken(token)
+        setToken(tokenFromLocalStorage)
+        setOrsKey(orsKeyFromLocalStorage)
         setUser(storedUser)
         setStartCoordinates(storedUser.homeCoordinates)
         setEndCoordinates(storedUser.workCoordinates)
@@ -41,10 +44,10 @@ export const AppProvider = ( { children }) => {
         setActiveDays(storedUser.activeDays)
   
         try {
-          const response = await userService.getUsers()
-          setAllUsers(response.data)
+          const response = await userService.getUsers(tokenFromLocalStorage)
+          setAllUsers(response)
         } catch (error) {
-          console.error("Error fetching users:", error)
+          console.error('Error fetching users:', error)
         }
       }
     }
@@ -58,8 +61,8 @@ export const AppProvider = ( { children }) => {
     const findDistanceAndTravelTime = async () => {
       // console.log("kontekstin effect hook reagoi pickupCoordinates-tilan muutokseen")
       try {
-        if (startCoordinates.length === 2 && endCoordinates.length === 2) {
-          const optimizedData = await routeService.travelTimeAndDistance(startCoordinates, endCoordinates, pickupCoordinates)
+        if (startCoordinates.length === 2 && endCoordinates.length === 2 && orsKey) {
+          const optimizedData = await routeService.travelTimeAndDistance(startCoordinates, endCoordinates, pickupCoordinates, orsKey)
           // console.log("optimoitu reitti haettu")
           // pickup points exist 
           if (optimizedData && optimizedData.length === 3) {
@@ -81,20 +84,8 @@ export const AppProvider = ( { children }) => {
 
   }, [startCoordinates, endCoordinates, pickupCoordinates])
 
-  // useEffect(() => {
-  //   console.log("loading in its own hook:", loading)
-  // }, [loading])
-
-  // useEffect(() => {
-  //   console.log("user:", user)
-  //   console.log("token:", token)
-  // }, [user])
 
   useEffect(() => {
-    // console.log("loading ennen:", loading);
-    // console.log("potentialDrivers:", potentialDrivers)
-    // console.log("potentialPassengers:", potentialPassengers)
-    // console.log("user:", user)
     if (
       potentialDrivers !== undefined &&
       potentialPassengers !== undefined &&
@@ -108,8 +99,8 @@ export const AppProvider = ( { children }) => {
       user.homeCoordinates && 
       user.workCoordinates
     ) {
-        // console.log("loadingin ehdot täyttyvät:", loading)
-       setLoading(false)
+      // console.log("loadingin ehdot täyttyvät:", loading)
+      setLoading(false)
     }
   }, [user, potentialDrivers, potentialPassengers]) 
 

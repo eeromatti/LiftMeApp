@@ -3,10 +3,18 @@ import axios from 'axios'
 const baseUrl = 'api/users'
 
 
-const getUsers = async () => {
+const getUsers = async (token) => {
   try {
-    const users = await axios.get(baseUrl)
-    return users
+    // console.log('token:', token)
+    const users = await axios.get(baseUrl,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        }
+      }
+    )
+    return users.data
   } catch (error) {
     console.error('error in fetching users', error)
   }
@@ -21,13 +29,21 @@ const getUserById = async (id) => {
   }
 }
 
-const updateMatches = async (id) => {
+const updateMatches = async (id, token) => {
   try {
-    const response = await axios.put(`http://localhost:3000/api/users/matches/${id}`)
-    // console.log('user with new matches in front end users service:', response)
+    const response = await axios.put(
+      `http://localhost:3000/api/users/matches/${id}`,
+      {}, 
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        }
+      }
+    )
     return response.data
   } catch (error) {
-    console.error('error updating matches:', error)
+    console.error('error updating matches:', error.response?.data || error.message)
   }
 }
 
@@ -37,13 +53,11 @@ const createUser = async body => {
 }
 
 const loginUser = async body => {
-  console.log("frontendin userService vastaa")
   const response = await axios.post(`${baseUrl}/login`, body)
   return response.data
 }
 
 const updateUser = async body => {
-  console.log("updateUser vastaa")
   const response = await axios.put(`${baseUrl}/${body.id}`, body)
   return response.data
 }

@@ -17,7 +17,7 @@ export default function AccountMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null)
   const navigate = useNavigate()
 
-  const { token, setToken, user, setUser, setLoading, setPotentialDrivers, setPotentialPassengers, setRoute } = useContext(AppContext)
+  const { setToken, user, setUser, setLoading } = useContext(AppContext)
 
   const open = Boolean(anchorEl)
   

@@ -1,8 +1,7 @@
 import axios from 'axios'
 
-const travelTimeAndDistance = async (start, end, pickupCoordinates) => {
+const travelTimeAndDistance = async (start, end, pickupCoordinates, ORS_KEY) => {
   
-  const ORS_KEY = '5b3ce3597851110001cf624822e45f0905f24e5eaec55239fa29d426'
   
   try {
     // if pickupPoints exist
@@ -17,10 +16,6 @@ const travelTimeAndDistance = async (start, end, pickupCoordinates) => {
   
       //vehicle object
       let vehicle = [{'id':1,'profile':'driving-car','start':start,'end':end}]
-
-      // console.log('jobs:', jobs)
-      // console.log('vehicles:', vehicle)
-      // // console.log('pickupCoordinates:', pickupCoordinates)
 
       //optimize the route
       const response = await axios.post(

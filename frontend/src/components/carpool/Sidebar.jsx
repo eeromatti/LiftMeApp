@@ -6,19 +6,13 @@ import SingleUser from './SingleUser'
 import Box from '@mui/material/Box'
 import ToggleButton from '@mui/material/ToggleButton'
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup'
-
-// import TextField from '@mui/material/TextField'
 import HomeIcon from '@mui/icons-material/HomeWorkOutlined'
 import WorkIcon from '@mui/icons-material/WorkOutline'
 import ClockIcon from '@mui/icons-material/AccessTimeOutlined'
 import { AppContext } from '../../AppContext'
-// import Stack from '@mui/material/Stack'
 import Avatar from '@mui/material/Avatar'
 import { Typography, FormLabel, Stack } from '@mui/material'
 import Divider from '@mui/material/Divider'
-import { useTheme } from '@mui/material/styles'
-
-
 
 const Sidebar = () => {
 
@@ -31,10 +25,8 @@ const Sidebar = () => {
     potentialDrivers,
     activeDays,
     setActiveDays, 
-    loading
   } = useContext(AppContext)
 
-  const theme = useTheme()
 
   const [role, setRole] = useState('drivers')
   const [showingDriver, setShowingDriver] = useState('')
@@ -233,18 +225,12 @@ const Sidebar = () => {
             </ToggleButtonGroup>
 
             {/* number of matches */}
-            {role === 'drivers' ? (
-              <Typography sx={{ paddingLeft: 1.5, fontFamily: 'Helvetica', fontSize: 13, letterSpacing: '1px', color: '#868686', backgroundColor: '#f8f6ed'}}>
-                {potentialDrivers.length} matches
-              </Typography>
-            ):
-              <Typography sx={{ paddingLeft: 1.5, fontFamily: 'Helvetica', fontSize: 13, letterSpacing: '1px', color: '#868686', backgroundColor: '#f8f6ed'}}>
-                {potentialPassengers.length} matches
-              </Typography>
-            }
+            <Typography sx={{ paddingLeft: 1.5, fontFamily: 'Helvetica', fontSize: 13, letterSpacing: '1px', color: '#868686', backgroundColor: '#f8f6ed'}}>
+              {potentialDrivers.length + potentialPassengers.length} matches
+            </Typography>
+            
           </Stack>
         </Stack>
-       
       </div>
 
     
