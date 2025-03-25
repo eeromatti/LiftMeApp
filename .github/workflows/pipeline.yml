@@ -5,6 +5,8 @@ on:
     branches:
       - dev
 
+env: ORS_API_KEY = 5b3ce3597851110001cf624822e45f0905f24e5eaec55239fa29d426
+
 jobs:
   backend_tests:
     runs-on: ubuntu-20.04
