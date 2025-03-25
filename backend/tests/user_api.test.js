@@ -44,115 +44,115 @@ test('user can be created', async () => {
     .expect(201)
 })
 
-// test('login', async () => {
-//   await api
-//     .post('/api/users/login')
-//     .send({ 'email': 'keravankata@liftmeapp.com', 'password': 'salainen'})
-//     .expect(200)
-// })
+test('login', async () => {
+  await api
+    .post('/api/users/login')
+    .send({ 'email': 'keravankata@liftmeapp.com', 'password': 'salainen'})
+    .expect(200)
+})
 
-// test('users cannot be fetched without the token', async () => {
-//   await api
-//     .get('/api/users')
-//     .expect(500)
+test('users cannot be fetched without the token', async () => {
+  await api
+    .get('/api/users')
+    .expect(500)
 
-//   const response = await api
-//     .post('/api/users/login')
-//     .send({ 'email': 'keravankata@liftmeapp.com', 'password': 'salainen'})
-//     .expect(200)
-//   const token = response.body.token
+  const response = await api
+    .post('/api/users/login')
+    .send({ 'email': 'keravankata@liftmeapp.com', 'password': 'salainen'})
+    .expect(200)
+  const token = response.body.token
 
-//   await api
-//     .get('/api/users')
-//     .set('Authorization', `Bearer ${token}`)
-//     .set('Content-Type', 'application/json')
-//     .expect(200)
-// })
+  await api
+    .get('/api/users')
+    .set('Authorization', `Bearer ${token}`)
+    .set('Content-Type', 'application/json')
+    .expect(200)
+})
 
-// test('new user is created and the previously added is going to be a potential driver', async () => {
-//   await api
-//     .post('/api/users/signup')
-//     .send(helper.initialUsers[1])
-//     .expect(201)
+test('new user is created and the previously added is going to be a potential driver', async () => {
+  await api
+    .post('/api/users/signup')
+    .send(helper.initialUsers[1])
+    .expect(201)
 
-//   const response1 = await api
-//     .post('/api/users/login')
-//     .send({ 'email': 'keravankata@liftmeapp.com', 'password': 'salainen'})
-//   const token = response1.body.token
+  const response1 = await api
+    .post('/api/users/login')
+    .send({ 'email': 'keravankata@liftmeapp.com', 'password': 'salainen'})
+  const token = response1.body.token
   
-//   const response2 = await api
-//     .get('/api/users')
-//     .set('Authorization', `Bearer ${token}`)
-//     .set('Content-Type', 'application/json')
-//   const user = response2.body[1]
-//   assert.strictEqual(user.drivers[0].name, 'Keravan Kata')
-// })
+  const response2 = await api
+    .get('/api/users')
+    .set('Authorization', `Bearer ${token}`)
+    .set('Content-Type', 'application/json')
+  const user = response2.body[1]
+  assert.strictEqual(user.drivers[0].name, 'Keravan Kata')
+})
 
-// test('update matches for the user first added', async () => {
-//   // log in to get a token
-//   const response1 = await api
-//     .post('/api/users/login')
-//     .send({ 'email': 'keravankata@liftmeapp.com', 'password': 'salainen'})
-//   const token = response1.body.token
+test('update matches for the user first added', async () => {
+  // log in to get a token
+  const response1 = await api
+    .post('/api/users/login')
+    .send({ 'email': 'keravankata@liftmeapp.com', 'password': 'salainen'})
+  const token = response1.body.token
   
-//   // find the id of the user first added
-//   const response2 = await api
-//     .get('/api/users')
-//     .set('Authorization', `Bearer ${token}`)
-//     .set('Content-Type', 'application/json')
-//   const id = response2.body[0]._id
+  // find the id of the user first added
+  const response2 = await api
+    .get('/api/users')
+    .set('Authorization', `Bearer ${token}`)
+    .set('Content-Type', 'application/json')
+  const id = response2.body[0]._id
 
-//   // update the matches of that user
-//   await api
-//     .put(`/api/users/matches/${id}`)
-//     .set('Authorization', `Bearer ${token}`)
-//     .set('Content-Type', 'application/json')
+  // update the matches of that user
+  await api
+    .put(`/api/users/matches/${id}`)
+    .set('Authorization', `Bearer ${token}`)
+    .set('Content-Type', 'application/json')
     
-//   // find the user
-//   const response3 = await api
-//     .get('/api/users')
-//     .set('Authorization', `Bearer ${token}`)
-//     .set('Content-Type', 'application/json')
-//   const user = response3.body[0]
-//   assert.strictEqual(user.passengers[0].name, 'Korson Kartsa')
-// })
+  // find the user
+  const response3 = await api
+    .get('/api/users')
+    .set('Authorization', `Bearer ${token}`)
+    .set('Content-Type', 'application/json')
+  const user = response3.body[0]
+  assert.strictEqual(user.passengers[0].name, 'Korson Kartsa')
+})
 
 
-// test('delete users from database', async () => {
-//   // log in to get a token for first user
-//   const response1 = await api
-//     .post('/api/users/login')
-//     .send({ 'email': 'keravankata@liftmeapp.com', 'password': 'salainen'})
-//   const token = response1.body.token
+test('delete users from database', async () => {
+  // log in to get a token for first user
+  const response1 = await api
+    .post('/api/users/login')
+    .send({ 'email': 'keravankata@liftmeapp.com', 'password': 'salainen'})
+  const token = response1.body.token
 
-//   // find users
-//   const response2 = await api
-//     .get('/api/users')
-//     .set('Authorization', `Bearer ${token}`)
-//     .set('Content-Type', 'application/json')
+  // find users
+  const response2 = await api
+    .get('/api/users')
+    .set('Authorization', `Bearer ${token}`)
+    .set('Content-Type', 'application/json')
 
-//   //delete users 
-//   const id1 = response2.body[0]._id
-//   const id2 = response2.body[1]._id
+  //delete users 
+  const id1 = response2.body[0]._id
+  const id2 = response2.body[1]._id
 
-//   await api
-//     .delete(`/api/users/${id1}`)
-//     .set('Authorization', `Bearer ${token}`)
-//     .set('Content-Type', 'application/json')
+  await api
+    .delete(`/api/users/${id1}`)
+    .set('Authorization', `Bearer ${token}`)
+    .set('Content-Type', 'application/json')
 
-//   await api
-//     .delete(`/api/users/${id2}`)
-//     .set('Authorization', `Bearer ${token}`)
-//     .set('Content-Type', 'application/json')
+  await api
+    .delete(`/api/users/${id2}`)
+    .set('Authorization', `Bearer ${token}`)
+    .set('Content-Type', 'application/json')
 
-//   // find users
-//   const response3 = await api
-//     .get('/api/users')
-//     .set('Authorization', `Bearer ${token}`)
-//     .set('Content-Type', 'application/json')
+  // find users
+  const response3 = await api
+    .get('/api/users')
+    .set('Authorization', `Bearer ${token}`)
+    .set('Content-Type', 'application/json')
 
-//   assert.strictEqual(response3.body.length, 0)
-// })
+  assert.strictEqual(response3.body.length, 0)
+})
 
 // close db connection
 after(async () => {
