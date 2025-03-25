@@ -13,6 +13,7 @@ let dbConnection
 // Manually set up MongoDB connection before tests
 async function setupDB() {
   try {
+    // eslint-disable-next-line no-undef
     dbConnection = await mongoose.connect(process.env.TEST_MONGODB_URI, {
       useNewUrlParser: true,
       useUnifiedTopology: true,

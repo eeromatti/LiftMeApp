@@ -44,7 +44,7 @@ export default function AccountMenu() {
   return (
     <React.Fragment>
       <Box sx={{ top: 15, right: 10 }}>
-        <Tooltip title="Account settings">
+        <Tooltip title="Account menu">
           <IconButton
             onClick={handleClick}
             size="small"
@@ -52,6 +52,7 @@ export default function AccountMenu() {
             aria-controls={open ? 'account-menu' : undefined}
             aria-haspopup="true"
             aria-expanded={open ? 'true' : undefined}
+            aria-label='Account menu'
           >
             <MenuIcon sx={{ width: 40, height: 40 }}></MenuIcon>
           </IconButton>
