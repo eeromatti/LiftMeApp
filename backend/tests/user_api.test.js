@@ -9,12 +9,12 @@ const config = require('../utils/config')
 
 
 let dbConnection
-// const MONGO_URI = String(config.MONGODB_URI)
+const MONGODB_URI = process.env.TEST_MONGODB_URI
 
 // Manually set up MongoDB connection before tests
 async function setupDB() {
   try {
-    dbConnection = await mongoose.connect(String(config.MONGODB_URI), {
+    dbConnection = await mongoose.connect(MONGODB_URI, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     })
