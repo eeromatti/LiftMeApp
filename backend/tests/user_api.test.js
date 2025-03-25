@@ -1,11 +1,12 @@
-const { test } = require('node:test')
+const { test, after } = require('node:test')
 const assert = require('node:assert/strict')
+const User = require('../models/User')
 const mongoose = require('mongoose')
 const helper = require('./test_helper')
 const supertest = require('supertest')
 const app = require('../app')
 const api = supertest(app)
-const config = require('../utils/config')
+// const config = require('../utils/config')
 
 
 let dbConnection
@@ -32,6 +33,7 @@ async function setupDB() {
 
 test('set up MongoDB connection', async () => {  
   const response = await setupDB()
+  await User.deleteMany()
   assert.ok(response.connection.readyState === 1) 
 })
 
@@ -151,3 +153,9 @@ test('user can be created', async () => {
 
 //   assert.strictEqual(response3.body.length, 0)
 // })
+
+// close db connection
+after(async () => {
+  await mongoose.connection.close()
+  console.log('MongoDB connection closed')
+})
