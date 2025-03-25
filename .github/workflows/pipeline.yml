@@ -9,7 +9,7 @@ jobs:
   backend_tests:
     runs-on: ubuntu-20.04
     env:
-      MONGODB_URI: ${{ secrets.MONGODB_URI }}
+      TEST_MONGODB_URI: ${{ secrets.TEST_MONGODB_URI }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
