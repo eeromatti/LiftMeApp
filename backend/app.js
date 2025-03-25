@@ -11,6 +11,7 @@ const userRouter = require('./routes/userRoutes')
 mongoose.set('strictQuery', false)
 logger.info('connecting to MongoDb')
 
+
 mongoose.connect(config.MONGODB_URI)
   .then(() => {
     logger.info('connected to MongoDB')

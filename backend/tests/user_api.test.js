@@ -4,9 +4,12 @@ const helper = require('./test_helper')
 const supertest = require('supertest')
 const app = require('../app')
 const api = supertest(app)
+const config = require('../utils/config')
 
 
 test('user can be created', async () => {
+  console.log('MONGODB_URI:', config.MONGODB_URI)
+  console.log('ORS key:', config.ORS_API_KEY)
   await api
     .post('/api/users/signup')
     .send(helper.initialUsers[0])
