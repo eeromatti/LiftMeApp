@@ -32,16 +32,15 @@ async function setupDB() {
 
 test('set up MongoDB connection', async () => {  
   const response = await setupDB()
-  // console.log('response.connection:', response.connection.readyState)
   assert.ok(response.connection.readyState === 1) 
 })
 
-// test('user can be created', async () => {
-//   await api
-//     .post('/api/users/signup')
-//     .send(helper.initialUsers[0])
-//     .expect(201)
-// })
+test('user can be created', async () => {
+  await api
+    .post('/api/users/signup')
+    .send(helper.initialUsers[0])
+    .expect(201)
+})
 
 // test('login', async () => {
 //   await api
