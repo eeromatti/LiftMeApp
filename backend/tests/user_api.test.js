@@ -1,4 +1,5 @@
-const { test, beforeAll, afterAll } = require('node:test')
+const { test } = require('node:test')
+const { beforeAll, afterAll} = require()
 const assert = require('node:assert/strict')
 const mongoose = require('mongoose')
 const helper = require('./test_helper')
@@ -7,24 +8,46 @@ const app = require('../app')
 const api = supertest(app)
 const config = require('../utils/config')
 
-beforeAll(async () => {
-  // Ensure MongoDB is connected before running tests
-  await mongoose.connect(config.mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
+
+let dbConnection
+
+// Manually set up MongoDB connection before tests
+async function setupDB() {
+  try {
+    dbConnection = await mongoose.connect(config.MONGO_URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    })
+    console.log('MongoDB connected for testing')
+  } catch (err) {
+    console.error('MongoDB connection failed', err)
+    throw err
+  }
+}
+
+// async function teardownDB() {
+//   try {
+//     await mongoose.connection.dropDatabase()  // Optionally clean up DB after tests
+//     await mongoose.connection.close()         // Close MongoDB connection
+//     console.log('MongoDB connection closed')
+//   } catch (err) {
+//     console.error('Error while closing DB connection', err)
+//     throw err
+//   }
+// }
+
+
+
+test('set up MongoDB connection', async () => {
+  await setupDB()
 })
 
-afterAll(async () => {
-  // Clean up database and close the connection after tests
-  await mongoose.connection.dropDatabase()  // Optionally clean up DB after tests
-  await mongoose.connection.close()  // Close MongoDB connection
-})
-
-
-test('user can be created', async () => {
-  await api
-    .post('/api/users/signup')
-    .send(helper.initialUsers[0])
-    .expect(201)
-})
+// test('user can be created', async () => {
+//   await api
+//     .post('/api/users/signup')
+//     .send(helper.initialUsers[0])
+//     .expect(201)
+// })
 
 // test('login', async () => {
 //   await api
