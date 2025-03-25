@@ -186,7 +186,8 @@ userRouter.post('/login', async (req, res) => {
     }
   
     // create a token
-    const token = jwt.sign(userForToken, config.SECRET)
+    // eslint-disable-next-line no-undef
+    const token = jwt.sign(userForToken, process.env.SECRET)
      
     // eslint-disable-next-line no-undef
     const orskey = process.env.ORS_API_KEY
