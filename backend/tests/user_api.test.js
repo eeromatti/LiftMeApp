@@ -1,15 +1,25 @@
-const { test } = require('node:test')
+const { test, beforeAll, afterAll } = require('node:test')
 const assert = require('node:assert/strict')
+const mongoose = require('mongoose')
 const helper = require('./test_helper')
 const supertest = require('supertest')
 const app = require('../app')
 const api = supertest(app)
 const config = require('../utils/config')
 
+beforeAll(async () => {
+  // Ensure MongoDB is connected before running tests
+  await mongoose.connect(config.mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
+})
+
+afterAll(async () => {
+  // Clean up database and close the connection after tests
+  await mongoose.connection.dropDatabase()  // Optionally clean up DB after tests
+  await mongoose.connection.close()  // Close MongoDB connection
+})
+
 
 test('user can be created', async () => {
-  console.log('MONGODB_URI:', config.MONGODB_URI)
-  console.log('ORS key:', config.ORS_API_KEY)
   await api
     .post('/api/users/signup')
     .send(helper.initialUsers[0])
