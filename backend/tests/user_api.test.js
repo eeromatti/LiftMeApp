@@ -1,5 +1,4 @@
 const { test } = require('node:test')
-const { beforeAll, afterAll} = require()
 const assert = require('node:assert/strict')
 const mongoose = require('mongoose')
 const helper = require('./test_helper')
@@ -25,21 +24,14 @@ async function setupDB() {
   }
 }
 
-// async function teardownDB() {
-//   try {
-//     await mongoose.connection.dropDatabase()  // Optionally clean up DB after tests
-//     await mongoose.connection.close()         // Close MongoDB connection
-//     console.log('MongoDB connection closed')
-//   } catch (err) {
-//     console.error('Error while closing DB connection', err)
-//     throw err
-//   }
-// }
-
-
 
 test('set up MongoDB connection', async () => {
-  await setupDB()
+  try {
+    await setupDB()  // This should establish the MongoDB connection
+    assert.ok(dbConnection.connection.readyState === 1, 'Database connection should be established')
+  } catch (err) {
+    assert.fail('Failed to establish database connection')
+  }
 })
 
 // test('user can be created', async () => {
