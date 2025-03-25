@@ -18,11 +18,11 @@ async function setupDB() {
     })
 
     // Wait for the connection to be fully established
-    // while (dbConnection.connection.readyState === 2) {
-    //   await new Promise((resolve) => setTimeout(resolve, 500)) // Wait 500ms before checking again
-    // }
+    while (dbConnection.connection.readyState === 2) {
+      await new Promise((resolve) => setTimeout(resolve, 500)) // Wait 500ms before checking again
+    }
     console.log('MongoDB connected for testing')
-    // return dbConnection
+    return dbConnection
   } catch (err) {
     console.error('MongoDB connection failed', err)
     throw err
@@ -33,7 +33,7 @@ async function setupDB() {
 test('set up MongoDB connection', async () => {  
   const response = await setupDB()
   // console.log('response.connection:', response.connection.readyState)
-  // assert.ok(response.connection.readyState === 1) 
+  assert.ok(response.connection.readyState === 1) 
 })
 
 // test('user can be created', async () => {
