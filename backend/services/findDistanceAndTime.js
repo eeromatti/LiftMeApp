@@ -10,7 +10,7 @@ const findDistanceAndTime = async (start, end) => {
 
     const response = await axios.get('https://api.openrouteservice.org/v2/directions/driving-car', {
       params: {
-        api_key: config.ORS_API_KEY,
+        api_key: '5b3ce3597851110001cf624822e45f0905f24e5eaec55239fa29d426',
         start: startString,
         end: endString,
       }})
