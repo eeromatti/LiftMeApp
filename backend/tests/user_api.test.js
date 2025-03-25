@@ -9,15 +9,20 @@ const config = require('../utils/config')
 
 
 let dbConnection
-console.log('TEST_MONGODB_URI:', process.env.MONGODB_URI)
 // Manually set up MongoDB connection before tests
 async function setupDB() {
   try {
-    dbConnection = await mongoose.connect(process.env.MONGODB_URI, {
+    dbConnection = await mongoose.connect(process.env.TEST_MONGODB_URI, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     })
+
+    // Wait for the connection to be fully established
+    while (dbConnection.connection.readyState === 2) {
+      await new Promise((resolve) => setTimeout(resolve, 500)) // Wait 500ms before checking again
+    }
     console.log('MongoDB connected for testing')
+    return dbConnection
   } catch (err) {
     console.error('MongoDB connection failed', err)
     throw err
@@ -26,7 +31,9 @@ async function setupDB() {
 
 
 test('set up MongoDB connection', async () => {  
-  await setupDB()  
+  const response = await setupDB()
+  console.log('response.connection:', response.connection.readyState)
+  assert.ok(response.connection.readyState === 1) 
 })
 
 // test('user can be created', async () => {
