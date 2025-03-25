@@ -1,15 +1,10 @@
-const { test, after, before } = require('node:test')
-const User = require('../models/User') 
-const mongoose = require('mongoose')
+const { test } = require('node:test')
 const assert = require('node:assert/strict')
 const helper = require('./test_helper')
 const supertest = require('supertest')
 const app = require('../app')
 const api = supertest(app)
 
-before(async () => {
-  await User.deleteMany({})
-})
 
 test('user can be created', async () => {
   await api
@@ -42,7 +37,6 @@ test('users cannot be fetched without the token', async () => {
     .set('Content-Type', 'application/json')
     .expect(200)
 })
-
 
 test('new user is created and the previously added is going to be a potential driver', async () => {
   await api
@@ -92,6 +86,39 @@ test('update matches for the user first added', async () => {
   assert.strictEqual(user.passengers[0].name, 'Korson Kartsa')
 })
 
-after(async () => {
-  await mongoose.connection.close()
+
+test('delete users from database', async () => {
+  // log in to get a token for first user
+  const response1 = await api
+    .post('/api/users/login')
+    .send({ 'email': 'keravankata@liftmeapp.com', 'password': 'salainen'})
+  const token = response1.body.token
+
+  // find users
+  const response2 = await api
+    .get('/api/users')
+    .set('Authorization', `Bearer ${token}`)
+    .set('Content-Type', 'application/json')
+
+  //delete users 
+  const id1 = response2.body[0]._id
+  const id2 = response2.body[1]._id
+
+  await api
+    .delete(`/api/users/${id1}`)
+    .set('Authorization', `Bearer ${token}`)
+    .set('Content-Type', 'application/json')
+
+  await api
+    .delete(`/api/users/${id2}`)
+    .set('Authorization', `Bearer ${token}`)
+    .set('Content-Type', 'application/json')
+
+  // find users
+  const response3 = await api
+    .get('/api/users')
+    .set('Authorization', `Bearer ${token}`)
+    .set('Content-Type', 'application/json')
+
+  assert.strictEqual(response3.body.length, 0)
 })
