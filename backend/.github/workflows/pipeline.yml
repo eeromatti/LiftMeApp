@@ -1,7 +1,12 @@
-on: [push, pull_request]
+name: Deployment pipeline
+
+on:
+  push:
+    branches:
+      - dev
 
 jobs:
-  deployment_pipeline:
+  backend_tests:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v4
