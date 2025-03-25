@@ -5,6 +5,7 @@ const config = require('../utils/config')
 // find travel distance and time between two coordinates
 const findDistanceAndTime = async (start, end) => {
   try {
+    console.log('api key:', config.ORS_API_KEY)
     let startString = start.join(',').toString()
     let endString = end.join(',').toString()
 
