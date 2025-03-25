@@ -51,23 +51,23 @@ test('login', async () => {
     .expect(200)
 })
 
-// test('users cannot be fetched without the token', async () => {
-//   await api
-//     .get('/api/users')
-//     .expect(500)
+test('users cannot be fetched without the token', async () => {
+  await api
+    .get('/api/users')
+    .expect(500)
 
-//   const response = await api
-//     .post('/api/users/login')
-//     .send({ 'email': 'keravankata@liftmeapp.com', 'password': 'salainen'})
-//     .expect(200)
-//   const token = response.body.token
+  const response = await api
+    .post('/api/users/login')
+    .send({ 'email': 'keravankata@liftmeapp.com', 'password': 'salainen'})
+    .expect(200)
+  const token = response.body.token
 
-//   await api
-//     .get('/api/users')
-//     .set('Authorization', `Bearer ${token}`)
-//     .set('Content-Type', 'application/json')
-//     .expect(200)
-// })
+  await api
+    .get('/api/users')
+    .set('Authorization', `Bearer ${token}`)
+    .set('Content-Type', 'application/json')
+    .expect(200)
+})
 
 // test('new user is created and the previously added is going to be a potential driver', async () => {
 //   await api
