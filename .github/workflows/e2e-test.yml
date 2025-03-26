@@ -34,6 +34,7 @@ jobs:
         env:
           NODE_ENV: production
           PORT: 3000
+          MONGODB_URI: ${{ secrets.MONGODB_URI }}
 
       - name: Wait for Server
         run: npx wait-on http://localhost:3000
