@@ -1,4 +1,4 @@
-const { test, expect, describe, beforeEach, waitForNa } = require('@playwright/test')
+const { test, expect, describe, beforeEach } = require('@playwright/test')
 require('dotenv').config()
 
 describe('LiftMeApp', () => {
