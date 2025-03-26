@@ -44,7 +44,7 @@ export default function AccountMenu() {
   return (
     <React.Fragment>
       <Box sx={{ top: 15, right: 10 }}>
-        <Tooltip title="Account settings">
+        <Tooltip title="Account menu">
           <IconButton
             onClick={handleClick}
             size="small"
@@ -52,6 +52,7 @@ export default function AccountMenu() {
             aria-controls={open ? 'account-menu' : undefined}
             aria-haspopup="true"
             aria-expanded={open ? 'true' : undefined}
+            aria-label='Account menu'
           >
             <MenuIcon sx={{ width: 40, height: 40 }}></MenuIcon>
           </IconButton>
@@ -93,7 +94,7 @@ export default function AccountMenu() {
         transformOrigin={{ horizontal: 'right', vertical: 'top' }}
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
-        <MenuItem onClick={handleProfile} style={{fontFamily: 'Helvetica', fontWeight: 'light', fontSize: '16px', letterSpacing: '1px', color: '#2c2b2b' }}>
+        <MenuItem onClick={handleProfile} data-testid="account-menu-button" style={{fontFamily: 'Helvetica', fontWeight: 'light', fontSize: '16px', letterSpacing: '1px', color: '#2c2b2b' }}>
           <Avatar src={user.photo} /> My profile
         </MenuItem>
         <Divider />

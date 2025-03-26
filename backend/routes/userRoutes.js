@@ -5,7 +5,6 @@ const User = require('../models/User')
 const findDistanceAndTime = require('../services/findDistanceAndTime')
 const findMatchesById = require('../services/findMatchesById')
 const findMatchesByBody = require('../services/findMatchesByBody')
-const config = require('../utils/config')
 
 const userRouter = express.Router()
 
