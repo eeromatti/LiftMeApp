@@ -20,9 +20,9 @@ jobs:
 
       - name: Clean Install Dependencies
         run: |
-          cd e2e-tests && rm -rf node_modules && npm ci
-          cd ../frontend && npm ci
-          cd ../backend &&  npm ci
+          cd frontend && npm ci
+          cd ../backend &&  npm ci  
+          cd ../e2e-tests && npm ci
 
       - name: Build Frontend
         run: |
