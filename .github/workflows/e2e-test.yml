@@ -47,4 +47,6 @@ jobs:
         run: cd e2e-tests && npx playwright install chromium
 
       - name: Run Playwright Tests
-        run: cd e2e-tests && npm run test
+        run: |
+          cd e2e-tests && npm run test
+          npm run test:report
