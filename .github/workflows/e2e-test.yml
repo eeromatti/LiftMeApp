@@ -35,11 +35,11 @@ jobs:
           NODE_ENV: production
           PORT: 3000
 
-      # - name: Wait for Server
-      #   run: npx wait-on http://localhost:3000
+      - name: Wait for Server
+        run: npx wait-on http://localhost:3000
 
-      # - name: Install Playwright Browsers
-      #   run: cd e2e-tests && npx playwright install
+      - name: Install Playwright Browsers
+        run: cd e2e-tests && npx playwright install
 
-      # - name: Run Playwright Tests
-      #   run: cd e2e-tests && npm run test
+      - name: Run Playwright Tests
+        run: cd e2e-tests && npm run test
