@@ -30,15 +30,19 @@ jobs:
 
       - name: Start Backend with Production Build
         run: |
-          cd backend && npm start > backend.log 2>&1 &
+          cd backend && npm start | tee backend.log &
           tail -f backend.log
         env:
           NODE_ENV: production
           PORT: 3000
           MONGODB_URI: ${{ secrets.MONGODB_URI }}
 
-      - name: Wait for Server
-        run: npx wait-on http://localhost:3000
+      - name: Wait for Server to be Available
+        run: |
+          until curl --silent --fail http://localhost:3000; do
+            echo "Waiting for server to be ready..."
+            sleep 5
+          done
 
       - name: Install Playwright Browsers
         run: cd e2e-tests && npx playwright install chromium
