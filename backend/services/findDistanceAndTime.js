@@ -1,16 +1,15 @@
 const axios = require('axios')
-const config = require('../utils/config')
 
 
 // find travel distance and time between two coordinates
 const findDistanceAndTime = async (start, end) => {
   try {
-    // console.log('api key:', process.env.ORS_API_KEY)
     let startString = start.join(',').toString()
     let endString = end.join(',').toString()
 
     const response = await axios.get('https://api.openrouteservice.org/v2/directions/driving-car', {
       params: {
+        // eslint-disable-next-line no-undef
         api_key: process.env.ORS_API_KEY,
         start: startString,
         end: endString,

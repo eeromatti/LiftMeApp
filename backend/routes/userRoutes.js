@@ -82,6 +82,7 @@ userRouter.put('/:id', async (req, res) => {
 
 // update matches by id
 userRouter.put('/matches/:id', async (req, res) => {
+  // console.log('userRouteria kutsutaan')
   try {
     // eslint-disable-next-line no-undef
     const decodedToken = jwt.verify(getTokenFrom(req), process.env.SECRET)

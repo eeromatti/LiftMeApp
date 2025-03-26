@@ -20,9 +20,16 @@ const getUsers = async (token) => {
   }
 }
 
-const getUserById = async (id) => {
+const getUserById = async (id, token) => {
   try {
-    const user = await axios.get(`${baseUrl}/${id}`)
+    const user = await axios.get(`${baseUrl}/${id}`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        }
+      }
+    )
     return user
   } catch (error) {
     console.error('error in fetching the user:', error)
@@ -30,6 +37,7 @@ const getUserById = async (id) => {
 }
 
 const updateMatches = async (id, token) => {
+  console.log('updateMatches serviceä kutsutaan')
   try {
     const response = await axios.put(
       `${baseUrl}/matches/${id}`,
@@ -57,8 +65,14 @@ const loginUser = async body => {
   return response.data
 }
 
-const updateUser = async body => {
-  const response = await axios.put(`${baseUrl}/${body.id}`, body)
+const updateUser = async (body, token) => {
+  const response = await axios.put(`${baseUrl}/${body.id}`, body, 
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json'
+      }
+    })
   return response.data
 }
 
