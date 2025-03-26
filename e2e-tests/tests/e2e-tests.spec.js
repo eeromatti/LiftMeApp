@@ -4,7 +4,7 @@ require('dotenv').config()
 describe('LiftMeApp', () => {
     beforeEach(async ({ page }) => {
         //loginn
-        await page.goto('http://localhost:5173')
+        await page.goto('http://localhost:3000')
         await page.getByRole('textbox').first().fill('eskolaine@liftmeapp.com')
         await page.getByRole('textbox').last().fill(process.env.PASSWORD)
         await page.getByRole('button', { name: 'SIGN IN' }).click(),
