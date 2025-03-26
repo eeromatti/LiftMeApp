@@ -21,9 +21,12 @@ jobs:
       - name: Clean Install Dependencies
         run: |
           cd e2e-tests && rm -rf node_modules && npm ci
+          cd ../frontend && npm ci
+          cd ../backend &&  npm ci
 
-      - name: Install Playwright Browsers
-        run: cd e2e-tests && npx playwright install
+      - name: Build Frontend
+        run: |
+          cd backend && npm run build
 
       - name: Start Backend with Production Build
         run: |
@@ -34,6 +37,9 @@ jobs:
 
       - name: Wait for Server
         run: npx wait-on http://localhost:3000
+
+      - name: Install Playwright Browsers
+        run: cd e2e-tests && npx playwright install
 
       - name: Run Playwright Tests
         run: cd e2e-tests && npm run test
