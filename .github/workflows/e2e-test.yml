@@ -30,7 +30,8 @@ jobs:
 
       - name: Start Backend with Production Build
         run: |
-          cd backend && npm start &
+          cd backend && npm start > backend.log 2>&1 &
+          tail -f backend.log
         env:
           NODE_ENV: production
           PORT: 3000
