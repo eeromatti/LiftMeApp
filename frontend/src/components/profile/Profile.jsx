@@ -147,6 +147,7 @@ export default function SignUpForm() {
       }
     }
 
+    // console logs
     // if (newUser) {
     //   console.log('newUser:', newUser)
     // } else {
