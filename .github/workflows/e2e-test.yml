@@ -40,7 +40,7 @@ jobs:
         run: npx wait-on http://localhost:3000
 
       - name: Install Playwright Browsers
-        run: cd e2e-tests && npx playwright install
+        run: cd e2e-tests && npx playwright install chromium
 
       - name: Run Playwright Tests
         run: cd e2e-tests && npm run test
