@@ -25,11 +25,19 @@ jobs:
       - name: Install Playwright Browsers
         run: cd e2e-tests && npx playwright install
 
-      - name: Start Server
-        run: cd backend && npm install && npm start &
+      - name: Build Frontend
+        run: |
+          cd frontend && npm run build
+
+      - name: Start Backend with Production Build
+        run: |
+          cd backend && npm start &
+        env:
+          NODE_ENV: production
+          PORT: 3000
 
       - name: Wait for Server
-        run: cd e2e-tests && npx wait-on http://localhost:3000
+        run: npx wait-on http://localhost:3000
 
       - name: Run Playwright Tests
         run: cd e2e-tests && npm run test
