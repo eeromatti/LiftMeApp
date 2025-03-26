@@ -12,13 +12,10 @@ describe('LiftMeApp', () => {
         await expect(page.getByText('Esko Laine')).toBeVisible()
     })
     
-    test('drivers and passengers available', async ({ page }) => {
+    test('drivers and passengers available & profile page accessible', async ({ page }) => {
         await expect(page.getByText('Linda Lorén')).toBeVisible()
         await page.getByRole('button', { name: 'passengers' }).click(),
         await expect(page.getByText('Masa Aaltonen')).toBeVisible()
-    })
-
-    test('profile page', async ({ page }) => {
         await page.getByRole('button', { name: 'Account Menu' }).click()
         await expect(page.getByText('My profile')).toBeVisible()
         await page.getByTestId('account-menu-button').click()
