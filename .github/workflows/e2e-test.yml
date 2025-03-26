@@ -8,7 +8,7 @@ on:
 
 jobs:
   playwright:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -50,3 +50,17 @@ jobs:
         run: |
           cd e2e-tests && npm run test
           npm run test:report
+
+      - name: Upload Playwright Test Results
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-results
+          path: e2e-tests/test-results/
+          retention-days: 7
+
+      - name: Upload Backend Logs
+        uses: actions/upload-artifact@v4
+        with:
+          name: backend-logs
+          path: backend/backend.log
+          retention-days: 7
