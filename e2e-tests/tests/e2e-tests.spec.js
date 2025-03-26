@@ -9,13 +9,13 @@ describe('LiftMeApp', () => {
         await page.getByRole('textbox').first().fill('eskolaine@liftmeapp.com')
         await page.getByRole('textbox').last().fill(process.env.PASSWORD)
         await page.getByRole('button', { name: 'SIGN IN' }).click();
-        try {
-            await page.waitForSelector('text=Esko Laine', { timeout: 60000 });
-        } catch (error) {
-            console.log(await page.content())
-            throw error;
-        }
-        await expect(page.getByText('Esko Laine')).toBeVisible()
+        // try {
+        //     await page.waitForSelector('text=Esko Laine', { timeout: 60000 });
+        // } catch (error) {
+        //     console.log(await page.content())
+        //     throw error;
+        // }
+        await expect(page.getByText('Esko Laine', { timeout: 60000 })).toBeVisible()
     })
     
     test('drivers and passengers available & profile page accessible', async ({ page }) => {
