@@ -27,8 +27,8 @@ export default function SignUpForm() {
   const [passwordErrorMessage, setPasswordErrorMessage] = useState('')
   const [nameError, setNameError] = useState(false)
   const [nameErrorMessage, setNameErrorMessage] = useState('')
-  const [emailError, setEmailError] = useState(false)
-  const [emailErrorMessage, setEmailErrorMessage] = useState('')
+  // const [emailError, setEmailError] = useState(false)
+  // const [emailErrorMessage, setEmailErrorMessage] = useState('')
 
   // other states
   const [name, setName] = useState(user.name)
@@ -37,7 +37,7 @@ export default function SignUpForm() {
   const [homeAddress, setHomeAddress] = useState(user.homeAddress)
   // eslint-disable-next-line no-unused-vars
   const [workAddress, setWorkAddress] = useState(user.workAddress)
-  const [email, setEmail] = useState(user.email)
+  // const [email, setEmail] = useState(user.email)
   const [loading, setLoading] = useState(false)
 
   const navigate = useNavigate()
@@ -114,14 +114,14 @@ export default function SignUpForm() {
     }
 
     // email
-    if (!email) {
-      setEmailError(true)
-      setEmailErrorMessage('Email is incorrect')
-      isValid = false
-    } else {
-      setEmailError(false)
-      setEmailErrorMessage('')
-    }
+    // if (!email) {
+    //   setEmailError(true)
+    //   setEmailErrorMessage('Email is incorrect')
+    //   isValid = false
+    // } else {
+    //   setEmailError(false)
+    //   setEmailErrorMessage('')
+    // }
 
     return { isValid, homeCoordinates, workCoordinates }
   }
@@ -141,7 +141,6 @@ export default function SignUpForm() {
       newUser = {
         id: user._id,
         name: name,
-        email: email,
         role: roleList,
         homeAddress: homeAddress,
         homeCoordinates: homeCoordinates,
@@ -254,7 +253,7 @@ export default function SignUpForm() {
 
 
           {/* email */}
-          <FormControl>
+          {/* <FormControl>
             <FormLabel htmlFor="email" style={{fontFamily: 'Helvetica', fontWeight: 'light', fontSize: '14px', letterSpacing: '1px', color: 'darkslategray' }}>
               Email
             </FormLabel>
@@ -278,7 +277,7 @@ export default function SignUpForm() {
                 }
               }}
             />
-          </FormControl>
+          </FormControl> */}
 
 
 

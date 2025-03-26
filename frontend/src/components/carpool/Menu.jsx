@@ -94,7 +94,7 @@ export default function AccountMenu() {
         transformOrigin={{ horizontal: 'right', vertical: 'top' }}
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
-        <MenuItem onClick={handleProfile} style={{fontFamily: 'Helvetica', fontWeight: 'light', fontSize: '16px', letterSpacing: '1px', color: '#2c2b2b' }}>
+        <MenuItem onClick={handleProfile} data-testid="account-menu-button" style={{fontFamily: 'Helvetica', fontWeight: 'light', fontSize: '16px', letterSpacing: '1px', color: '#2c2b2b' }}>
           <Avatar src={user.photo} /> My profile
         </MenuItem>
         <Divider />
