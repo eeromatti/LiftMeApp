@@ -25,10 +25,6 @@ jobs:
       - name: Install Playwright Browsers
         run: cd e2e-tests && npx playwright install
 
-      - name: Build Frontend
-        run: |
-          cd backend && npm install && npm run build
-
       - name: Start Backend with Production Build
         run: |
           cd backend && npm start &
