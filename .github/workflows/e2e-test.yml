@@ -20,17 +20,16 @@ jobs:
 
       - name: Clean Install Dependencies
         run: |
-          rm -rf node_modules
-          npm ci
+          cd e2e-tests && rm -rf node_modules && npm ci
 
       - name: Install Playwright Browsers
-        run: npx playwright install
+        run: cd e2e-tests && npx playwright install
 
       - name: Start Server
         run: cd backend && npm start &
 
       - name: Wait for Server
-        run: npx wait-on http://localhost:3000
+        run: cd e2e-tests && npx wait-on http://localhost:3000
 
       - name: Run Playwright Tests
-        run: npm run test
+        run: cd e2e-tests && npm run test
