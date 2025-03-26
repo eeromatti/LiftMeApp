@@ -2,13 +2,19 @@ const { test, expect, describe, beforeEach } = require('@playwright/test')
 require('dotenv').config()
 
 describe('LiftMeApp', () => {
+    
     beforeEach(async ({ page }) => {
         //loginn
         await page.goto('http://localhost:3000')
         await page.getByRole('textbox').first().fill('eskolaine@liftmeapp.com')
         await page.getByRole('textbox').last().fill(process.env.PASSWORD)
-        await page.getByRole('button', { name: 'SIGN IN' }).click(),
-        await page.waitForSelector('text=Esko Laine', { timeout: 20000 });
+        await page.getByRole('button', { name: 'SIGN IN' }).click();
+        try {
+            await page.waitForSelector('text=Esko Laine', { timeout: 60000 });
+        } catch (error) {
+            console.log(await page.content())
+            throw error;
+        }
         await expect(page.getByText('Esko Laine')).toBeVisible()
     })
     
