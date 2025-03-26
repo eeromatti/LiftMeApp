@@ -22,10 +22,10 @@ describe('LiftMeApp', () => {
         await expect(page.getByText('Linda Lorén')).toBeVisible()
         await page.getByRole('button', { name: 'passengers' }).click(),
         await expect(page.getByText('Masa Aaltonen')).toBeVisible()
-        // await page.getByRole('button', { name: 'Account Menu' }).click()
-        // await expect(page.getByText('My profile')).toBeVisible()
-        // await page.getByTestId('account-menu-button').click()
-        // await page.waitForURL('**/profile')
+        await page.getByRole('button', { name: 'Account Menu' }).click()
+        await expect(page.getByText('My profile')).toBeVisible()
+        await page.getByTestId('account-menu-button').click()
+        await page.waitForURL('**/profile')
     })
 })
 
