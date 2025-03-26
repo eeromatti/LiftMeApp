@@ -27,7 +27,7 @@ jobs:
 
       - name: Build Frontend
         run: |
-          cd frontend && npm run build
+          cd backend && npm run build
 
       - name: Start Backend with Production Build
         run: |
