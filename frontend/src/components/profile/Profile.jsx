@@ -18,7 +18,7 @@ import { useNavigate } from 'react-router-dom'
 
 export default function SignUpForm() {
 
-  const { user, setUser } = useContext(AppContext)
+  const { user, setUser, token } = useContext(AppContext)
   
   // error states
   const [homeAddressError, setHomeAddressError] = useState(false)
@@ -130,36 +130,35 @@ export default function SignUpForm() {
   const handleSubmit = async (event) => {
     setLoading(true)
     event.preventDefault()
-    const { isValid, homeCoordinates, workCoordinates } = await validateInputs()
+    const { isValid, homeCoordinates } = await validateInputs()
     if (!isValid) {
       console.log('epävalidi')
       return
     }
     // create an object for the new user
     let newUser = null
-    if (homeCoordinates.length > 0 && workCoordinates.length > 0) {
+    if (homeCoordinates.length > 0) {
       newUser = {
         id: user._id,
         name: name,
         role: roleList,
         homeAddress: homeAddress,
         homeCoordinates: homeCoordinates,
-        workAddress: workAddress,
-        workCoordinates: workCoordinates,
       }
     }
 
-    if (newUser) {
-      console.log('newUser:', newUser)
-    } else {
-      console.log('newUser not available')
-    }
+    // if (newUser) {
+    //   console.log('newUser:', newUser)
+    // } else {
+    //   console.log('newUser not available')
+    // }
     
     // request user services
-    await userService.updateUser(newUser)
-    await userService.updateMatches(user._id)
-    const res = await userService.getUserById(user._id)
-    console.log('user from db after the update:', res.data)
+    // console.log('token in profile:', token)
+    await userService.updateUser(newUser, token)
+    await userService.updateMatches(user._id, token)
+    const res = await userService.getUserById(user._id, token)
+    // console.log('user from db after the update:', res.data)
     setUser(res.data)
     // localStorage.setItem('user', JSON.parse(res.data))
     navigate('/')
