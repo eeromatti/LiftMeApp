@@ -26,7 +26,7 @@ jobs:
         run: cd e2e-tests && npx playwright install
 
       - name: Start Server
-        run: cd backend && npm start &
+        run: cd backend && npm install && npm start &
 
       - name: Wait for Server
         run: cd e2e-tests && npx wait-on http://localhost:3000
