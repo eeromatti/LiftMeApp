@@ -13,7 +13,7 @@
 <!-- Workflow description -->
 <br/>
 <div>
-  <p><storng>The workflow in a nutshell:</storng>
+  <h3>The workflow in a nutshell:</h3>
     <ol type="1">
         <li>Registration (only once) - enter your name, username, email, role (driver, passenger, both), home address or a preferred starting location, new password. </li>  
         <li>Sign in with your email and password</li>
