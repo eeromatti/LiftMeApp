@@ -12,8 +12,24 @@
 
 <!-- Robojump description -->
 <div>
-  <p>...
-  </p>
+  <p>The workflow in a nutshell:
+    1. Registration (only once) - input your name or username, email, role (driver, passenger, both), address of home or a preferred starting point, new password. 
+    2. Sign in with your email and password
+    3. Once signed in, you see a list of names you have matched with in the left. To see only matches which are relevant for you, adjust the commuting days and your preferred role from the toggles above the list of the matches.
+    4. Clicking a name in the list will show you the following information:
+    (driver selected)
+      - commuting days of the other person
+      - number of seats available in the other person's car
+      - an extra distance and time required if the other person picks you from the address you have defined as your home address
+      (passenger selected)
+      - commuting days of the other person
+      - the preferred pickup place of the other person (Home / Flexible)
+      - an extra distance and time required if you pick the other person from home
+
+      In both cases you will see an updated route on the map.
+    
+     </p>
+  
   <p>The animation of the game was created with a Python module called 
     <a href="https://en.wikipedia.org/wiki/Pygame">Pygame</a>. 
     The logic in the code is the following:
