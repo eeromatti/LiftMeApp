@@ -3,7 +3,7 @@
   <h1>LiftMeApp</h1>
   <!--intro paragraph -->
   <p> LiftMeApp is a carpooling platform designed for organizations and communities. It connects employees or community members who are open to sharing their daily commutes with colleagues. Sharing rides saves environment, brings joy as well as savings in parking expenses. </p>
-  <p><strong>This app is a prototype and not yet ready for a production use.</strong></p>
+  <p><strong>Note: This app is a prototype and not yet ready for a production use.</strong></p>
 </div>
 <hr>
 
@@ -15,12 +15,16 @@
   <p>The workflow in a nutshell:
     <ol type="1">
         <li>Registration (only once) - enter your name, username, email, role (driver, passenger, both), home address or a preferred starting location, new password. </li>  
+        <li>Sign in with your email and password</li>
+        <li>After signing in, you will see a list of your matched users on the left panel. To filter relevant matches, adjust the commuting days and your preferred role using the toggles above the match list.</li>
+        <li>Clicking a name in the list will show you the following information</li>
+          <ul>
+            <li>Driver selected</li>
+          </ul>
     </ol>
   </p>
 </div>    
 
-    2. Sign in with your email and password
-    3. Once signed in, you see a list of names you have matched with in the left. To see only matches which are relevant for you, adjust the commuting days and your preferred role from the toggles above the list of the matches.
     4. Clicking a name in the list will show you the following information:
     (driver selected)
       - commuting days of the other person
