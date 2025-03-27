@@ -2,8 +2,11 @@ name: Backend tests
 
 on:
   push:
-    branches:
-      - dev
+    branches: [dev]
+
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize]
 
 jobs:
   backend_tests:

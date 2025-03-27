@@ -27,7 +27,7 @@ expressApp.use(cors())
 expressApp.use(express.json())
 expressApp.use(middleware.requestLogger)
 
-// find frontend from 'dist' folder if in production 
+// find frontend from 'dist' folder if in production mode
 // eslint-disable-next-line no-undef
 if (process.env.NODE_ENV === 'production') {
   expressApp.use(express.static('dist'))  

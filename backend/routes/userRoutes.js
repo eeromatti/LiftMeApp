@@ -8,6 +8,8 @@ const findMatchesByBody = require('../services/findMatchesByBody')
 
 const userRouter = express.Router()
 
+
+// find token from header
 const getTokenFrom = request => {
   const authorization = request.get('Authorization')
   if (authorization && authorization.startsWith('Bearer ')) {
@@ -15,6 +17,7 @@ const getTokenFrom = request => {
   }
   return null
 }
+
 
 // find all users
 userRouter.get('/', async (req, res) => {
