@@ -13,7 +13,12 @@
 <!-- Robojump description -->
 <div>
   <p>The workflow in a nutshell:
-    1. Registration (only once) - input your name or username, email, role (driver, passenger, both), address of home or a preferred starting point, new password. 
+    <ol type="1">
+        <li>Registration (only once) - enter your name, username, email, role (driver, passenger, both), home address or a preferred starting location, new password. </li>  
+    </ol>
+  </p>
+</div>    
+
     2. Sign in with your email and password
     3. Once signed in, you see a list of names you have matched with in the left. To see only matches which are relevant for you, adjust the commuting days and your preferred role from the toggles above the list of the matches.
     4. Clicking a name in the list will show you the following information:
@@ -30,13 +35,3 @@
     
      </p>
   
-  <p>The animation of the game was created with a Python module called 
-    <a href="https://en.wikipedia.org/wiki/Pygame">Pygame</a>. 
-    The logic in the code is the following:
-    <ul>
-      <li>The platforms, coins, and ghosts are represented as groups of images, with their coordinates defined in a dictionary.</li>  
-      <li>All elements (except for the robot) move downward at a predefined speed, which increases incrementally and makes it harder to stay in the game.</li>
-      <li>A while loop updates the coordinates of these elements in each iteration. It also checks if the robot is moving, if it collects a coin or encounters a ghost, or if it falls out of the game.</li>
-    </ul>
-  </p>
-</div>
