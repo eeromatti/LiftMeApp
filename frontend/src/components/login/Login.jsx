@@ -56,7 +56,6 @@ export default function SignUp() {
 
     // request user service
     const response1 = await userService.loginUser(login)
-    // console.log('response1:', response1.token)
 
     //update matches 
     const userId = response1.user._id

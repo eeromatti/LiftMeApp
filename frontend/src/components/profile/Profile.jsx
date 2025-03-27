@@ -27,8 +27,6 @@ export default function SignUpForm() {
   const [passwordErrorMessage, setPasswordErrorMessage] = useState('')
   const [nameError, setNameError] = useState(false)
   const [nameErrorMessage, setNameErrorMessage] = useState('')
-  // const [emailError, setEmailError] = useState(false)
-  // const [emailErrorMessage, setEmailErrorMessage] = useState('')
 
   // other states
   const [name, setName] = useState(user.name)
@@ -37,7 +35,6 @@ export default function SignUpForm() {
   const [homeAddress, setHomeAddress] = useState(user.homeAddress)
   // eslint-disable-next-line no-unused-vars
   const [workAddress, setWorkAddress] = useState(user.workAddress)
-  // const [email, setEmail] = useState(user.email)
   const [loading, setLoading] = useState(false)
 
   const navigate = useNavigate()
@@ -113,16 +110,6 @@ export default function SignUpForm() {
       }
     }
 
-    // email
-    // if (!email) {
-    //   setEmailError(true)
-    //   setEmailErrorMessage('Email is incorrect')
-    //   isValid = false
-    // } else {
-    //   setEmailError(false)
-    //   setEmailErrorMessage('')
-    // }
-
     return { isValid, homeCoordinates, workCoordinates }
   }
 
@@ -146,22 +133,12 @@ export default function SignUpForm() {
         homeCoordinates: homeCoordinates,
       }
     }
-
-    // console logs
-    // if (newUser) {
-    //   console.log('newUser:', newUser)
-    // } else {
-    //   console.log('newUser not available')
-    // }
     
     // request user services
-    // console.log('token in profile:', token)
     await userService.updateUser(newUser, token)
     await userService.updateMatches(user._id, token)
     const res = await userService.getUserById(user._id, token)
-    // console.log('user from db after the update:', res.data)
     setUser(res.data)
-    // localStorage.setItem('user', JSON.parse(res.data))
     navigate('/')
     
     
@@ -250,36 +227,6 @@ export default function SignUpForm() {
               }}
             />
           </FormControl>
-
-
-          {/* email */}
-          {/* <FormControl>
-            <FormLabel htmlFor="email" style={{fontFamily: 'Helvetica', fontWeight: 'light', fontSize: '14px', letterSpacing: '1px', color: 'darkslategray' }}>
-              Email
-            </FormLabel>
-            <TextField
-              autoComplete="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              name="email"
-              required
-              fullWidth
-              id="email"
-              placeholder="john.snow@westerosnet.com"
-              error={emailError}
-              helperText={emailErrorMessage}
-              color={emailError ? 'error' : 'primary'}
-              sx={{
-                input: {
-                  fontFamily: 'Helvetica',
-                  fontSize: '14px',
-                  letterSpacing: '1px'
-                }
-              }}
-            />
-          </FormControl> */}
-
-
 
           {/* role */}
           <FormControl>

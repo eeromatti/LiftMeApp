@@ -11,7 +11,6 @@ import { Typography } from '@mui/material'
 
 const SingleUser = ( { potentialPassenger, potentialDriver, role, showingDriver, setShowingDriver } ) => {
 
-
   const { 
     pickupCoordinates, 
     setPickupCoordinates,

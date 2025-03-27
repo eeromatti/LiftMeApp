@@ -291,8 +291,6 @@ export default function SignUpForm() {
             />
           </FormControl>
 
-
-
           {/* role */}
           <FormControl>
             <FormLabel htmlFor="role" style={{fontFamily: 'Helvetica', fontWeight: 'light', fontSize: '14px', letterSpacing: '1px', color: '#2c2b2b' }}>
