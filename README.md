@@ -11,8 +11,9 @@
 <img width="1511" alt="Screenshot 2025-03-27 at 10 19 01" src="https://github.com/user-attachments/assets/bbb840d5-b035-4b7e-94ac-55157a652302" />
 
 <!-- Workflow description -->
+</br>
 <div>
-  <p>The workflow in a nutshell:
+  <p><storng>The workflow in a nutshell:</storng>
     <ol type="1">
         <li>Registration (only once) - enter your name, username, email, role (driver, passenger, both), home address or a preferred starting location, new password. </li>  
         <li>Sign in with your email and password</li>
@@ -35,6 +36,10 @@
         <li>Contact other users in your preferred channel and start carpooling</li>
     </ol>
   </p>
-</div>    
+</div> 
+
+
+
+
 
   
