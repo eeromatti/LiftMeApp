@@ -32,6 +32,7 @@
               <li>Additional distance and time required if you pick them up from home</li>
             </ul>
           </ul>
+        <li>Contact other users in your preferred channel and start carpooling</li>
     </ol>
   </p>
 </div>    
