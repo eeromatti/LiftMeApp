@@ -43,8 +43,9 @@
   <p>The following open-source services were used in the app:
     <ul>
       <li><a href="openrouteservice.org" >openrouteservice.org</a> - distance and travel time calculation, route point optimization, </li>
-      <li><a href="https://openfreemap.org/"> - map provider</li>
-      <li><a href="https://project-osrm.org/"> - routing engine</li>
+      <li><a href="https://openfreemap.org/">OpenFreeMap</a> and <a href="https://www.openstreetmap.org/">OpenStreetMap</a> - map tiles provider</li>
+      <li><a href="https://project-osrm.org/">Project OSRM</a> - routing engine</li>
+      <li><a href="https://maplibre.org/">MapLibre</a> - React library for displaying the map</li>
     </ul>
 
  
