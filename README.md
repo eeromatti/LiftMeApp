@@ -11,7 +11,7 @@
 <img width="1511" alt="Screenshot 2025-03-27 at 10 19 01" src="https://github.com/user-attachments/assets/bbb840d5-b035-4b7e-94ac-55157a652302" />
 
 <!-- Workflow description -->
-</br>
+<br/>
 <div>
   <p><storng>The workflow in a nutshell:</storng>
     <ol type="1">
