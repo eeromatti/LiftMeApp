@@ -10,14 +10,14 @@
 <!-- LiftMeApp screen cap -->
 <img width="1511" alt="Screenshot 2025-03-27 at 10 19 01" src="https://github.com/user-attachments/assets/bbb840d5-b035-4b7e-94ac-55157a652302" />
 
-<!-- Robojump description -->
+<!-- Workflow description -->
 <div>
   <p>The workflow in a nutshell:
     <ol type="1">
         <li>Registration (only once) - enter your name, username, email, role (driver, passenger, both), home address or a preferred starting location, new password. </li>  
         <li>Sign in with your email and password</li>
         <li>After signing in, you will see a list of your matched users on the left panel. To filter relevant matches, adjust the commuting days and your preferred role using the toggles above the match list.</li>
-        <li>Clicking a name in the list will show you the following information</li>
+        <li>Clicking a name in the list will show you the following information and the updated route on the map</li>
           <ul>
             <li>Driver selected</li>
             <ul>
@@ -36,9 +36,4 @@
   </p>
 </div>    
 
-
-
-      In both cases you will see an updated route on the map.
-    
-     </p>
   
