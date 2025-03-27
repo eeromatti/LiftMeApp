@@ -41,16 +41,15 @@
 <hr>
 
 <div>
-  <h3>Solution under the hood</h3>
-  <p>The following open-source services were used in the app:
+  <h3>External services used by the app</h3>
+  <p>The following open-source services were used in the app:</p>
     <ul>
       <li><a href="openrouteservice.org" >openrouteservice.org</a> - distance and travel time calculation, route point optimization, </li>
       <li><a href="https://openfreemap.org/">OpenFreeMap</a> and <a href="https://www.openstreetmap.org/">OpenStreetMap</a> - map tiles providers</li>
       <li><a href="https://project-osrm.org/">Project OSRM</a> - routing engine</li>
       <li><a href="https://maplibre.org/">MapLibre</a> - React library for displaying the map</li>
     </ul>
-
- 
+    <p>MongoDB was used for storing the user information.</p>
 </div>
 
 
