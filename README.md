@@ -42,7 +42,7 @@
   <h3>Solution under the hood</h3>
   <p>The following open-source services were used in the app:
     <ul>
-      <li><a href="openrouteservice.org"> - distance and travel time calculation, route point optimization, </li>
+      <li><a href="openrouteservice.org" >openrouteservice.org</a> - distance and travel time calculation, route point optimization, </li>
       <li><a href="https://openfreemap.org/"> - map provider</li>
       <li><a href="https://project-osrm.org/"> - routing engine</li>
     </ul>
