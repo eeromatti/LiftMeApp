@@ -2,7 +2,7 @@
 <div align="left">
   <h1>LiftMeApp</h1>
   <!--intro paragraph -->
-  <p> LiftMeApp is a carpooling platform for organizations and communities. The tool connects employees or members of a community who want to share their daily commuting rides. Shared rides saves environment, brings joy as well as savings in parking expenses. </p>
+  <p> LiftMeApp is a carpooling platform designed for organizations and communities. It connects employees or community members who are open to sharing their daily commutes with colleagues. Sharing rides saves environment, brings joy as well as savings in parking expenses. </p>
   <p><strong>This app is a prototype and not yet ready for a production use.</strong></p>
 </div>
 <hr>
