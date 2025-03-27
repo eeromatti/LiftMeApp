@@ -20,20 +20,23 @@
         <li>Clicking a name in the list will show you the following information</li>
           <ul>
             <li>Driver selected</li>
+            <ul>
+              <li>Commuting days of the other person</li>
+              <li>Number of available seats</li>
+              <li>Additional distance and time required if they pick you up from your defined home address</li>
+            </ul>
+            <li>Passenger selected</li>
+            <ul>
+              <li>Commuting days of the other person</li>
+              <li>Their preferred pickup location (Home / Flexible)</li>
+              <li>Additional distance and time required if you pick them up from home</li>
+            </ul>
           </ul>
     </ol>
   </p>
 </div>    
 
-    4. Clicking a name in the list will show you the following information:
-    (driver selected)
-      - commuting days of the other person
-      - number of seats available in the other person's car
-      - an extra distance and time required if the other person picks you from the address you have defined as your home address
-      (passenger selected)
-      - commuting days of the other person
-      - the preferred pickup place of the other person (Home / Flexible)
-      - an extra distance and time required if you pick the other person from home
+
 
       In both cases you will see an updated route on the map.
     
