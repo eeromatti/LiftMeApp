@@ -16,8 +16,9 @@
   <h3>The workflow in a nutshell:</h3>
 
   <p>Demo user:</p>
-  <p>email: eskolaine@liftmeapp.com</p>
-  <p>password: salainen</p>
+  <p>email: eskolaine@liftmeapp.com </br>
+  password: salainen
+  </p>
     <ol type="1">
         <li>Registration (only once) - enter your name, username, email, role (driver, passenger, both), home address or a preferred starting location, new password. </li>  
         <li>Sign in with your email and password</li>
