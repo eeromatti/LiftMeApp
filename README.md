@@ -15,12 +15,12 @@
 <div>
   <h3>The workflow in a nutshell:</h3>
 
-  <p>Demo user:</p>
-  <p>email: eskolaine@liftmeapp.com </br>
+  <p>Demo user: </br>
+  email: eskolaine@liftmeapp.com </br>
   password: salainen
   </p>
     <ol type="1">
-        <li>Registration (only once) - enter your name, username, email, role (driver, passenger, both), home address or a preferred starting location, new password. </li>  
+        <li>Registration (please, use the demo user) - enter your name, username, email, role (driver, passenger, both), home address or a preferred starting location, new password. </li>  
         <li>Sign in with your email and password</li>
         <li>After signing in, you will see a list of your matched users on the left panel. To filter relevant matches, adjust the commuting days and your preferred role using the toggles above the match list.</li>
         <li>Clicking a name in the list will show you the following information and the updated route on the map</li>
