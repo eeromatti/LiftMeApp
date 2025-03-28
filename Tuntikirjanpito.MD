@@ -61,4 +61,9 @@
     <td>40</td>
     <td>Ohjelman viimeistely, cicd-putken rakennus ja ohjelman vieminen renderiin.</td>
 </tr>
+<tr>
+    <td>yht</td>
+    <td>440</td>
+    <td></td>
+</tr>
 </table>
