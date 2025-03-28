@@ -2,18 +2,28 @@
 
 <table>
   <tr>
-    <th>pvm</th>
+    <th>viikko</th>
     <th>tunnit</th>
     <th>työ</th>
   </tr>
   <tr>
-    <td>Alfreds Futterkiste</td>
-    <td>Maria Anders</td>
-    <td>Germany</td>
+    <td>3</td>
+    <td>40</td>
+    <td>Idean hahmottelua, tarvittavien open-source -palveluiden kartottamista, ensimmäiset backendin endpointit</td>
   </tr>
   <tr>
-    <td>Centro comercial Moctezuma</td>
-    <td>Francisco Chang</td>
-    <td>Mexico</td>
+    <td>4</td>
+    <td>40</td>
+    <td>Idean hahmottelu jatkuu, ORS-reittipalvelun kokeilua ORS:n webbiapissa ja palvelun kokeileminen backendin routen kautta</td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td>40</td>
+    <td>Idean hahmottelu jatkuu, backend-routejen ja endpointtien jatkamista ja kokeilua (reitin määritys, matkan pituus ja tarvittava aika)</td>
+  </tr>
+  <tr>
+    <td>6</td>
+    <td>40</td>
+    <td>Backendin viimeistelyä ja frontendin/UI:n suunnittelua</td>
   </tr>
 </table>
