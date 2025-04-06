@@ -61,6 +61,9 @@ export default function SignUp() {
     const userId = response1.user._id
     const token = response1.token
     await userService.updateMatches(userId, token)
+
+
+    // OA: I'm not sure what's going on with the need to call the same endpoint twice, but it sure does smell like something that could be avoided!
     
     // find user 
     const response2 = await userService.loginUser(login)
