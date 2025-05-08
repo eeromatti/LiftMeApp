@@ -20,7 +20,7 @@
   password: salainen
   </p>
     <ol type="1">
-        <li>Go to <a href="liftmeapp.onrender.com" >LiftMeApp</a></li>
+        <li>Go to <a href="liftmeapp.onrender.com" >LiftMeApp</a> and wait until Render lets you in</li>
         <li>Registration (please, use the demo user) - enter your name, username, email, role (driver, passenger, both), home address or a preferred starting location, new password. </li>  
         <li>Sign in with your email and password</li>
         <li>After signing in, you will see a list of your matched users on the left panel. To filter relevant matches, adjust the commuting days and your preferred role using the toggles above the match list.</li>
