@@ -53,6 +53,7 @@ const Sidebar = () => {
 
       <div className='userinfo'>
 
+       // Detach into own component
         {/* user info table */}
         <Box display="flex" justifyContent="center" paddingTop={2}>
           <table>
@@ -105,7 +106,7 @@ const Sidebar = () => {
           </table>
         </Box>
       
-        
+// Detach into own component, which handles days state
         {/* weekdays */}
         <Stack sx={{ width: '100%', alignItems: 'center' }}> 
           <Stack sx={{ width: 'fit-content', alignItems: 'flex-start' }}> 
@@ -160,7 +161,7 @@ const Sidebar = () => {
           </Stack>
         </Stack>
 
-
+// Detach into own component, which also handles the state of the role
         {/* role */}
         <Stack sx={{ width: '100%', alignItems: 'center' }}>
           <Stack sx={{ width: 'fit-content', alignItems: 'flex-start' }}> 
@@ -233,7 +234,7 @@ const Sidebar = () => {
         </Stack>
       </div>
 
-    
+// Detach into own component, which also handles the state of which driver is selected 
       {/* matches */}
       <div className='matchescontainer'>
         {potentialPassengers && allUsers.length > 0 ? (
