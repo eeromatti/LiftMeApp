@@ -13,7 +13,7 @@
 <!-- Workflow description -->
 <br/>
 <div>
-  <h3>The workflow in a nutshell:</h3>
+  <h3>The workflow in a nutshell: (The app is currently not running)</h3>
 
   <p>Demo user: </br>
   email: eskolaine@liftmeapp.com </br>
